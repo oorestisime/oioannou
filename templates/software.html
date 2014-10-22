@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Software{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+
+<div class="container blog-header">
+<h1>Software</h1>
+<div class="row"> 
+	<div class="col-lg-1"></div>
+	<div class="col-lg-10">
+			<p>I will try to maintain this page as much as possible. This means that I am looking forward keeping a "database" of the tools i daily use. In my blog you may find some configurations and/or tutorials. I have a Macbookpro although I have Debian Jessie installed on it. </p>
+			<hr/>
+			<h4>Daily use</h4>
+			<ul class="unstyled-list">
+				<li>Browser: I daily use <a href="https://wiki.debian.org/Iceweasel">Iceweasel</a> which is a fork of Firefox maintained by Debian. 
+				<div class="dropdown" style="display:inline">
+  				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">Plugins <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">AdBlock plus</a></li>
+				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Firebug</a></li>
+				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Request Policy </a></li>
+				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTTPS Everywhere</a></li>
+				  </ul>
+				</div></li>
+				<li>Email: <a href="https://wiki.debian.org/Icedove">Icedove</a> is the email client I use. Again a fork from Thunderbird maintained by Debian</li>
+				<li>Desktop environment: XFCE</li>
+				<li>KeePassX</li>
+			</ul>
+			<hr/>
+			<h4>Development</h4>
+			<ul>
+				<li>Text Editor: <a href="http://www.sublimetext.com">Sublime Text</a> . You can find <a href="/2014/blog/software/sublime-text/">here</a> the list of plugins | themes | configurations i have. </li>
+				<li>IDE <a href="https://netbeans.org">Netbeans</a> as my main java tool.</li>
+				<li>Revision & SCM system: Git & Mercurial</li>
+				<li>FTP client: <a href="https://packages.debian.org/sid/filezilla">Filezilla</a> </li>
+				<li>Office: <a href="https://packages.debian.org/jessie/libreoffice">LibreOffice</a> </li>
+			</ul>
+			<hr/>
+			<h4>Communication</h4>
+			<ul>
+				<li>Irssi as an irc client</li>
+				<li>Pidgin & Jitsi</li>	
+			</ul>
+
+
+	</div>
+</div>
+</div>
+
+{%endblock content%}

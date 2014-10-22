@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src=""  alt="">
+          <div class="container">
+            <div class="carousel-caption">
+  			  <h1>Hello there!</h1>
+              <p>My name is Orestis Ioannou and this is my personal website. You will find here some of my projects a CV and articles I write for my blog. I am fascinated by cryptography and software security as well as open source projects. In case you were wondering this webpage is completely open source. You can fork the code here!!</p>            
+              </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="../static/img/lock.png" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Cryptography</h1>
+              <p>I am a really crypto-excited person. I am possibly persuing my studies in this area. I feel that cryptographic protocols are fascinating and I am looking forward learning more and more on subjects like elliptic curces and assymetric cryptography over the next years.</p>
+              <p><a class="btn btn-default" href="/tag/cryptography" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="../static/img/cc.png" width="250" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Open source</h1>
+              <p>I am trying to keep my blog open source oriented. This means I will be blogging about open source software, open source ethics and maybe some how tos. If you are wondering what's behind the open source "obsession" then</p>
+              <p><a class="btn btn-default" href="/tag/osource" role="button">Learn why!</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+
+
+    <div class="container projects">
+
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="img-circle" src="../static/img/coding.png" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+          <h2>Ongoing Projects</h2>	
+          <p>In this section you will find some information about the latest projects or jobs i am involved. I am trying to keep this up to date. Completed projects are moved in another section.</p>
+          {% with pages=onProjects, cat=OnProjects %}
+			    {% include "_list.html" %}
+		  {% endwith %}  
+          <p><a class="btn btn-default" href="/ongoing/" role="button">Find more &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="../static/img/blogger.png" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+          <h2>Blog</h2>
+          <p>Well I am trying to maintain a blog and write about anything that comes to my mind. You'll find some how-tos, some recommmendations-configurations about open source programms I am using as well as some non technical things mainly oriented in the area of Cryptography and Software Security.</p>
+			{% with pages=blogs %}
+			 {% include "_list.html" %}
+		  	{% endwith %}  	
+          <p><a class="btn btn-default" href="/blog/" role="button">Complete list &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="../static/img/ChecklistBlack.png" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+          <h2>Completed Projects</h2>
+          <p>In this section you will find more information about the projects and jobs i have completed. It mainly serves as a portfolio.</p>
+          {% with pages=cProjects %}
+			 {% include "_list.html" %}
+		  {% endwith %}
+          <p><a class="btn btn-default" href="/completed/" role="button"> Check more &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div>
+      </div>
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Ongoing projects{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+<div class="container blog-header">
+	<h2>Ongoing projects</h2>
+	<div class="row">
+	<div class="col-lg-12">
+	<p>In this section you will find some information about the latest projects or jobs i am involved. I am trying to keep this up to date.<br /> Completed projects are moved in the corresponding <a href="/completed/">section.</a>
+	</p>
+	</div>
+	<hr/>
+	{% for page in pages%}
+	{%if page.meta.published== True%}
+		<div class="row">
+		<div class="col-lg-2">
+			<img src="{{page.photo}}" alt="" width=150 />
+		</div>
+		<div class="col-lg-10">
+			<h4>{{page.title}}</h4>
+			<p>{{ page.html|striptags|trim|truncate(250) }} <a href={{ url_for("page", path=page.path) }}>Read more </a></p>
+		<hr/>
+		</div>
+		</div>
+	{%endif%}
+	{%else%}
+	<div class="row">
+	<p>I am currently not involved in any projects.</p>
+	</div>
+	{% endfor %}
+</div>
+
+{%endblock content%}

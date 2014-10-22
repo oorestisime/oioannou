@@ -1,0 +1,6 @@
+Flask==0.10.1
+Frozen-Flask==0.9
+Jinja2==2.7.3
+Flask-FlatPages==0.5
+Markdown==2.5.1
+argh>=0.15.1
