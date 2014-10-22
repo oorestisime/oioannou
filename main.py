@@ -104,7 +104,7 @@ if __name__ == '__main__':
 
 
 ###############################################################################
-# Commands
+# Commands Thanks to nicolas periault for this.
 '''@command
 def build():
   print("Building website...")
