@@ -100,3 +100,65 @@ body {
   margin-left: 2em;
   margin-right: 2em;
 }
+
+
+
+/*  ABOUT mple #3cadd7 kokkino #d73c4d kafe #d7503c  */
+
+.pythoncv{
+  margin:0;
+  padding: 1em;
+  background-color: #0e151b;
+  height:100%;
+  font-size: 110%
+}
+.pythoncv .nostyle{
+  list-style-type: none;
+  padding-bottom: 1em;
+}
+
+.pythoncv .comments:before{
+  content:"' ' ' \a"
+}
+
+.pythoncv .comments{
+  color:#ffe792;
+  font-size: 150%;
+  display: block;
+}
+
+.pythoncv .comments:after{
+  content:"\a ' ' '"
+}
+
+.pythoncv .self:before{
+  content:"self";
+  color:#d73c4d;
+}
+
+.pythoncv .function{
+  color:#3cadd7;
+}
+.pythoncv .par:before{
+  content:"(";
+}
+
+.pythoncv .par{
+  color:white;
+}
+.pythoncv .par:after{
+  content:"):";
+}
+
+.pythoncv .key{
+  color:#d7503c;
+}
+
+.pythoncv .normal{
+  color:white;
+  display: inline;
+}
+
+.pythoncv .att{
+  color:#ffe792;
+}

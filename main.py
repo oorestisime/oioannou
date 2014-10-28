@@ -69,6 +69,10 @@ def contact():
 def software():
   return render_template('software.html')
 
+@app.route('/about/')
+def about():
+  return render_template('about.html')
+
 
 @app.route('/ongoing/')
 def ongoing():

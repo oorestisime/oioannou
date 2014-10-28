@@ -5,5 +5,81 @@
 {% endblock %}
 {% block content %}
 
+<div class="container blog-header">
+<div class="pythoncv">
+	<span class="comments">Hello my name is Orestis Ioannou and this is my !pythonic! Curicculum Vitae</span>
+	<span class="function">class my_cv</span><span class="par">Object</span>
+	<ul>
+		<span class="function">def me</span><span class="par"><span class="self"></span></span>
+		<ul class="nostyle">
+			<li><span class="self"></span><span class="normal">.name</span><span class="key">=</span><span class="att">"Orestis Ioannou"</span></li>
+			<li><span class="self"></span><span class="normal">.status</span><span class="key">=</span><span class="att">"Master Informatics | University Lyon 1"</span></li>
+		</ul>
+		<span class="function">def contact</span><span class="par"><span class="self"></span></span>
+		<ul class="nostyle">
+			<li><span class="self"></span><span class="normal">.email</span><span class="key">=</span><span class="att">"contact@oioannou.com"</span></li>
+			<li><span class="self"></span><span class="normal">.address</span><span class="key">=</span><span class="att">"13 rue Moliere, 69006, Lyon, France"</span></li>
+			<li><span class="self"></span><span class="normal">.phonr</span><span class="key">=</span><span class="att">"07 62 54 48 49"</span></li>
+			<li><span class="self"></span><span class="normal">.website</span><span class="key">=</span><span class="att">"www.oioannou.com"</span></li>
+			<li><span class="self"></span><span class="normal">.github</span><span class="key">=</span><span class="att">"https://github.com/oorestisime"</span></li>
+		</ul>
 
+<span class="comments">Education & Skills & Languages</span>
+		<span class="function">def education</span><span class="par"><span class="self"></span></span>
+		<ul class="nostyle">
+			<li><span class="self"></span><span class="normal">.bsc</span><span class="key">=</span><span class="att">"Informatics @ University Lyon 1" <a href="http://www.univ-lyon1.fr/">url</a></span></li>
+			<li><span class="self"></span><span class="normal">.msc</span><span class="key">=</span><span class="att">"M1 Informatics onoing @ University Lyon 1" <a href="http://master-info.univ-lyon1.fr/M1">url</a></span></li>
+		</ul>
+		<span class="function">def skills</span><span class="par"><span class="self"></span></span>
+		<ul class="nostyle">
+			<li><span class="self"></span><span class="normal">.programming</span><span class="key">=</span><span class="att">"Python C/C++ Java PHP"</span></li>
+			<li><span class="self"></span><span class="normal">.query</span><span class="key">=</span><span class="att">"SQL SPARQL XQuery"</span></li>
+			<li><span class="self"></span><span class="normal">.web</span><span class="key">=</span><span class="att">"HTML5 CSS3 JavaScript"</span></li>
+			<li><span class="self"></span><span class="normal">.frameworks</span><span class="key">=</span><span class="att">"Flask Foundation Bootstrap"</span></li>
+		</ul>
+		<span class="function">def languages</span><span class="par"><span class="self"></span></span>
+		<ul class="nostyle">
+			<li><span class="self"></span><span class="normal">.native</span><span class="key">=</span><span class="att">"Greek"</span></li>
+			<li><span class="self"></span><span class="normal">.proffiency</span><span class="key">=</span><span class="att">"English French"</span></li>
+		</ul>
+		<span class="comments">Experience</span>
+		<span class="function">def experience</span><span class="par"><span class="self"></span></span>
+		<ul class="nostyle">
+			<li><span class="self"></span><span class="normal">.experience</span><span class="key">=</span><span class="att">[]</span></li>
+			<li><span class="self"></span><span class="normal">.experience.append( job( <span class="att">"1 month" <span class="normal">,</span>  "Create a website for a PhD student"<span class="normal">,</span>"www.toumiak.com"</span><span class="normal">))</span></li>
+			<li><span class="self"></span><span class="normal">.experience.append( job( <span class="att">"1 month" <span class="normal">,</span>  "Create a website for a Mathematician"<span class="normal">,</span>"www.atoumazi.com"</span><span class="normal">))</span></li>
+			<li><span class="self"></span><span class="normal">.experience.append( job( <span class="att">"2 months" <span class="normal">,</span>  "Create a website for a Ship Supplying company"<span class="normal">,</span>"www.ancora-services.com"</span><span class="normal">))</span></li>
+			<li><span class="self"></span><span class="normal">.experience.append( job( <span class="att">"2 weeks" <span class="normal">,</span>  "Refactoring a website for an artist"<span class="normal">,</span>"www.kanelloscob.com"</span><span class="normal">))</span></li>
+			<li><span class="self"></span><span class="normal">.experience.append( job( <span class="att">"3 months intern" <span class="normal">,</span>  "Design and create a website for Anosis"<span class="normal">,</span>"www.anosis.com.cy"</span><span class="normal">))</span></li>
+		</ul>
+		<span class="comments">Misc</span>
+		<span class="function">def misc</span><span class="par"><span class="self"></span></span>
+		<ul class="nostyle">
+			<li><span class="self"></span><span class="normal">.coursera</span><span class="key">=</span><span class="att">"Stanford University | Cryptography I"</span></li>
+			<li><span class="self"></span><span class="normal">.hobbies</span><span class="key">=</span><span class="att">"Judo for more than 10 years | Travelling"</span></li>
+			<li><span class="self"></span><span class="normal">.interests</span><span class="key">=</span><span class="att">"Cryptography | Software Security | Open source"</span></li>
+		</ul>
+	</ul>
+
+	<span class="function">class job</span><span class="par">Object</span>
+	<ul>
+		<span class="function">def</span><span class="key">__init__</span>
+		<span class="par"><span class="self"></span>,duration,description,link</span>
+		<ul class="nostyle">
+			<li><span class="self"></span><span class="normal">.duration</span><span class="key">=</span><span class="normal">duration</span></li>
+			<li><span class="self"></span><span class="normal">.desc</span><span class="key">=</span><span class="normal">description</span></li>
+			<li><span class="self"></span><span class="normal">.url</span><span class="key">=</span><span class="normal">link</span></li>
+		</ul>
+		<span class="function">def </span><span class="key"> __repr__</span><span class="par"><span class="self"></span></span>
+		<ul>
+			<span class="key">return</span><span class="att">"<job> duration:%s desc:%s url:%s </job>" <span class="key">%</span> <span class="normal">( </span><span class="self">.duration, </span><span class="self">.desc, </span><span class="self">.url </span><span class="normal">)</span>
+		</ul>
+		<span class="function">def </span><span class="key"> __str__</span><span class="par"><span class="self"></span></span>
+		<ul>
+			<span class="key">return</span><span class="att">"<job> duration:%s desc:%s url:%s </job>" <span class="key">%</span> <span class="normal">( </span><span class="self">.duration, </span><span class="self">.desc, </span><span class="self">.url </span><span class="normal">)</span>
+		</ul>
+	</ul>
+
+</div>
+</div>
 {%endblock content%}
