@@ -7,8 +7,6 @@ This is the code for my personal website built using Flask. It is still missing 
 ### Todo
 ========
 
-bio cv. or maybe coming soon
-
 tutorial: hidden service tor for ssh on dyn ips
 
 complete sublime text post for builds
