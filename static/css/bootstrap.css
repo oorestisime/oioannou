@@ -108,6 +108,10 @@ samp {
   font-family: monospace, monospace;
   font-size: 1em;
 }
+
+code{
+	background-color: #0e151b;	
+}
 button,
 input,
 optgroup,
@@ -1352,11 +1356,11 @@ samp {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 code {
-  padding: 2px 4px;
-  font-size: 90%;
-  color: #c7254e;
-  background-color: #f9f2f4;
-  border-radius: 4px;
+  padding: 3px 5px;
+  font-size: 110%;
+  color: #3cadd7;
+  background-color: #0e151b;
+  border-radius: 7px;
 }
 kbd {
   padding: 2px 4px;
