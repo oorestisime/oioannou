@@ -1,5 +1,6 @@
 import os
 import sys
+from subprocess import call
 from argh import *
 from flask import Flask, render_template, abort, request, session, g, redirect, url_for, flash
 from flask import Markup
@@ -20,8 +21,8 @@ pages = FlatPages(app)
 app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 
 
+''' ROUTING '''
 @app.route('/')
-@app.route('/index/')
 def index():
     return render_template('index.html',
                            onProjects=select_pages("OnProjects", 3),
@@ -47,24 +48,6 @@ def page(path):
 def contact():
   return render_template('contact.html')
 
-'''@app.route('/contact/', methods=['GET', 'POST'])
-def contact():
-  form = ContactForm()
-  if request.method == 'POST':
-    if form.validate() == False:
-      flash('All fields are required.')
-      return render_template('contact.html', form=form)
-    else:
-      msg = Message(form.subject.data, sender='oorestisime@gmail.com', recipients=['oorestisime@gmail.com'])
-      msg.body = """
-      From: %s <%s>
-      %s
-      """ % (form.name.data, form.email.data, form.message.data)
-      mail.send(msg)
-      return render_template('contact.html', success=True, form=form)
-  elif request.method == 'GET':
-    return render_template('contact.html', form=form)'''
-
 @app.route('/software/')
 def software():
   return render_template('software.html')
@@ -72,7 +55,6 @@ def software():
 @app.route('/about/')
 def about():
   return render_template('about.html')
-
 
 @app.route('/ongoing/')
 def ongoing():
@@ -90,26 +72,30 @@ def blog():
 def archive():
   published= [p for p in pages if p.meta['published']==True]
   sorted_list = sorted(published, reverse=True, key=lambda p: p.meta['date'])
-  return render_template('archive.html',pages=sorted_list)
+  return render_template('archive.html',pages=sorted_list,keyword="Complete")
 
 @app.route('/tag/<string:tag>/')
 def tag(tag):
     tagged = [p for p in pages if tag in p.meta.get('tags', []) and p.meta['published']==True]
     return render_template('tag.html', pages=tagged, tag=tag)
 
+@app.route('/year/<string:year>/')
+def year(year):
+  result= [p for p in pages if p.meta['published']==True and year in p.meta['date'].strftime('%Y/%m/%d')]
+  return render_template("archive.html",pages=result,keyword=year)
 
+''' End of routing 
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == "build":
         freezer.freeze()
     else:
-        app.run(host='0.0.0.0')
+        app.run(host='0.0.0.0')'''
     
 
 
-###############################################################################
-# Commands Thanks to nicolas periault for this.
-'''@command
+''' Inspired by Nicolas Periault'''
+@command
 def build():
   print("Building website...")
   app.debug = False
@@ -117,23 +103,18 @@ def build():
   print("Done.")
 
 @command
-def serve(server='127.0.0.1', port=5000, debug=DEBUG):
-  asset_manager.config['ASSETS_DEBUG'] = debug
-  if debug:
-    app.debug = True
-    app.run(host=server, port=port, debug=debug)
+def serve():
+    app.run(host='0.0.0.0')
 
 
 @command
 def deploy():
-build()
-local("rsync -avz -e ssh --exclude-from=rsync_exclude.txt "
-"./build/ server path")
-
+	build()
+	print("syncing...")
+	call(["rsync", "-avz","./build/","entropio:public_html/oioannou/"])
 
 
 if __name__ == '__main__':
   parser = ArghParser()
-  parser.add_commands([build, serve, ])
+  parser.add_commands([build, serve,deploy])
   parser.dispatch()
-'''

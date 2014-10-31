@@ -1,17 +1,7 @@
 oioannou
 ========
 
-This is the code for my personal website built using Flask Python Frozen-Flask FlatPages. It is still missing some functionalities and a deploy explanation. I am adding them as soon as possible
-
-
-### Todo
-========
-
-complete sublime text post for builds
-
-rest of the completed projects.. maybe one page with everything..
-
-archive page by year 
+This is the code for my personal website built using Flask Python Frozen-Flask FlatPages. You can see it live at [www.oioannou.com](//www.oioannou.com). 
 
 
 ### Installing
@@ -25,11 +15,11 @@ pip install -r requirements.txt
 ### Usage
 =======
 
-To debug: python main.py
-To deploy: not available atm
+To debug: python main.py serve
+To deploy: python main.py deploy
+To build locally: python main.py build
 
 ### Licence
 =======
 
 It is licenced under the CC Attribution-NonCommercial 4.0 International
-If you have any questions don't hesitate to contact me.

@@ -4,7 +4,7 @@
     <li><a href="{{ url_for("page", path=page.path) }}">{{ page.title }}</a>
     {% if page.meta.tags|length %}
         | Tagged:
-      {% for tag in page.tags-%}<a href="/tag/{{ tag}}">&nbsp;{{ tag }}</a>{% if not loop.last %}, {% endif %}
+      {% for tag in page.tags-%}<a href="{{ url_for("tag", tag=tag) }}">&nbsp;{{ tag }}</a>{% if not loop.last %}, {% endif %}
       {%- endfor %}
         
     {% endif %}

@@ -5,7 +5,7 @@
 {% endblock %}
 {% block content %}
 <div class="container blog-header">
-	<h2>Timeline - archive</h2>
+	<h2>{{keyword}} Timeline - archive</h2>
 	<hr/>
 	{% for page in pages%}
 	{%if page.meta.published== True%}
@@ -20,6 +20,12 @@
 		</div>
 		</div>
 	{%endif%}
+	{% else %}
+		<div class="row">
+			<div class="col-lg-6">	
+				<p>No posts during the period you are searching</p>
+			</div>
+		</div>
 	{% endfor %}
 </div>
 

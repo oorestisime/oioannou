@@ -19,8 +19,9 @@
 			<div class="sidebar-module sidebar-module-inset">
 	            <h4>Meta</h4>
 				<ul class="list-unstyled">
-					<li>Tags: {% for tag in page.tags-%}<a href="/tag/{{ tag}}">{{ tag }}</a>{% if not loop.last %}, {% endif %}{%- endfor %}</li>
+					<li>Tags: {% for tag in page.tags-%}<a href="{{url_for("tag", tag=tag) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}{%- endfor %}</li>
 					<li>Date: {{page.date}}</li>
+					<li>Year: <a href="{{url_for("year", year=page.date.year)}}">{{page.date.year}}</a></li>
 					<li>Author: {{page.author}} </li>
 				</ul>
 	        </div>
