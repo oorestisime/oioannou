@@ -15,9 +15,9 @@ pip install -r requirements.txt
 ### Usage
 =======
 
-To debug: python main.py serve
-To deploy: python main.py deploy
-To build locally: python main.py build
++ To debug: python main.py serve
++ To deploy: python main.py deploy
++ To build locally: python main.py build
 
 ### Licence
 =======
