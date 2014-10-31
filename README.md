@@ -1,7 +1,7 @@
 oioannou
 ========
 
-This is the code for my personal website built using Flask Python Frozen-Flask FlatPages. You can see it live at [www.oioannou.com](//www.oioannou.com). 
+This is the code for my personal website built using Flask Python Frozen-Flask FlatPages. You can see it live at [www.oioannou.com](http://www.oioannou.com). 
 
 
 ### Installing
