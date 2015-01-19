@@ -2,7 +2,7 @@ title: Coursera courses
 date: 2014-10-17
 category: OnProjects 
 tags: ["Coursera","Cryptography","Security"]
-published: true
+published: false
 author: Orestis
 photo: /static/img/lock-small.png
 
