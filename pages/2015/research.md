@@ -1,7 +1,7 @@
 title: Research Project - Cryptographic methods for electronic voting
 date: 2015-01-19
-category: OnProjects 
-tags: ["Lyon 1","python","cryptography"]
+category: Blog 
+tags: ["Lyon 1","python","cryptography","research"]
 published: true
 author: Orestis
 photo: /static/img/curves.png

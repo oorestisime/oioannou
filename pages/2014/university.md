@@ -1,6 +1,6 @@
 title: University
 date: 2014-10-16
-category: OnProjects 
+category: Blog 
 tags: ["Lyon 1","java","compilator"]
 published: true
 author: Orestis

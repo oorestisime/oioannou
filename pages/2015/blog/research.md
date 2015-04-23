@@ -1,6 +1,6 @@
 title: Thoughts on my research project
 date: 2015-03-05
-category: Blog 
+category: cProjects, Blogs
 tags: ["python","research","Cryptography","Elliptic Curves"]
 published: true
 author: Orestis
