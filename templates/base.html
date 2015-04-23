@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="{{ url_for("static", filename="css/bootstrap.css") }}" />
     <link rel="stylesheet" href="{{ url_for("static", filename="css/style.css") }}" />
     <script src="{{ url_for("static", filename="js/bootstrap.js") }}"></script>
+    <link href="{{ url_for('recent_feed') }}"
+      rel="alternate"
+      title="New articles" 
+      type="application/atom+xml">
     {% endblock %}
 </head>
 <body>

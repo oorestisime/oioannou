@@ -1,8 +1,13 @@
 from subprocess import call
+from datetime import datetime
+
 from argh import *
-from flask import Flask, render_template, abort
+from flask import Flask, render_template, abort, request
 from flask_flatpages import FlatPages
 from flask_frozen import Freezer
+from urlparse import urljoin
+from werkzeug.contrib.atom import AtomFeed
+
 
 DEBUG = True
 FLATPAGES_AUTO_RELOAD = DEBUG
@@ -31,7 +36,7 @@ def index():
 
 def select_pages(keyword, limit):
     selected = (p for p in list(pages) if p.meta[
-                'published'] is True and p.meta['category'] == keyword)
+                'published'] is True and keyword in p.meta['category'])
     # Show the 10 most recent articles, most recent first.
     latest = sorted(selected, reverse=True, key=lambda p: p.meta['date'])
     return latest[:limit]
@@ -97,6 +102,30 @@ def year(year):
     result = [p for p in pages if p.meta['published'] is
               True and year in p.meta['date'].strftime('%Y/%m/%d')]
     return render_template("archive.html", pages=result, keyword=year)
+
+
+def make_external(url):
+    return urljoin(request.url_root, url)
+
+
+@app.route('/recent.atom')
+def recent_feed():
+    feed = AtomFeed('Recent Articles',
+                    feed_url=request.url, url=request.url_root)
+    published = [p for p in pages if p.meta['published'] is True]
+    articles = sorted(published, reverse=True,
+                      key=lambda p: p.meta['date'])[0:15]
+    for article in articles:
+        feed.add(article.meta['title'], unicode(article.html),
+                 content_type='html',
+                 author=article.meta['author'],
+                 url=make_external(article.path),
+                 updated=datetime.combine(article.meta['date'],
+                                          datetime.min.time()),
+                 published=datetime.combine(article.meta['date'],
+                                            datetime.min.time()))
+    return feed.get_response()
+
 
 ''' End of routing
 
