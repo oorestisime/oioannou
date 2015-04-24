@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Tag cloud{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+<div class="container blog-header cloud">
+	<h2>Tag cloud</h2>
+	<ul class="tagcloud">
+	{% set counter = 0 -%}
+	{% for tag in tags %}
+	<a href="{{url_for('tag', tag=tag[0])}}"><li style="font-size:{{tag[1]}}%;color:rgb{{cols[counter]}}">{{ tag[0]}}</li></a>
+	{% set counter = counter +1 -%}
+	{% endfor %}
+	</ul>
+{%endblock content%}

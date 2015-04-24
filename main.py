@@ -1,8 +1,9 @@
+from random import randint
 from subprocess import call
 from datetime import datetime
 
 from argh import *
-from flask import Flask, render_template, abort, request
+from flask import Flask, render_template, abort, request, redirect
 from flask_flatpages import FlatPages
 from flask_frozen import Freezer
 from urlparse import urljoin
@@ -23,6 +24,33 @@ pages = FlatPages(app)
 app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 
 
+''' HELPERS '''
+
+
+def select_pages(keyword, limit):
+    selected = (p for p in list(pages) if p.meta[
+                'published'] is True and keyword in p.meta['category'])
+    # Show the 10 most recent articles, most recent first.
+    latest = sorted(selected, reverse=True, key=lambda p: p.meta['date'])
+    return latest[:limit]
+
+
+def make_external(url):
+    return urljoin(request.url_root, url)
+
+
+def count_tags():
+    articles = (p for p in list(pages) if p.meta['published'] is True)
+    tags = dict()
+    for article in articles:
+        for tag in article.meta['tags']:
+            if tag not in tags.keys():
+                tags[tag] = 110
+            else:
+                tags[tag] += 15
+    return [(k, v) for k, v in tags.iteritems()]
+
+
 ''' ROUTING '''
 
 
@@ -32,14 +60,6 @@ def index():
                            onProjects=select_pages("OnProjects", 3),
                            cProjects=select_pages("cProjects", 3),
                            blogs=select_pages("Blog", 3))
-
-
-def select_pages(keyword, limit):
-    selected = (p for p in list(pages) if p.meta[
-                'published'] is True and keyword in p.meta['category'])
-    # Show the 10 most recent articles, most recent first.
-    latest = sorted(selected, reverse=True, key=lambda p: p.meta['date'])
-    return latest[:limit]
 
 
 @app.route('/<path:path>/')
@@ -90,6 +110,21 @@ def archive():
                            pages=sorted_list, keyword="Complete")
 
 
+@app.route('/tag/')
+def cloud():
+    return redirect('tags', 302)
+
+
+@app.route('/tags/')
+def tags():
+    cloud = count_tags()
+    cols = []
+    rb = randint(50, 100)
+    for i in enumerate(cloud):
+        cols.append((randint(120, 255), rb, rb))
+    return render_template('cloud.html', tags=cloud, cols=cols)
+
+
 @app.route('/tag/<string:tag>/')
 def tag(tag):
     tagged = [p for p in pages if tag in p.meta.get(
@@ -102,10 +137,6 @@ def year(year):
     result = [p for p in pages if p.meta['published'] is
               True and year in p.meta['date'].strftime('%Y/%m/%d')]
     return render_template("archive.html", pages=result, keyword=year)
-
-
-def make_external(url):
-    return urljoin(request.url_root, url)
 
 
 @app.route('/recent.atom')
