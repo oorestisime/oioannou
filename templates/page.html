@@ -2,9 +2,10 @@
 {% block title %}{{ page.title }}{% endblock %}
 {% block head %}
  {{ super() }}
+ <link rel="stylesheet" href="{{ url_for("static", filename="css/prettify.css") }}" />
+ <script src="{{url_for('static', filename='js/run_prettify.js')}}"></script>
 {% endblock %}
 {% block content %}
-    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sunburst"></script>
 
 <div class="container">
 	<div class="blog-header">

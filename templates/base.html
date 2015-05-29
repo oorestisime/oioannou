@@ -63,13 +63,13 @@
   <footer class="footer">
     <p class="pull-right"><a href="#">Back to top</a></p>
     <ul class="list-inline footer-list">
-      <li><a href="{{url_for("archive")}}">Timeline</li>
+      <li><a href="{{url_for("archive")}}">Timeline</a></li>
       <li><a href="https://github.com/oorestisime">Github repo</a></li>
       <li><a href="{{ url_for("contact") }}">Contact</a></li>
       <li><a href="{{ url_for('recent_feed') }}">Atom feed</a></li>
     </ul>
   </footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="{{ url_for("static", filename="js/jquery.min.js") }}"></script>
 <script src="{{ url_for("static", filename="js/bootstrap.js") }}"></script>
 <script>
 	$(document).foundation();
