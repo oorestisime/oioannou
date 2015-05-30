@@ -141,7 +141,7 @@ def year(year):
 
 @app.route('/recent.atom')
 def recent_feed():
-    feed = AtomFeed('Recent Articles',
+    feed = AtomFeed('Orestis Ioannou blog',
                     feed_url=request.url, url=request.url_root)
     published = [p for p in pages if p.meta['published'] is True]
     articles = sorted(published, reverse=True,
