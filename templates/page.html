@@ -12,11 +12,11 @@
 		<h1>{{ page.title }}</h1>
 	</div>
 	<div class="row">
-		<div class="col-md-10">
+		<div class="col-md-9">
 		<hr/>
 		{{ page.html|safe }}
 		</div>
-		<div class="col-md-2 hidden-sm hidden-xs">
+		<div class="col-md-3 hidden-sm hidden-xs">
 			<div class="sidebar-module sidebar-module-inset">
 	            <h4>Meta</h4>
 				<ul class="list-unstyled">
@@ -25,6 +25,15 @@
 					<li>Year: <a href="{{url_for("year", year=page.date.year)}}">{{page.date.year}}</a></li>
 					<li>Author: {{page.author}} </li>
 				</ul>
+				<h4>Similar topics:</h4>
+				{% for s in similar %}
+				<div class="row">
+					<div class="col-md-6"><img src='{{s.photo}}' width=100> </div>
+					<div class="col-md-6">
+					<h6><a href={{ url_for("page", path=s.path) }}>{{s.title}}</a></h6>
+					</div>
+				</div>
+				{% endfor %}
 	        </div>
         </div>
 	</div>

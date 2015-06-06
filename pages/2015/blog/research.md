@@ -4,6 +4,7 @@ category: cProjects, Blogs
 tags: ["python","research","Cryptography","Elliptic Curves"]
 published: true
 author: Orestis
+photo: /static/img/curves.png
 
 
 My research project ([moar details](/2015/research)), is now over. I have presented my research and the implementations to the jury and you can check my slides or / and my report (in French) [here](/static/upload).

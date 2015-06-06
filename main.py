@@ -1,8 +1,9 @@
+import argh
+
 from random import randint
 from subprocess import call
 from datetime import datetime
 
-from argh import *
 from flask import Flask, render_template, abort, request, redirect
 from flask_flatpages import FlatPages
 from flask_frozen import Freezer
@@ -51,6 +52,14 @@ def count_tags():
     return [(k, v) for k, v in tags.iteritems()]
 
 
+def get_similar(category, title, tags, limit=5):
+    articles = (p for p in list(pages) if p.meta['published'] is True
+                and p.meta['title'] != title
+                and len(list(set(p.meta['tags']) & set(tags))))
+    latest = sorted(articles, reverse=True, key=lambda p: p.meta['date'])
+    return latest[:limit]
+
+
 ''' ROUTING '''
 
 
@@ -67,7 +76,9 @@ def page(path):
     page = pages.get_or_404(path)
     if not page.meta.get('published', False):
         abort(404)
-    return render_template('page.html', page=page)
+    similar = get_similar(page.meta['category'], page.meta['title'],
+                          page.meta['tags'], 5)
+    return render_template('page.html', page=page, similar=similar)
 
 
 @app.route('/contact/')
@@ -170,7 +181,6 @@ if __name__ == '__main__':
 ''' Inspired by Nicolas Periault'''
 
 
-@command
 def build():
     print("Building website...")
     app.debug = False
@@ -178,12 +188,10 @@ def build():
     print("Done.")
 
 
-@command
 def serve():
     app.run(host='0.0.0.0')
 
 
-@command
 def deploy():
     build()
     print("syncing...")
@@ -191,6 +199,6 @@ def deploy():
 
 
 if __name__ == '__main__':
-    parser = ArghParser()
+    parser = argh.ArghParser()
     parser.add_commands([build, serve, deploy])
     parser.dispatch()
