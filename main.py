@@ -4,7 +4,7 @@ from random import randint
 from subprocess import call
 from datetime import datetime
 
-from flask import Flask, render_template, abort, request, redirect
+from flask import Flask, render_template, abort, redirect
 from flask_flatpages import FlatPages
 from flask_frozen import Freezer
 from urlparse import urljoin
@@ -37,7 +37,7 @@ def select_pages(keyword, limit):
 
 
 def make_external(url):
-    return urljoin(request.url_root, url)
+    return urljoin('http://oioannou.com/', url)
 
 
 def count_tags():
@@ -153,7 +153,8 @@ def year(year):
 @app.route('/recent.atom')
 def recent_feed():
     feed = AtomFeed('Orestis Ioannou blog',
-                    feed_url=request.url, url=request.url_root)
+                    feed_url='http://oioannou.com/recent.atom',
+                    url='http://oioannou.com')
     published = [p for p in pages if p.meta['published'] is True]
     articles = sorted(published, reverse=True,
                       key=lambda p: p.meta['date'])[0:15]
