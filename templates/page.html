@@ -28,11 +28,12 @@
 				<h4>Similar topics:</h4>
 				{% for s in similar %}
 				<div class="row">
-					<div class="col-md-6"><img src='{{s.photo}}' width=100> </div>
+					<div class="col-md-6"><img src='{{s.photo}}' width=120> </div>
 					<div class="col-md-6">
-					<h6><a href={{ url_for("page", path=s.path) }}>{{s.title}}</a></h6>
+					<h4><a href={{ url_for("page", path=s.path) }}>{{s.title}}</a></h4>
 					</div>
 				</div>
+				<br />
 				{% endfor %}
 	        </div>
         </div>
