@@ -2,7 +2,7 @@ title: "Debian - your patches and machine readable copyright files are available
 date: 2016-01-20
 category: Blog
 tags: ["Debian","Debsources", "Copyright", "Patches"]
-published: true
+published: false
 author: Orestis
 photo: /static/img/debsources-pic.png
 
