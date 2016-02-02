@@ -1,14 +1,14 @@
-title: "Using debsource to determine the license of foo.bar?"
-date: 2016-01-20
+title: "Using debsources API to determine the license of foo.bar?"
+date: 2016-02-04
 category: Blog
-tags: ["Debian","Debsources", "Copyright",]
+tags: ["Debian", "Debsources", "Copyright"]
 published: false
 author: Orestis
 photo: /static/img/debsources-pic.png
 
-Following up on the great hack of Matthieu - [A one-liner to catch'em all!](http://matthieu.io/blog/2015/08/16/one-liner-to-catch-em-all/) - and the recent [features](/2016/blog/copyright-and-patches) of Debsources I got the idea to modify a bit the one liner in order to retrieve the license of foo.bar.
+Following up on the hack of Matthieu - [A one-liner to catch'em all!](http://matthieu.io/blog/2015/08/16/one-liner-to-catch-em-all/) - and the recent [features](/2016/blog/copyright-and-patches) of Debsources I got the idea to modify a bit the one liner in order to retrieve the license of foo.bar.
 
-The script will now calculate the SHA256 hash of the file and then query the Debsources API in order to retrieve the license of that particular file. 
+The script will calculate the SHA256 hash of the file and then query the Debsources API in order to retrieve the license of that particular file. 
 
 Notes:
 
@@ -20,7 +20,7 @@ Notes:
 #!/bin/bash
 
 function license-of {
-    readlink -f $1 | xargs dpkg-query --search | awk -F ": " '{print $1}' | xargs apt-cache showsrc | grep-dctrl -s 'Package' -n '' | awk -v sha="$(sha256sum $1 | awk '{ print $1 }')" -F " " '{print "http://sources.debian.net/copyright/api/sha256/?checksum="sha"&packagename="$1""}' | xargs curl -sS
+    readlink -f $1 | xargs dpkg-query --search | awk -F ": " '{print $1}' | xargs apt-cache showsrc | grep-dctrl -s 'Package' -n '' | awk -v sha="$(sha256sum $1 | awk '{ print $1 }')" -F " " '{print "https://sources.debian.net/copyright/api/sha256/?checksum="sha"&packagename="$1""}' | xargs curl -sS
 }
 
 CMD="$1"
@@ -32,3 +32,11 @@ Save the file as license-of and add it in your $PATH and then try
 <pre>
     license-of /usr/lib/python2.7/dist-packages/pip/exceptions.py
 </pre>
+
+In case there are a lot of versions and you prefer a more compact output I'd add
+
+<pre>
+    grep -E "(version|license)"
+</pre>
+
+so that it can retrieve only the relevant information.
