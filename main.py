@@ -29,6 +29,7 @@ app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 
 
 def select_pages(keyword, limit):
+    """Select pages based on a `keyword`."""
     selected = (p for p in list(pages) if p.meta[
                 'published'] is True and keyword in p.meta['category'])
     # Show the 10 most recent articles, most recent first.
@@ -37,10 +38,12 @@ def select_pages(keyword, limit):
 
 
 def make_external(url):
+    """Make an external url."""
     return urljoin('http://oioannou.com/', url)
 
 
 def count_tags():
+    """Count tags to make the tag cloud."""
     articles = (p for p in list(pages) if p.meta['published'] is True)
     tags = dict()
     for article in articles:
@@ -53,6 +56,7 @@ def count_tags():
 
 
 def get_similar(category, title, tags, limit=5):
+    """Pick similar articles based on `category` and `tags`."""
     articles = (p for p in list(pages) if p.meta['published'] is True
                 and p.meta['title'] != title
                 and len(list(set(p.meta['tags']) & set(tags))))
@@ -158,15 +162,16 @@ def recent_feed():
     published = [p for p in pages if p.meta['published'] is True]
     articles = sorted(published, reverse=True,
                       key=lambda p: p.meta['date'])[0:15]
+    now = datetime.now()
     for article in articles:
         feed.add(article.meta['title'], unicode(article.html),
                  content_type='html',
                  author=article.meta['author'],
                  url=make_external(article.path),
                  updated=datetime.combine(article.meta['date'],
-                                          datetime.min.time()),
+                                          now.time()),
                  published=datetime.combine(article.meta['date'],
-                                            datetime.min.time()))
+                                            now.time()))
     return feed.get_response()
 
 
