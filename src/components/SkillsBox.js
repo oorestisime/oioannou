@@ -3,7 +3,7 @@ import { Box, Heading } from 'grommet';
 
 const SkillsBox = ({ area, children }) => (
   <Box
-    margin={{ horizontal: 'large', vertical: 'small' }}
+    margin={{ horizontal: 'medium', vertical: 'small' }}
     animation="fadeIn"
     elevation="xxsmall"
     gridArea={area}

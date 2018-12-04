@@ -81,15 +81,10 @@ const IndexPage = ({ data }) => (
       </Box>
       <ResponsiveContext.Consumer>
         {size => (
-          <Grid
-            align="start"
-            columns={size !== 'small' && { count: 'fill', size: 'large' }}
-            gap="small"
-          >
+          <Grid columns={size || 'medium'} gap='small'>
             {data.github.viewer.repositoriesContributedTo.edges.map(repo => (
               <GithubRepo key={repo.node.name} repo={repo} />
-            ))
-            }
+            ))}
           </Grid>
         )}
       </ResponsiveContext.Consumer>
@@ -100,18 +95,13 @@ const IndexPage = ({ data }) => (
       </Box>
       <ResponsiveContext.Consumer>
         {size => (
-          <Grid
-            align="start"
-            columns={size !== 'small' && { count: 'fill', size: 'large' }}
-            gap="small"
-          >
+          <Grid columns={size || 'medium'} gap='small'>
             {data.github.viewer.repositories.edges
               .filter(node => !node.node.isArchived)
               .slice(0, 6)
               .map(repo => (
                 <GithubRepo key={repo.node.name} repo={repo} />
-              ))
-            }
+              ))}
           </Grid>
         )}
       </ResponsiveContext.Consumer>
@@ -122,11 +112,7 @@ const IndexPage = ({ data }) => (
       </Box>
       <ResponsiveContext.Consumer>
         {size => (
-          <Grid
-            align="start"
-            columns={size !== 'small' && { count: 'fill', size: 'large' }}
-            gap="small"
-          >
+          <Grid columns={size || 'medium'} gap='small'>
             {data.allMarkdownRemark.edges.map(post => <Post key={post.node.frontmatter.path} post={post.node} />)}
           </Grid>
         )}

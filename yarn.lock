@@ -2720,10 +2720,6 @@ console-stream@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/console-stream/-/console-stream-0.1.1.tgz#a095fe07b20465955f2fafd28b5d72bccd949d44"
 
-"consolidated-events@^1.1.0 || ^2.0.0":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/consolidated-events/-/consolidated-events-2.0.2.tgz#da8d8f8c2b232831413d9e190dc11669c79f4a91"
-
 constants-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/constants-browserify/-/constants-browserify-1.0.0.tgz#c20b96d8c617748aaf1c16021760cd27fcb8cb75"
@@ -5369,17 +5365,18 @@ grommet-icons@^3.2.0:
   resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-3.2.0.tgz#a2996c59177d93da14db52301551a9dad90dec69"
   integrity sha512-D4YBzq0VWF+rU3ynviR0EVBCqmobJxqI8+dmgpG+HKOSDyKuUOxTvD91Esb0wcRfTZwX1NVCbhjLak3CGStl9g==
 
-grommet@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/grommet/-/grommet-2.0.1.tgz#0dffaca4e9226baa65cdf12fcb7d7525fda83906"
-  integrity sha512-py2Ipw/E/mGmWxdHvL7rfFPCSP36oUtZzdDUDLSfOrbT8OvgF+Ul0G/K8DQWjFu3wzDsHbBABstAGP5ljyvhtQ==
+grommet@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/grommet/-/grommet-2.1.0.tgz#7fc0775469ed2723970a9ce5c93a24b3ef26aeec"
+  integrity sha512-ugyrpCp487wBUFBeb6xyzXlQz1b4qZfm4F7EtAOpYeq3VNVee3T2lUDfpAJZMKBoxfVFHm5y8/LSdYCDI3zgAQ==
   dependencies:
     css "^2.2.3"
+    hoist-non-react-statics "^3.2.0"
     markdown-to-jsx "^6.6.6"
+    mobile-detect "^1.4.3"
     polished "^2.2.0"
     prop-types "^15.5.10"
-    react-desc "^3.6.5"
-    react-waypoint "^8.0.1"
+    react-desc "^4.1.0"
     recompose "^0.30.0"
 
 gud@^1.0.0:
@@ -5670,6 +5667,13 @@ hoek@4.x.x:
 hoist-non-react-statics@^2.3.1, hoist-non-react-statics@^2.5.0:
   version "2.5.5"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
+
+hoist-non-react-statics@^3.2.0:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.2.1.tgz#c09c0555c84b38a7ede6912b61efddafd6e75e1e"
+  integrity sha512-TFsu3TV3YLY+zFTZDrN8L2DTFanObwmBLpWvJs1qfUuEQ5bTAdFcwfx2T/bsCXfM9QHSLvjfP+nihEl0yvozxw==
+  dependencies:
+    react-is "^16.3.2"
 
 homedir-polyfill@^1.0.1:
   version "1.0.1"
@@ -7377,6 +7381,11 @@ mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@
   dependencies:
     minimist "0.0.8"
 
+mobile-detect@^1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/mobile-detect/-/mobile-detect-1.4.3.tgz#e436a3839f5807dd4d3cd4e081f7d3a51ffda2dd"
+  integrity sha512-UaahPNLllQsstHOEHAmVnTHCMQrAS9eL5Qgdi50QrYz6UgGk+Xziz2udz2GN6NYcyODcPLnasC7a7s6R2DjiaQ==
+
 moment@^2.21.0:
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
@@ -8715,7 +8724,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.0.0, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.6.1, prop-types@^15.6.2:
+prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.6.1, prop-types@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   dependencies:
@@ -8892,10 +8901,10 @@ rc@^1.0.1, rc@^1.1.2, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-desc@^3.6.5:
-  version "3.6.5"
-  resolved "https://registry.yarnpkg.com/react-desc/-/react-desc-3.6.5.tgz#d6cd8a4b4fd726dbc8f94eac326a7e4dcb118777"
-  integrity sha512-fI3JbWRQdRmQ3pBFscULdmJnKceSgK5Ug6BdFS/G/+9/6hle16sOQYEeELIu053uhhSuwK59aBex0UaeTJWnpw==
+react-desc@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/react-desc/-/react-desc-4.1.0.tgz#efdf783c67a4f4e26236f8fa64c702ca929e2257"
+  integrity sha512-gFL7VIY9DbQX1rl3CijIKVzRBx6zxX5fKgDdREPjcLggiYyTIzXpoaMLVi8+Mc0kQjKMtVksUAs7tVpog/6+Rw==
 
 react-dev-utils@^4.2.1:
   version "4.2.3"
@@ -8953,6 +8962,11 @@ react-hot-loader@^4.1.0:
     react-lifecycles-compat "^3.0.4"
     shallowequal "^1.0.2"
 
+react-is@^16.3.2:
+  version "16.6.3"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.6.3.tgz#d2d7462fcfcbe6ec0da56ad69047e47e56e7eac0"
+  integrity sha512-u7FDWtthB4rWibG/+mFbVd5FvdI20yde86qKGx4lVUTWmPlSWQ4QxbBIrrs+HnXGbxOUlUzTAP/VDmvCwaP2yA==
+
 react-is@^16.6.0:
   version "16.6.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.6.0.tgz#456645144581a6e99f6816ae2bd24ee94bdd0c01"
@@ -8989,13 +9003,6 @@ react-typist@^2.0.4:
   resolved "https://registry.yarnpkg.com/react-typist/-/react-typist-2.0.4.tgz#e7ee4de53ead913d363d38f07b700c00ce271be0"
   dependencies:
     prop-types "^15.5.10"
-
-react-waypoint@^8.0.1:
-  version "8.0.3"
-  resolved "https://registry.yarnpkg.com/react-waypoint/-/react-waypoint-8.0.3.tgz#860db860d3301c6f449800f7a330856028730af5"
-  dependencies:
-    consolidated-events "^1.1.0 || ^2.0.0"
-    prop-types "^15.0.0"
 
 react@^16.5.1:
   version "16.5.2"
