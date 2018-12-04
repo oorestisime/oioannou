@@ -5,6 +5,9 @@ module.exports = {
     title: 'Orestis Ioannou personal website',
   },
   plugins: [
+    'gatsby-plugin-netlify-cache',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -33,7 +36,6 @@ module.exports = {
         ],
       },
     },
-    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-source-graphql',
       options: {

@@ -160,7 +160,7 @@ query IndexQuery {
   }
   github {
     viewer {
-      repositoriesContributedTo(first: 4) {
+      repositoriesContributedTo(first: 4, orderBy: {field: STARGAZERS, direction: DESC}) {
         edges {
           node {
             stargazers {
