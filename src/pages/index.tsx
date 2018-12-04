@@ -1,71 +1,54 @@
-import React from "react";
-import {
-  ResponsiveContext,
-  Box,
-  Heading,
-  Image,
-  Paragraph,
-  Grid
-} from "grommet";
-import { graphql } from "gatsby";
-import Layout from "../components/Layout";
-import SkillsBox from "../components/SkillsBox";
-import Skill from "../components/Skill";
-import GithubRepo from "../components/GithubRepo";
-import Post from "../components/Post";
-import WorkSvg from "../components/WorkSvg";
+import React from 'react'
+import { ResponsiveContext, Box, Heading, Image, Paragraph, Grid, Anchor } from 'grommet'
+import { Github } from 'grommet-icons'
+import { graphql } from 'gatsby'
 
+import Layout from '../components/Layout'
+import SkillsBox from '../components/SkillsBox'
+import Skill from '../components/Skill'
+import GithubRepo from '../components/GithubRepo'
+import Post from '../components/Post'
+
+// break landing thing into hero
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <Box
-      animation="fadeIn"
-      align="center"
-      alignContent="center"
-      margin={{ horizontal: "medium" }}
-      height="100vh"
-    >
-      <Heading margin={{ top: "xlarge" }} level="1">
-        Full Stack developper & avid traveler
-      </Heading>
-      <Paragraph margin={{ verticla: "large" }} size="large">
-        I enjoy working with Python, ReactJS, Flask, Gatsby
-      </Paragraph>
-      <Image
-        margin={{ vertical: "medium" }}
-        src={data.avatar.childImageSharp.fluid.src}
-      />
-      <WorkSvg />
+    <Box height="100vh" background="dark-2" align="center" justify="center">
+      <Box direction="row" align="start" gap="medium">
+        <Image margin={{ vertical: 'medium' }} src={data.avatar.childImageSharp.fluid.src} />
+        <Box alignSelf="center">
+          <Heading margin="none">
+            <strong>Hi, I'm Orestis</strong>
+          </Heading>
+          <Paragraph margin={{ bottom: 'small' }}>Full Stack developper & avid traveler.</Paragraph>
+          <Paragraph margin={{ bottom: 'small', top: 'none' }}>I enjoy working with Python, ReactJS, Flask, Gatsby</Paragraph>
+          <Anchor color="brand" label="Follow me on Github" icon={<Github />} href="//github.com/oorestisime" target="_blank" />
+        </Box>
+      </Box>
     </Box>
     <Box background="brand">
       <Grid
-        rows={["auto", "auto"]}
-        columns={["1/4", "1/4", "1/4", "1/4"]}
+        rows={['auto', 'auto']}
+        columns={['1/4', '1/4', '1/4', '1/4']}
         areas={[
-          { name: "header", start: [0, 0], end: [3, 0] },
-          { name: "Back", start: [0, 1], end: [0, 1] },
-          { name: "Front", start: [1, 1], end: [1, 1] },
-          { name: "Ops", start: [2, 1], end: [2, 1] },
-          { name: "Misc", start: [3, 1], end: [3, 1] }
+          { name: 'header', start: [0, 0], end: [3, 0] },
+          { name: 'Back', start: [0, 1], end: [0, 1] },
+          { name: 'Front', start: [1, 1], end: [1, 1] },
+          { name: 'Ops', start: [2, 1], end: [2, 1] },
+          { name: 'Misc', start: [3, 1], end: [3, 1] }
         ]}
       >
         <Box align="center" alignSelf="stretch" gridArea="header">
-          <Heading color="white" size="medium">
-            Hi I am Orestis
-          </Heading>
           <Paragraph color="white" size="large" textAlign="center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+            sunt in culpa qui officia deserunt mollit anim id est laborum.
           </Paragraph>
         </Box>
         <ResponsiveContext.Consumer>
           {size =>
-            size !== "small" && [
+            size !== 'small' && [
               <SkillsBox key="backend" area="Back">
                 <Skill label="Python" value={80} />
                 <Skill label="Flask" value={90} />
@@ -99,7 +82,7 @@ const IndexPage = ({ data }) => (
         </ResponsiveContext.Consumer>
       </Grid>
     </Box>
-    <Box margin={{ horizontal: "xlarge" }}>
+    <Box margin={{ horizontal: 'xlarge' }}>
       <Box align="center" alignContent="center">
         <Heading textAlign="center" size="medium">
           Open source contributions
@@ -107,11 +90,7 @@ const IndexPage = ({ data }) => (
       </Box>
       <ResponsiveContext.Consumer>
         {size => (
-          <Grid
-            align="start"
-            columns={size !== "small" && { count: "fill", size: "large" }}
-            gap="small"
-          >
+          <Grid columns={size || 'medium'} gap="small">
             {data.github.viewer.repositoriesContributedTo.edges.map(repo => (
               <GithubRepo key={repo.node.name} repo={repo} />
             ))}
@@ -119,7 +98,7 @@ const IndexPage = ({ data }) => (
         )}
       </ResponsiveContext.Consumer>
     </Box>
-    <Box margin={{ horizontal: "xlarge" }}>
+    <Box margin={{ horizontal: 'xlarge' }}>
       <Box align="center" alignContent="center">
         <Heading textAlign="center" size="medium">
           Public repositories
@@ -127,20 +106,18 @@ const IndexPage = ({ data }) => (
       </Box>
       <ResponsiveContext.Consumer>
         {size => (
-          <Grid
-            align="start"
-            columns={size !== "small" && { count: "fill", size: "large" }}
-            gap="small"
-          >
+          <Grid columns={size || 'medium'} gap="small">
             {data.github.viewer.repositories.edges
               .filter(node => !node.node.isArchived)
-              .slice(0, 6)
-              .map(repo => <GithubRepo key={repo.node.name} repo={repo} />)}
+              .slice(0, 4)
+              .map(repo => (
+                <GithubRepo key={repo.node.name} repo={repo} />
+              ))}
           </Grid>
         )}
       </ResponsiveContext.Consumer>
     </Box>
-    <Box margin={{ horizontal: "xlarge" }}>
+    <Box margin={{ horizontal: 'xlarge' }}>
       <Box align="center" alignContent="center">
         <Heading textAlign="center" size="medium">
           I sometimes blog
@@ -148,11 +125,7 @@ const IndexPage = ({ data }) => (
       </Box>
       <ResponsiveContext.Consumer>
         {size => (
-          <Grid
-            align="start"
-            columns={size !== "small" && { count: "fill", size: "large" }}
-            gap="small"
-          >
+          <Grid columns={size || 'medium'} gap="small">
             {data.allMarkdownRemark.edges.map(post => (
               <Post key={post.node.frontmatter.path} post={post.node} />
             ))}
@@ -161,8 +134,7 @@ const IndexPage = ({ data }) => (
       </ResponsiveContext.Consumer>
     </Box>
   </Layout>
-);
-
+)
 export const pageQuery = graphql`
   query IndexQuery {
     avatar: file(relativePath: { eq: "me.png" }) {
@@ -172,10 +144,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(
-      limit: 4
-      sort: { order: DESC, fields: frontmatter___date }
-    ) {
+    allMarkdownRemark(limit: 4, sort: { order: DESC, fields: frontmatter___date }) {
       edges {
         node {
           excerpt
@@ -191,10 +160,7 @@ export const pageQuery = graphql`
     }
     github {
       viewer {
-        repositoriesContributedTo(
-          first: 4
-          orderBy: { field: STARGAZERS, direction: DESC }
-        ) {
+        repositoriesContributedTo(first: 4, orderBy: { field: STARGAZERS, direction: DESC }) {
           edges {
             node {
               stargazers {
@@ -211,11 +177,7 @@ export const pageQuery = graphql`
             }
           }
         }
-        repositories(
-          first: 20
-          isFork: false
-          orderBy: { direction: DESC, field: STARGAZERS }
-        ) {
+        repositories(first: 10, isFork: false, orderBy: { direction: DESC, field: STARGAZERS }) {
           edges {
             node {
               isArchived
@@ -235,5 +197,5 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
-export default IndexPage;
+`
+export default IndexPage

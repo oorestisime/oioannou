@@ -1,25 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { push } from 'gatsby';
-import {
-  Box, Heading, Paragraph,
-  Text, Anchor,
-} from 'grommet';
-import { Clock, Calendar } from 'grommet-icons';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { push } from 'gatsby'
+import { Box, Heading, Paragraph, Text, Anchor } from 'grommet'
+import { Clock, Calendar } from 'grommet-icons'
 
-import Tags from './Tags';
+import Tags from './Tags'
 
 const Post = ({ post }) => (
   <Box align="start" fill pad="small">
     <Box fill="horizontal" elevation="small" round="xsmall" pad="small">
-      <Heading
-        level="3"
-        margin="none"
-        onClick={() => push(post.frontmatter.path)}
-      >
+      <Heading level="3" margin="none" onClick={() => push(post.frontmatter.path)}>
         {post.frontmatter.title}
       </Heading>
-      <Box direction="row" gap="xsmall" align="center" margin={{ top: "xsmall" }}>
+      <Box direction="row" gap="xsmall" align="center" margin={{ left: 'xsmall', top: 'xsmall' }}>
         <Calendar size="small" />
         <Text size="small">{post.frontmatter.date}</Text>
         <Clock size="small" />
@@ -34,13 +27,10 @@ const Post = ({ post }) => (
       </Box>
     </Box>
   </Box>
-);
+)
 
 Post.propTypes = {
-  post: PropTypes.shape({
+  post: PropTypes.shape({}).isRequired
+}
 
-  }).isRequired,
-};
-
-
-export default Post;
+export default Post

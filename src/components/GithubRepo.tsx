@@ -1,7 +1,6 @@
 import React from 'react'
 import { Box, Heading, Paragraph } from 'grommet'
 import { Star, Language } from 'grommet-icons'
-
 type GithubRepoProps = {
   repo: {
     node: {
@@ -17,13 +16,14 @@ type GithubRepoProps = {
     }
   }
 }
-
 const GithubRepo: React.SFC<GithubRepoProps> = ({ repo }) => (
-  <Box margin="xsmall" animation="slideUp" pad="xsmall" border="all" overflow="hidden" elevation="small">
-    <Heading size="small" level="3" margin="xsmall">
+  <Box margin="xsmall" animation="slideUp" pad="xsmall" elevation="small">
+    <Heading level="3" margin="xsmall">
       {repo.node.nameWithOwner || repo.node.name}
     </Heading>
-    <Paragraph>{repo.node.description}</Paragraph>
+    <Paragraph margin={{ horizontal: 'medium' }} size="small">
+      {repo.node.description}
+    </Paragraph>
     <Box direction="row" justify="between" fill="horizontal">
       <Box direction="row" gap="xsmall" pad="xsmall">
         <Star color="brand" />
@@ -37,5 +37,4 @@ const GithubRepo: React.SFC<GithubRepoProps> = ({ repo }) => (
     </Box>
   </Box>
 )
-
 export default GithubRepo

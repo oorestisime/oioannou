@@ -1,16 +1,24 @@
 import React from 'react'
-import { Box, Grommet, Heading } from 'grommet'
+import { Box, Grommet, Heading, Anchor } from 'grommet'
+import { Gremlin, Favorite } from 'grommet-icons'
 import { customTheme, GlobalTheme } from '../theme'
 
 const Layout = props => (
   <Grommet theme={customTheme}>
     <GlobalTheme />
     {props.children}
-    <Box background="brand">
+    <Box background="dark-2">
       <Box animation="fadeIn" align="center" alignContent="center" margin={{ horizontal: 'medium' }}>
-        <Heading color="white" level="4" size="small" margin={{ top: 'large' }}>
-          Made with excitement, Grommet and Gatsby
+        <Heading level="4" size="small" margin={{ top: 'large', bottom: 'none' }}>
+          Made with <Favorite color="brand" /> <Anchor icon={<Gremlin color="brand" />} href="//grommet.io" target="_blank" /> and{' '}
+          <Anchor label="Gatsby" href="//gatsbyjs.org" target="_blank" />.
         </Heading>
+        <Anchor
+          margin={{ bottom: 'small' }}
+          label="Get source from Github"
+          href="//github.com/oorestisime/oioannou/tree/next"
+          target="_blank"
+        />
       </Box>
     </Box>
   </Grommet>
