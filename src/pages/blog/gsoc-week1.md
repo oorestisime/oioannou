@@ -1,5 +1,5 @@
 ---
-path: gsoc-week1
+path: /gsoc-week1
 title: "GSoC Debsources report:  #1"
 date: 2015-05-31
 tags: ["Debian","GSoC","Debsources"]
