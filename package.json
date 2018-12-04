@@ -18,6 +18,7 @@
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-sharp": "^2.0.0",
     "gatsby-plugin-styled-components": "^3.0.4",
+    "gatsby-plugin-typescript": "^2.0.0",
     "gatsby-remark-images": "^3.0.1",
     "gatsby-remark-prismjs": "^3.1.2",
     "gatsby-source-filesystem": "^2.0.0",
@@ -43,12 +44,23 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write '**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gatsby develop",
+    "format": "prettier --write \"src/**/*.{ts,tsx,md}\"",
+    "lint": "tslint 'src/**/*.{ts,tsx}' -p tsconfig.json",
+    "test": "npm run type-check && npm run lint",
+    "type-check": "tsc"
   },
   "devDependencies": {
-    "prettier": "^1.14.2"
+    "@types/classnames": "^2.2.6",
+    "@types/node": "^10.10.1",
+    "@types/react": "^16.4.14",
+    "@types/react-dom": "^16.0.7",
+    "prettier": "^1.14.2",
+    "typescript": "^3.2.0",
+    "tslint": "^5.11.0",
+    "tslint-config-blvd": "^1.2.1",
+    "tslint-config-prettier": "^1.15.0",
+    "tslint-plugin-prettier": "^2.0.0"
   },
   "repository": {
     "type": "git"
