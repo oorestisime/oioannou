@@ -3,4 +3,13 @@ build/
 include/
 lib/
 local/
-static/upload
+static/upload# Project dependencies
+.cache
+node_modules
+yarn-error.log
+plugins
+
+# Build directory
+/public
+.DS_Store
+.vscode
