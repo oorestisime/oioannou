@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Orestis Ioannou <oorestisime@gmail.com>",
   "dependencies": {
+    "dotenv": "^6.1.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",

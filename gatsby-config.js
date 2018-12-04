@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
   siteMetadata: {
     title: 'Orestis Ioannou personal website',
@@ -41,7 +43,7 @@ module.exports = {
         url: 'https://api.github.com/graphql',
         // HTTP headers
         headers: {
-          Authorization: 'bearer 54e363ccd64cce03168d2b20adf4a46ba7d6c5f3',
+          Authorization: `bearer ${process.env.GITHUB}`,
         },
         // Additional options to pass to node-fetch
         fetchOptions: {},

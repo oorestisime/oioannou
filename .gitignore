@@ -3,7 +3,8 @@ build/
 include/
 lib/
 local/
-static/upload# Project dependencies
+static/upload
+# Project dependencies
 .cache
 node_modules
 yarn-error.log
@@ -13,3 +14,4 @@ plugins
 /public
 .DS_Store
 .vscode
+.env
