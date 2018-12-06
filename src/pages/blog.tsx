@@ -5,13 +5,34 @@ import Layout from '../components/Layout'
 import Header from '../components/Header'
 import Post from '../components/Post'
 
-const BlogPage = ({ data: { allMarkdownRemark } }) => (
+type SkillsBoxProps = {
+  data: {
+    allMarkdownRemark: {
+      edges: Post[]
+    }
+  }
+}
+
+type Post = {
+  node: {
+    excerpt: string
+    timeToRead: number
+    frontmatter: {
+      title: string
+      path: string
+      tags: string[]
+      date: string
+    }
+  }
+}
+
+const BlogPage: React.SFC<SkillsBoxProps> = ({ data: { allMarkdownRemark } }) => (
   <Layout>
     <Header right title="Blog" />
     <Box margin={{ horizontal: 'large' }}>
       <ResponsiveContext.Consumer>
         {size => (
-          <Grid align="start" columns={size !== 'small' && { count: 'fill', size: 'large' }} gap="medium">
+          <Grid align="start" columns={size || 'medium'} gap="medium">
             {allMarkdownRemark.edges.map(post => (
               <Post key={post.node.frontmatter.path} post={post.node} />
             ))}
@@ -21,6 +42,7 @@ const BlogPage = ({ data: { allMarkdownRemark } }) => (
     </Box>
   </Layout>
 )
+
 export const pageQuery = graphql`
   query BlogQuery {
     allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {

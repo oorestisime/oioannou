@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { ReactChild } from 'react'
 import { Box, Grommet, Heading, Anchor } from 'grommet'
 import { Gremlin, Favorite } from 'grommet-icons'
 import { customTheme, GlobalTheme } from '../theme'
 
-const Layout = props => (
+type LayoutProps = {
+  children: ReactChild[]
+}
+
+const Layout: React.SFC<LayoutProps> = props => (
   <Grommet theme={customTheme}>
     <GlobalTheme />
     {props.children}

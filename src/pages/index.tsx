@@ -1,5 +1,5 @@
 import React from 'react'
-import { ResponsiveContext, Box, Heading, Image, Paragraph, Grid, Anchor } from 'grommet'
+import { ResponsiveContext, Box, Heading, Image, Paragraph, Grid, Anchor, Text } from 'grommet'
 import { Github } from 'grommet-icons'
 import { graphql } from 'gatsby'
 
@@ -9,9 +9,29 @@ import Skill from '../components/Skill'
 import GithubRepo from '../components/GithubRepo'
 import Post from '../components/Post'
 
-// break landing thing into hero
+type IndexData = {
+  data: {
+    avatar: {
+      childImageSharp: {
+        fluid: {
+          src: string
+        }
+      }
+    }
+    github: {
+      viewer: {
+        repositoriesContributedTo: {
+          edges: object[]
+        }
+      }
+    }
+    allMarkdownRemark: {
+      edges: object[]
+    }
+  }
+}
 
-const IndexPage = ({ data }) => (
+const IndexPage: React.SFC<IndexData> = ({ data }) => (
   <Layout>
     <Box height="100vh" background="dark-2" align="center" justify="center">
       <Box direction="row" align="start" gap="medium">
@@ -40,11 +60,16 @@ const IndexPage = ({ data }) => (
       >
         <Box align="center" alignSelf="stretch" gridArea="header">
           <Paragraph color="white" size="large" textAlign="center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum.
+            {`My journey in life started ${new Date().getFullYear() -
+              1992} years ago in a little but beautiful island in the Mediterranean , Cyprus.`}
           </Paragraph>
+          <Paragraph margin={{ top: 'none' }} color="white" size="large" textAlign="center">
+            I am now living in Paris and working as a Full Stack dev. I curious learning new concepts and stacks so my daily life includes a
+            lot of scrolling and reading on Medium and Pocket*, testing and contributing to Open Source.
+          </Paragraph>
+          <Text size="small" color="white">
+            * Ok fine, I also admit that commuting in Paris takes a lot of time
+          </Text>
         </Box>
         <ResponsiveContext.Consumer>
           {size =>
