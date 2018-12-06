@@ -31,7 +31,7 @@ const Post: React.SFC<PostProps> = ({ post }) => (
       </Box>
       <Paragraph size="small" margin={{ horizontal: 'medium' }}>
         {post.excerpt}
-        <Anchor href={post.frontmatter.path} label="Read more" size="small" />
+        <Anchor href={post.frontmatter.path} label=" Read more" size="small" />
       </Paragraph>
       <Box gap="xsmall" direction="row" wrap align="center">
         <Tags tags={post.frontmatter.tags} />

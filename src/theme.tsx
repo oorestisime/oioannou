@@ -22,5 +22,11 @@ export const customTheme = deepFreeze({
       dark: '#89bdd3',
       light: '#89bdd3'
     }
+  },
+  tab: {
+    active: {
+      color: 'white'
+    },
+    color: 'white'
   }
 })

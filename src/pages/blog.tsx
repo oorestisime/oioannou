@@ -28,7 +28,7 @@ type Post = {
 
 const BlogPage: React.SFC<SkillsBoxProps> = ({ data: { allMarkdownRemark } }) => (
   <Layout>
-    <Header right title="Blog" />
+    <Header title="Blog" />
     <Box margin={{ horizontal: 'large' }}>
       <ResponsiveContext.Consumer>
         {size => (

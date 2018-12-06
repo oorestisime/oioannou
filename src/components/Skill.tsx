@@ -7,7 +7,7 @@ type SkillProps = {
 }
 
 const Skill: React.SFC<SkillProps> = ({ label, value }) => (
-  <Box direction="row-responsive" gap="medium" margin={{ bottom: 'small', horizontal: 'medium' }}>
+  <Box key={label} direction="row-responsive" gap="medium" margin={{ bottom: 'small', horizontal: 'medium' }}>
     <Text size="small" weight="bold">
       {label}
     </Text>
