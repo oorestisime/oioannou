@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Heading, Paragraph, Text, Anchor } from 'grommet'
+import { ResponsiveContext, Box, Heading, Paragraph, Text, Anchor } from 'grommet'
 import { Clock, Calendar } from 'grommet-icons'
 
 import Tags from './Tags'
@@ -33,9 +33,15 @@ const Post: React.SFC<PostProps> = ({ post }) => (
         {post.excerpt}
         <Anchor href={post.frontmatter.path} label=" Read more" size="small" />
       </Paragraph>
-      <Box gap="xsmall" direction="row" wrap align="center">
-        <Tags tags={post.frontmatter.tags} />
-      </Box>
+      <ResponsiveContext.Consumer>
+        {size =>
+          size !== 'small' && (
+            <Box gap="xsmall" direction="row" wrap align="center">
+              <Tags tags={post.frontmatter.tags} />
+            </Box>
+          )
+        }
+      </ResponsiveContext.Consumer>
     </Box>
   </Box>
 )

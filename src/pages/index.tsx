@@ -61,7 +61,7 @@ const IndexPage: React.SFC<IndexData> = ({ data }) => (
           { name: 'misc', start: [3, 1], end: [3, 1] }
         ]}
       >
-        <Box align="center" alignSelf="stretch" gridArea="header">
+        <Box margin={{ horizontal: 'xsmall' }} align="center" alignSelf="stretch" gridArea="header">
           <Paragraph color="white" size="large" textAlign="center">
             {`My journey in life started ${new Date().getFullYear() -
               1992} years ago in a little but beautiful island in the Mediterranean , Cyprus.`}
