@@ -5,7 +5,7 @@ type TagsProps = {
   tags: string[]
 }
 const Tags: React.SFC<TagsProps> = ({ tags }) => (
-  <Box direction="row-responsive" gap="xsmall">
+  <Box direction="row" gap="xsmall">
     {tags.map(tag => (
       <Button key={tag} onClick={() => push(`/tag/${tag.toLowerCase()}`)}>
         <Box margin={{ top: 'xsmall' }} background="brand" round="xsmall" pad={{ horizontal: 'xsmall' }}>

@@ -6,8 +6,13 @@
 
 const path = require('path');
 
-exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions;
+exports.createPages = ({
+  actions,
+  graphql
+}) => {
+  const {
+    createPage
+  } = actions;
 
   const blogPostTemplate = path.resolve('src/templates/blog.tsx');
   const tagTemplate = path.resolve('src/templates/tag.tsx');
@@ -25,7 +30,7 @@ exports.createPages = ({ actions, graphql }) => {
             id
             timeToRead
             frontmatter {
-              date
+              date(formatString: "MMMM DD, YYYY")
               path
               tags
               title
@@ -50,7 +55,9 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     const tags = {};
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    result.data.allMarkdownRemark.edges.forEach(({
+      node
+    }) => {
       if (node.frontmatter.tags) {
         node.frontmatter.tags.forEach((tag) => {
           if (!tags[tag]) {

@@ -32,11 +32,14 @@ type BlogPageType = {
 
 const BlogPage: React.SFC<BlogPageType> = props => (
   <Layout>
-    <Header title={props.data.markdownRemark.frontmatter.title} />
-    <Box direction="row-responsive" justify="center">
-      <Box width="xlarge" pad={{ horizontal: 'xlarge', vertical: 'small' }}>
+    <Header />
+    <Box direction="row" justify="center">
+      <Box width="xlarge" margin={{ horizontal: 'medium', vertical: 'small' }}>
+        <Heading alignSelf="center" level="3">
+          {props.data.markdownRemark.frontmatter.title}
+        </Heading>
         {renderAst(props.data.markdownRemark.htmlAst)}
-        <Box direction="row" justify="between" margin={{ top: 'medium' }}>
+        <Box direction="row-responsive" justify="between" margin={{ top: 'medium' }}>
           <Box align="center" direction="row" gap="xsmall">
             <History size="small" />
             <Text size="small">{props.data.markdownRemark.frontmatter.date}</Text>

@@ -22,7 +22,7 @@ type TagProps = {
 
 const Tag: React.SFC<TagProps> = ({ pageContext: { title, posts } }) => (
   <Layout>
-    <Header right title={`Tag: ${title}`} />
+    <Header title={`Tag: ${title}`} />
     <Box margin={{ horizontal: 'large' }}>
       <ResponsiveContext.Consumer>
         {size => (

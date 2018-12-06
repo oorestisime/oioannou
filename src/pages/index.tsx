@@ -1,10 +1,9 @@
 import React from 'react'
-import { Box, Paragraph, Grid, Anchor, Text } from 'grommet'
+import { Box, Paragraph, Grid, Anchor, Text, Button, RoutedAnchor } from 'grommet'
 import { Github } from 'grommet-icons'
-import { graphql } from 'gatsby'
+import { graphql, push } from 'gatsby'
 
-import { skills } from '../data'
-
+import SiteContext from '../context'
 import Layout from '../components/Layout'
 import Skills from '../components/Skills'
 import GithubRepo from '../components/GithubRepo'
@@ -70,11 +69,11 @@ const IndexPage: React.SFC<IndexData> = ({ data }) => (
             I am now living in Paris and working as a Full Stack dev. I curious learning new concepts and stacks so my daily life includes a
             lot of scrolling and reading on Medium and Pocket*, testing and contributing to Open Source.
           </Paragraph>
-          <Text size="small" color="white">
+          <Text size="xsmall" color="white">
             * Ok fine, I also admit that commuting in Paris takes a lot of time
           </Text>
         </Box>
-        <Skills skills={skills} />
+        <SiteContext.Consumer>{site => <Skills skills={site.skills} />}</SiteContext.Consumer>
       </Grid>
     </Box>
     <IndexSection title="Open source contributions">
@@ -95,6 +94,9 @@ const IndexPage: React.SFC<IndexData> = ({ data }) => (
         <Post key={post.node.frontmatter.path} post={post.node} />
       ))}
     </IndexSection>
+    <Box fill align="center" justify="center" margin={{ vertical: 'small' }}>
+      <Button onClick={() => push('/blog')} label="Load more" />
+    </Box>
   </Layout>
 )
 
