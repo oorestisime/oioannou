@@ -1,18 +1,22 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Box, Anchor, Text, Heading } from 'grommet'
-import { Clock, History } from 'grommet-icons'
+import { History } from 'grommet-icons'
 import rehypeReact from 'rehype-react'
 
-import Layout from '../components/Layout'
-import Header from '../components/Header'
-import Tags from '../components/Tags'
+import Layout from 'gatsby-theme-grommet/src/components/Layout'
+import Header from 'gatsby-theme-grommet/src/components/Header'
+import Tags from 'gatsby-theme-grommet/src/components/Tags'
+import Grid from 'gatsby-theme-grommet/src/components/Grid'
+import Photo from 'gatsby-theme-grommet/src/components/Photo'
 
 // eslint-disable-next-line new-cap
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
-    a: Anchor
+    a: Anchor,
+    'rehype-image': Photo,
+    grid: Grid
   }
 }).Compiler
 

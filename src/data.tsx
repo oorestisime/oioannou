@@ -1,4 +1,8 @@
 export default {
+  hero: {
+    title: 'Gatsby theme Grommet',
+    subtitle: 'This an example of gatsby-theme-grommet'
+  },
   social: {
     github: '//github.com/oorestisime/oioannou/tree/next'
   },

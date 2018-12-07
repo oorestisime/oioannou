@@ -1,88 +1,38 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require("path")
 
-const path = require('path');
-
-exports.createPages = ({
-  actions,
-  graphql
+exports.onCreatePage = ({
+  page,
+  actions
 }) => {
   const {
-    createPage
-  } = actions;
+    createPage,
+    deletePage
+  } = actions
 
-  const blogPostTemplate = path.resolve('src/templates/blog.tsx');
-  const tagTemplate = path.resolve('src/templates/tag.tsx');
-
-  return graphql(`
-    {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
-        edges {
-          node {
-            excerpt(pruneLength: 250)
-            html
-            id
-            timeToRead
-            frontmatter {
-              date(formatString: "MMMM DD, YYYY")
-              path
-              tags
-              title
-              photo {
-                childImageSharp {
-                  fluid(maxHeight: 250, maxWidth: 350, quality: 100) {
-                    aspectRatio
-                    src
-                    sizes
-                    srcSet
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `).then((result) => {
-    if (result.errors) {
-      return Promise.reject(result.errors);
+  return new Promise(resolve => {
+    // Check if this page is a post page created by theme "gatsby-theme-grommet"
+    if (
+      page.component.includes("gatsby-theme-grommet") &&
+      page.component.includes("blog")
+    ) {
+      deletePage(page)
+      createPage({
+        ...page,
+        component: require.resolve("gatsby-theme-grommet/src/templates/blog.tsx"), // Replacement template
+      })
     }
 
-    const tags = {};
-    result.data.allMarkdownRemark.edges.forEach(({
-      node
-    }) => {
-      if (node.frontmatter.tags) {
-        node.frontmatter.tags.forEach((tag) => {
-          if (!tags[tag]) {
-            tags[tag] = [];
-          }
-          tags[tag].push(node);
-        });
-      }
+    if (
+      page.component.includes("gatsby-theme-grommet") &&
+      page.component.includes("tag")
+    ) {
+      deletePage(page)
       createPage({
-        path: node.frontmatter.path,
-        component: blogPostTemplate,
-      });
-    });
+        ...page,
+        component: require.resolve("gatsby-theme-grommet/src/templates/tag.tsx"), // Replacement template
+      })
+    }
 
-    Object.keys(tags).forEach((tag) => {
-      createPage({
-        path: `/tag/${tag.toLowerCase()}`,
-        component: tagTemplate,
-        context: {
-          posts: tags[tag],
-          title: tag,
-        },
-      });
-    })
-
-    return Promise.resolve();
-  });
-};
+    resolve()
+  })
+}

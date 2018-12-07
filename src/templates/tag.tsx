@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box, ResponsiveContext, Grid } from 'grommet'
 
-import Layout from '../components/Layout'
-import Header from '../components/Header'
-import Post from '../components/Post'
+import Layout from 'gatsby-theme-grommet/src/components/Layout'
+import Header from 'gatsby-theme-grommet/src/components/Header'
+import Post from 'gatsby-theme-grommet/src/components/Post'
 
 type TagProps = {
   pageContext: {
@@ -15,6 +15,7 @@ type TagProps = {
         title: string
         path: string
         tags: string[]
+        date: string
       }
     }[]
   }

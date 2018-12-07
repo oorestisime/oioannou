@@ -1,27 +1,28 @@
 import React from 'react'
-import { Box, Paragraph, Grid, Anchor, Text, Button, RoutedAnchor } from 'grommet'
+import { Box, Paragraph, Grid, Anchor, Text, Button } from 'grommet'
 import { Github } from 'grommet-icons'
 import { graphql, push } from 'gatsby'
 
-import SiteContext from '../context'
-import Layout from '../components/Layout'
-import Skills from '../components/Skills'
-import GithubRepo from '../components/GithubRepo'
-import Post from '../components/Post'
-import IndexSection from '../components/IndexSection'
+import SiteContext from 'gatsby-theme-grommet/src/context'
+import Layout from 'gatsby-theme-grommet/src/components/Layout'
+import Skills from 'gatsby-theme-grommet/src/components/Skills'
+import GithubRepo from 'gatsby-theme-grommet/src/components/GithubRepo'
+import Post from 'gatsby-theme-grommet/src/components/Post'
+import IndexSection from 'gatsby-theme-grommet/src/components/IndexSection'
 import Hero from '../components/Hero'
 
 type IndexData = {
   data: {
     avatar: {
       childImageSharp: {
-        fluid: {
-          src: string
-        }
+        fixed: object
       }
     }
     github: {
       viewer: {
+        repositories: {
+          edges: object[]
+        }
         repositoriesContributedTo: {
           edges: object[]
         }
