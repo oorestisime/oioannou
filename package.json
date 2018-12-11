@@ -6,7 +6,7 @@
   "dependencies": {
     "gatsby": "^2.0.57",
     "gatsby-plugin-typescript": "^2.0.3",
-    "gatsby-theme-grommet": "oorestisime/gatsby-theme-grommet",
+    "gatsby-theme-grommet": "https://github.com/oorestisime/gatsby-theme-grommet#master",
     "react": "^16.5.1",
     "react-dom": "^16.5.1"
   },
