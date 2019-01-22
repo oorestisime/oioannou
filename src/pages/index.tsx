@@ -49,32 +49,23 @@ const IndexPage: React.SFC<IndexData> = ({ data }) => (
       anchor={<Anchor color="brand" label="Follow me on Github" icon={<Github />} href="//github.com/oorestisime" target="_blank" />}
     />
     <Box background="brand">
-      <Grid
-        rows={['auto', 'auto']}
-        columns={['1/4', '1/4', '1/4', '1/4']}
-        areas={[
-          { name: 'header', start: [0, 0], end: [3, 0] },
-          { name: 'back', start: [0, 1], end: [0, 1] },
-          { name: 'front', start: [1, 1], end: [1, 1] },
-          { name: 'ops', start: [2, 1], end: [2, 1] },
-          { name: 'misc', start: [3, 1], end: [3, 1] }
-        ]}
-      >
-        <Box margin={{ horizontal: 'xsmall' }} align="center" alignSelf="stretch" gridArea="header">
-          <Paragraph color="white" size="large" textAlign="center">
+      <Box justify="between" direction="row-responsive" margin={{ horizontal: 'medium' }}>
+        <Box>
+          <Paragraph color="white" size="large">
             {`My journey in life started ${new Date().getFullYear() -
               1992} years ago in a little but beautiful island in the Mediterranean , Cyprus.`}
           </Paragraph>
-          <Paragraph margin={{ top: 'none' }} color="white" size="large" textAlign="center">
-            I am now living in Paris and working as a Full Stack dev. I curious learning new concepts and stacks so my daily life includes a
-            lot of scrolling and reading on Medium and Pocket*, testing and contributing to Open Source.
+          <Paragraph color="white" size="large">
+            I wear a Full stack dev hat by day in Paris and spending most of the nights contributing
+            to Open Source projects such as <Anchor color="white" href="https://v2.grommet.io/" label="Grommet " />
+            and <Anchor color="white" href="https://gatsbyjs.org/" label=" Gatsby" />.
+            I am always open to discuss exciting projects around these technologies.
           </Paragraph>
-          <Text size="xsmall" color="white">
-            * Ok fine, I also admit that commuting in Paris takes a lot of time
-          </Text>
         </Box>
-        <SiteContext.Consumer>{site => <Skills skills={site.skills} />}</SiteContext.Consumer>
-      </Grid>
+        <Box>
+          <SiteContext.Consumer>{site => <Skills skills={site.skills} />}</SiteContext.Consumer>
+        </Box>
+      </Box>
     </Box>
     <IndexSection title="Open source contributions">
       {data.github.viewer.repositoriesContributedTo.edges.map(repo => (
@@ -152,6 +143,7 @@ export const pageQuery = graphql`
               forkCount
               name
               description
+              homepageUrl
               primaryLanguage {
                 name
               }
