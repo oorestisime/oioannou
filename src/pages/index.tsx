@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Paragraph, Grid, Anchor, Text, Button, RoutedAnchor } from 'grommet'
+import { Box, Paragraph, Anchor, Button } from 'grommet'
 import { Github } from 'grommet-icons'
 import { graphql, push } from 'gatsby'
 
@@ -10,6 +10,7 @@ import GithubRepo from '../components/GithubRepo'
 import Post from '../components/Post'
 import IndexSection from '../components/IndexSection'
 import Hero from '../components/Hero'
+import Seo from '../components/Seo'
 
 type IndexData = {
   data: {
@@ -35,6 +36,7 @@ type IndexData = {
 
 const IndexPage: React.SFC<IndexData> = ({ data }) => (
   <Layout>
+    <Seo />
     <Hero
       title="Hi, I'm Orestis"
       subtitle={[
