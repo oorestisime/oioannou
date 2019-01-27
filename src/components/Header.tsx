@@ -7,7 +7,6 @@ import SiteContext from '../context'
 
 type HeaderProps = {
   title?: string
-  toggleLayer: any
 }
 
 class Header extends React.Component<HeaderProps, {}> {
@@ -24,7 +23,7 @@ class Header extends React.Component<HeaderProps, {}> {
             <Button>
               <Box flex={false} direction="row" align="center" margin={{ left: 'small' }}>
                 <Heading level="2" margin={{ left: 'small', vertical: 'none' }}>
-                  {title}
+                  {title || `Blog`}
                 </Heading>
               </Box>
             </Button>
@@ -60,10 +59,6 @@ class Header extends React.Component<HeaderProps, {}> {
       </SiteContext.Consumer>
     )
   }
-}
-
-Header.defaultProps = {
-  title: 'Blog'
 }
 
 export default Header

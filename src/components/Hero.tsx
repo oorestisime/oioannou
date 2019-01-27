@@ -2,7 +2,7 @@ import React, { ReactChild } from 'react'
 import Img from 'gatsby-image'
 import { Box, Heading, ResponsiveContext } from 'grommet'
 
-type HeroType = {
+interface HeroType {
   image: object
   title: string
   subtitle: ReactChild[]
@@ -10,7 +10,7 @@ type HeroType = {
   background?: string
 }
 
-const Hero: React.SFC<HeroType> = ({ image, title, subtitle, anchor, background }) => {
+const Hero: React.SFC<HeroType> = ({ image, title, subtitle, anchor, background = 'dark-2' }) => {
   return (
     <Box height="100vh" background={background} align="center" justify="center">
       <ResponsiveContext.Consumer>
@@ -31,10 +31,6 @@ const Hero: React.SFC<HeroType> = ({ image, title, subtitle, anchor, background 
       </ResponsiveContext.Consumer>
     </Box>
   )
-}
-
-Hero.defaultProps = {
-  background: 'dark-2'
 }
 
 export default Hero

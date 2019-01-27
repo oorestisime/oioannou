@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Meter, Text } from 'grommet'
 
-type SkillProps = {
+interface SkillProps {
   label: string
   value: number
   color?: string

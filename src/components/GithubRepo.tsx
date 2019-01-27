@@ -1,48 +1,53 @@
 import React from 'react'
 import { Box, Heading, Paragraph, Anchor, Text } from 'grommet'
 import { Star, Language } from 'grommet-icons'
+import { GoGitPullRequest } from 'react-icons/go'
 
-type GithubRepoProps = {
+interface GithubRepoProps {
   repo: {
-    node: {
-      nameWithOwner?: string
+    nameWithOwner?: string
+    name?: string
+    description: string
+    homepageUrl: string
+    primaryLanguage: {
       name?: string
-      description: string
-      homepageUrl: string
-      primaryLanguage: {
-        name?: string
-      }
-      stargazers: {
-        totalCount?: number
-      }
     }
+    stargazers: {
+      totalCount?: number
+    }
+    count?: number
   }
 }
 
 const GithubRepo: React.SFC<GithubRepoProps> = ({ repo }) => (
   <Box margin="xsmall" animation="fadeIn" pad="xsmall" elevation="small">
     <Heading level="3" margin="xsmall">
-      {repo.node.nameWithOwner || repo.node.name}
+      {repo.nameWithOwner || repo.name}
     </Heading>
     <Box margin={{ horizontal: 'medium' }}>
-      <Paragraph size="small">
-        {repo.node.description}
-      </Paragraph>
-      {repo.node.homepageUrl && (
-        <Anchor href={repo.node.homepageUrl}>
-          <Text size="small">{repo.node.homepageUrl}</Text>
+      <Paragraph size="small">{repo.description}</Paragraph>
+      {repo.homepageUrl && (
+        <Anchor href={repo.homepageUrl}>
+          <Text size="small">{repo.homepageUrl}</Text>
         </Anchor>
       )}
     </Box>
     <Box margin={{ top: 'small' }} direction="row-responsive" justify="between" fill="horizontal">
       <Box direction="row" gap="xsmall" pad="xsmall">
         <Star color="brand" />
-        {repo.node.stargazers.totalCount}
+        {repo.stargazers.totalCount}
       </Box>
+
+      {repo.count && (
+        <Box direction="row" gap="xsmall" pad="xsmall" align="center">
+          <GoGitPullRequest style={{ color: '#89bdd3' }} />
+          {repo.count}
+        </Box>
+      )}
 
       <Box direction="row" gap="xsmall" pad="xsmall">
         <Language color="brand" />
-        {repo.node.primaryLanguage.name}
+        {repo.primaryLanguage.name}
       </Box>
     </Box>
   </Box>

@@ -33,14 +33,12 @@ type BlogPageType = {
 }
 
 const BlogPage: React.SFC<BlogPageType> = ({
-  data: { markdownRemark: { htmlAst, excerpt, frontmatter } }
+  data: {
+    markdownRemark: { htmlAst, excerpt, frontmatter }
+  }
 }) => (
   <Layout>
-    <Seo
-      title={frontmatter.title}
-      description={excerpt}
-      slug={frontmatter.path}
-    />
+    <Seo title={frontmatter.title} description={excerpt} slug={frontmatter.path} />
     <Header />
     <Box direction="row" justify="center">
       <Box width="xlarge" margin={{ horizontal: 'medium', vertical: 'small' }}>

@@ -6,7 +6,7 @@ import SiteContext from '../context'
 import { customTheme, GlobalTheme } from '../theme'
 import Footer from './Footer'
 
-type LayoutProps = {
+interface LayoutProps {
   children: ReactChild[]
 }
 

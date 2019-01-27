@@ -1,7 +1,7 @@
 import React, { ReactChild } from 'react'
 import { ResponsiveContext, Grid, Box, Heading } from 'grommet'
 
-type SectionType = {
+interface SectionType {
   title: string
   children: ReactChild[]
 }
@@ -15,7 +15,7 @@ const IndexSection: React.SFC<SectionType> = ({ title, children }) => (
     </Box>
     <ResponsiveContext.Consumer>
       {size => (
-        <Grid columns={size || 'medium'} gap="small">
+        <Grid columns={size || 'small'} gap="small">
           {children}
         </Grid>
       )}

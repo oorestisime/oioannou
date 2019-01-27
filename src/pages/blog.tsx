@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 import Header from '../components/Header'
 import Post from '../components/Post'
 
-type SkillsBoxProps = {
+interface SkillsBoxProps {
   data: {
     allMarkdownRemark: {
       edges: Post[]
@@ -13,7 +13,7 @@ type SkillsBoxProps = {
   }
 }
 
-type Post = {
+interface Post {
   node: {
     excerpt: string
     timeToRead: number

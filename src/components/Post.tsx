@@ -4,7 +4,7 @@ import { Clock, Calendar } from 'grommet-icons'
 
 import Tags from './Tags'
 
-type PostProps = {
+interface PostProps {
   post: {
     timeToRead: number
     excerpt: string

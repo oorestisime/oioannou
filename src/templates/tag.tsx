@@ -23,11 +23,7 @@ type TagProps = {
 
 const Tag: React.SFC<TagProps> = ({ pageContext: { title, posts } }) => (
   <Layout>
-    <Seo
-      title={title}
-      description={`Articles tagged with ${title}`}
-      slug={`/tag/${title.toLowerCase()}`}
-    />
+    <Seo title={title} description={`Articles tagged with ${title}`} slug={`/tag/${title.toLowerCase()}`} />
     <Header title={`Tag: ${title}`} />
     <Box margin={{ horizontal: 'large' }}>
       <ResponsiveContext.Consumer>

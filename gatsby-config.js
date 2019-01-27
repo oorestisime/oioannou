@@ -13,6 +13,7 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-catch-links',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
