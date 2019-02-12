@@ -1,7 +1,7 @@
-import React from 'react'
-import { Box, Heading, Paragraph, Anchor, Text } from 'grommet'
-import { Star, Language } from 'grommet-icons'
-import { GoGitPullRequest } from 'react-icons/go'
+import React from "react"
+import { Box, Heading, Paragraph, Anchor, Text } from "grommet"
+import { Star, Language } from "grommet-icons"
+import { GoGitPullRequest } from "react-icons/go"
 
 interface GithubRepoProps {
   repo: {
@@ -24,7 +24,7 @@ const GithubRepo: React.SFC<GithubRepoProps> = ({ repo }) => (
     <Heading level="3" margin="xsmall">
       {repo.nameWithOwner || repo.name}
     </Heading>
-    <Box margin={{ horizontal: 'medium' }}>
+    <Box margin={{ horizontal: "medium" }}>
       <Paragraph size="small">{repo.description}</Paragraph>
       {repo.homepageUrl && (
         <Anchor href={repo.homepageUrl}>
@@ -32,7 +32,12 @@ const GithubRepo: React.SFC<GithubRepoProps> = ({ repo }) => (
         </Anchor>
       )}
     </Box>
-    <Box margin={{ top: 'small' }} direction="row-responsive" justify="between" fill="horizontal">
+    <Box
+      margin={{ top: "small" }}
+      direction="row-responsive"
+      justify="between"
+      fill="horizontal"
+    >
       <Box direction="row" gap="xsmall" pad="xsmall">
         <Star color="brand" />
         {repo.stargazers.totalCount}
@@ -40,7 +45,7 @@ const GithubRepo: React.SFC<GithubRepoProps> = ({ repo }) => (
 
       {repo.count && (
         <Box direction="row" gap="xsmall" pad="xsmall" align="center">
-          <GoGitPullRequest style={{ color: '#89bdd3' }} />
+          <GoGitPullRequest style={{ color: "#89bdd3" }} />
           {repo.count}
         </Box>
       )}

@@ -1,6 +1,6 @@
-import React from 'react'
-import { ResponsiveContext, Box, Heading } from 'grommet'
-import Skill from './Skill'
+import React from "react"
+import { ResponsiveContext, Box, Heading } from "grommet"
+import Skill from "./Skill"
 
 interface SkillsType {
   skills: Topic[]
@@ -15,10 +15,10 @@ interface Topic {
 const Skills: React.SFC<SkillsType> = ({ skills }) => (
   <ResponsiveContext.Consumer>
     {size =>
-      size !== 'small' && (
+      size !== "small" && (
         <Box
-          margin={{ horizontal: 'medium', vertical: 'small' }}
-          pad={{ vertical: 'small' }}
+          margin={{ horizontal: "medium", vertical: "small" }}
+          pad={{ vertical: "small" }}
           animation="fadeIn"
           elevation="xxsmall"
           background="white"
@@ -26,7 +26,11 @@ const Skills: React.SFC<SkillsType> = ({ skills }) => (
           gap="small"
         >
           {skills.map(skill => (
-            <Skill color={skill.color} label={skill.label} value={skill.value} />
+            <Skill
+              color={skill.color}
+              label={skill.label}
+              value={skill.value}
+            />
           ))}
         </Box>
       )

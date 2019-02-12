@@ -1,6 +1,6 @@
-import { deepFreeze } from 'grommet/utils'
-import { createGlobalStyle } from 'styled-components'
-import 'typeface-montserrat'
+import { deepFreeze } from "grommet/utils"
+import { createGlobalStyle } from "styled-components"
+import "typeface-montserrat"
 
 export const GlobalTheme = createGlobalStyle`
   body {
@@ -10,23 +10,23 @@ export const GlobalTheme = createGlobalStyle`
 export const customTheme = deepFreeze({
   global: {
     colors: {
-      background: '#ffffff',
-      brand: '#89bdd3'
+      background: "#ffffff",
+      brand: "#89bdd3",
     },
     font: {
-      family: 'Montserrat, Arial, sans-serif'
-    }
+      family: "Montserrat, Arial, sans-serif",
+    },
   },
   anchor: {
     color: {
-      dark: '#89bdd3',
-      light: '#89bdd3'
-    }
+      dark: "#89bdd3",
+      light: "#89bdd3",
+    },
   },
   tab: {
     active: {
-      color: 'white'
+      color: "white",
     },
-    color: 'white'
-  }
+    color: "white",
+  },
 })

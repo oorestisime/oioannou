@@ -1,9 +1,17 @@
-import React from 'react'
-import { push } from 'gatsby'
-import { Box, Button, Heading, ResponsiveContext, Layer, RoutedAnchor, Text } from 'grommet'
-import { Down, Up } from 'grommet-icons'
+import React from "react"
+import { push } from "gatsby"
+import {
+  Box,
+  Button,
+  Heading,
+  ResponsiveContext,
+  Layer,
+  RoutedAnchor,
+  Text,
+} from "grommet"
+import { Down, Up } from "grommet-icons"
 
-import SiteContext from '../context'
+import SiteContext from "../context"
 
 type HeaderProps = {
   title?: string
@@ -11,7 +19,7 @@ type HeaderProps = {
 
 class Header extends React.Component<HeaderProps, {}> {
   state = {
-    showLayer: false
+    showLayer: false,
   }
 
   render() {
@@ -19,10 +27,23 @@ class Header extends React.Component<HeaderProps, {}> {
     return (
       <SiteContext.Consumer>
         {site => (
-          <Box pad="small" tag="header" direction="row" background="white" align="center" elevation="medium" justify="between">
+          <Box
+            pad="small"
+            tag="header"
+            direction="row"
+            background="brand"
+            align="center"
+            elevation="small"
+            justify="between"
+          >
             <Button>
-              <Box flex={false} direction="row" align="center" margin={{ left: 'small' }}>
-                <Heading level="2" margin={{ left: 'small', vertical: 'none' }}>
+              <Box
+                flex={false}
+                direction="row"
+                align="center"
+                margin={{ left: "small" }}
+              >
+                <Heading level="2" margin={{ left: "small", vertical: "none" }}>
                   {title || `Blog`}
                 </Heading>
               </Box>
@@ -30,12 +51,24 @@ class Header extends React.Component<HeaderProps, {}> {
 
             <ResponsiveContext.Consumer>
               {size =>
-                size === 'small' ? (
-                  <Button icon={<Down />} onClick={() => this.setState({ showLayer: true })} />
+                size === "small" ? (
+                  <Button
+                    icon={<Down />}
+                    onClick={() => this.setState({ showLayer: true })}
+                  />
                 ) : (
-                  <Box direction="row" align="center" gap="small">
+                  <Box
+                    margin={{ horizontal: "medium" }}
+                    direction="row"
+                    align="center"
+                    gap="medium"
+                  >
                     {site.menu.map(item => (
-                      <Button onClick={() => push(item.path)} label={item.label} />
+                      <Button
+                        plain
+                        onClick={() => push(item.path)}
+                        label={item.label}
+                      />
                     ))}
                   </Box>
                 )
@@ -45,7 +78,11 @@ class Header extends React.Component<HeaderProps, {}> {
             {this.state.showLayer && (
               <Layer full>
                 <Box fill background="light-1" align="start" pad="small">
-                  <Button icon={<Up />} onClick={() => this.setState({ showLayer: false })} />
+                  <Button
+                    plain
+                    icon={<Up />}
+                    onClick={() => this.setState({ showLayer: false })}
+                  />
                   {site.menu.map(item => (
                     <RoutedAnchor method={push} path={item.path}>
                       <Text size="large">{item.label}</Text>

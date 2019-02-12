@@ -1,52 +1,52 @@
 export default {
   social: {
-    github: '//github.com/oorestisime/oioannou/tree/next'
+    github: "//github.com/oorestisime/oioannou/",
   },
   menu: [
     {
-      label: 'Home',
-      path: '/'
+      label: "Home",
+      path: "/",
     },
     {
-      label: 'Blog',
-      path: '/blog'
-    }
+      label: "Blog",
+      path: "/blog",
+    },
   ],
   skills: [
     {
-      label: 'Python',
+      label: "Python",
       value: 80,
-      color: 'dark-2'
+      color: "dark-2",
     },
     {
-      label: 'Flask',
+      label: "Flask",
       value: 90,
-      color: 'dark-2'
+      color: "dark-2",
     },
     {
-      label: 'SQLAlchemy',
+      label: "SQLAlchemy",
       value: 90,
-      color: 'dark-2'
+      color: "dark-2",
     },
     {
-      label: 'React',
+      label: "React",
       value: 70,
-      color: 'brand'
+      color: "brand",
     },
     {
-      label: 'Gatsby',
+      label: "Gatsby",
       value: 80,
-      color: 'brand'
+      color: "brand",
     },
     {
-      label: 'Grommet',
-      value: 70,
-      color: 'brand'
+      label: "Grommet",
+      value: 80,
+      color: "brand",
     },
     {
-      label: 'Material-UI',
-      value: 70,
-      color: 'brand'
-    }
-  ]
+      label: "Material-UI",
+      value: 60,
+      color: "brand",
+    },
+  ],
 }

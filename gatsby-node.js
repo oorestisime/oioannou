@@ -4,18 +4,13 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const path = require('path');
+const path = require("path")
 
-exports.createPages = ({
-  actions,
-  graphql
-}) => {
-  const {
-    createPage
-  } = actions;
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions
 
-  const blogPostTemplate = path.resolve('src/templates/blog.tsx');
-  const tagTemplate = path.resolve('src/templates/tag.tsx');
+  const blogPostTemplate = path.resolve("src/templates/blog.tsx")
+  const tagTemplate = path.resolve("src/templates/tag.tsx")
 
   return graphql(`
     {
@@ -49,30 +44,28 @@ exports.createPages = ({
         }
       }
     }
-  `).then((result) => {
+  `).then(result => {
     if (result.errors) {
-      return Promise.reject(result.errors);
+      return Promise.reject(result.errors)
     }
 
-    const tags = {};
-    result.data.allMarkdownRemark.edges.forEach(({
-      node
-    }) => {
+    const tags = {}
+    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       if (node.frontmatter.tags) {
-        node.frontmatter.tags.forEach((tag) => {
+        node.frontmatter.tags.forEach(tag => {
           if (!tags[tag]) {
-            tags[tag] = [];
+            tags[tag] = []
           }
-          tags[tag].push(node);
-        });
+          tags[tag].push(node)
+        })
       }
       createPage({
         path: node.frontmatter.path,
         component: blogPostTemplate,
-      });
-    });
+      })
+    })
 
-    Object.keys(tags).forEach((tag) => {
+    Object.keys(tags).forEach(tag => {
       createPage({
         path: `/tag/${tag.toLowerCase()}`,
         component: tagTemplate,
@@ -80,9 +73,9 @@ exports.createPages = ({
           posts: tags[tag],
           title: tag,
         },
-      });
+      })
     })
 
-    return Promise.resolve();
-  });
-};
+    return Promise.resolve()
+  })
+}

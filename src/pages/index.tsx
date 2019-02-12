@@ -1,16 +1,16 @@
-import React from 'react'
-import { Box, Paragraph, Anchor, Button } from 'grommet'
-import { Github } from 'grommet-icons'
-import { graphql, push } from 'gatsby'
+import React, { Fragment } from "react"
+import { Box, Paragraph, Anchor, Button } from "grommet"
+import { Github, Twitter } from "grommet-icons"
+import { graphql, push } from "gatsby"
 
-import SiteContext from '../context'
-import Layout from '../components/Layout'
-import Skills from '../components/Skills'
-import GithubRepo from '../components/GithubRepo'
-import Post from '../components/Post'
-import IndexSection from '../components/IndexSection'
-import Hero from '../components/Hero'
-import Seo from '../components/Seo'
+import SiteContext from "../context"
+import Layout from "../components/Layout"
+import Skills from "../components/Skills"
+import GithubRepo from "../components/GithubRepo"
+import Post from "../components/Post"
+import IndexSection from "../components/IndexSection"
+import Hero from "../components/Hero"
+import Seo from "../components/Seo"
 
 type pullRequest = {
   merged: boolean
@@ -52,6 +52,9 @@ type IndexData = {
               stargazers: {
                 totalCount: number
               }
+              owner: {
+                login: string
+              }
               forkCount: number
               name: string
               description: string
@@ -88,7 +91,7 @@ const IndexPage: React.SFC<IndexData> = ({ data }) => {
     if (!p.hasOwnProperty(name)) {
       p[name] = {
         ...c.node.repository,
-        count: 0
+        count: 0,
       }
     }
     p[name].count++
@@ -101,32 +104,64 @@ const IndexPage: React.SFC<IndexData> = ({ data }) => {
       <Hero
         title="Hi, I'm Orestis"
         subtitle={[
-          <Paragraph key="dev" margin={{ bottom: 'small' }}>
+          <Paragraph key="dev" margin={{ bottom: "small" }}>
             Full Stack developper & avid traveler.
           </Paragraph>,
-          <Paragraph key="like" margin={{ bottom: 'small', top: 'none' }}>
-            I enjoy working with Python, ReactJS, Flask, Gatsby
-          </Paragraph>
+          <Paragraph key="like" margin={{ bottom: "small", top: "none" }}>
+            I enjoy working with Python, ReactJS, Flask, Gatsby and Grommet
+          </Paragraph>,
         ]}
         image={data.avatar.childImageSharp.fixed}
-        anchor={<Anchor color="brand" label="Follow me on Github" icon={<Github />} href="//github.com/oorestisime" target="_blank" />}
+        anchor={[
+          <Anchor
+            color="brand"
+            icon={<Github />}
+            href="//github.com/oorestisime"
+            target="_blank"
+            rel="noopener noreferrer"
+          />,
+          <Anchor
+            color="brand"
+            icon={<Twitter />}
+            href="//twitter.com/oorestisime"
+            target="_blank"
+            rel="noopener noreferrer"
+          />,
+        ]}
       />
       <Box background="brand">
-        <Box justify="between" direction="row-responsive" margin={{ horizontal: 'medium' }}>
+        <Box
+          justify="between"
+          direction="row-responsive"
+          margin={{ horizontal: "medium" }}
+        >
           <Box>
             <Paragraph color="white" size="large">
               {`My journey in life started ${new Date().getFullYear() -
                 1992} years ago in a little but beautiful island in the Mediterranean , Cyprus.`}
             </Paragraph>
             <Paragraph color="white" size="large">
-              I wear a Full stack dev hat by day in Paris and spending most of the nights contributing to Open Source projects such as{' '}
-              <Anchor color="white" href="https://v2.grommet.io/" label="Grommet " />
-              and <Anchor color="white" href="https://gatsbyjs.org/" label=" Gatsby" />. I am always open to discuss exciting projects
-              around these technologies.
+              I wear a Full stack dev hat by day in Paris and spending most of
+              the nights contributing to Open Source projects such as{" "}
+              <Anchor
+                color="white"
+                href="https://v2.grommet.io/"
+                label="Grommet "
+              />
+              and{" "}
+              <Anchor
+                color="white"
+                href="https://gatsbyjs.org/"
+                label=" Gatsby"
+              />
+              . I am always open to discuss exciting projects around these
+              technologies.
             </Paragraph>
           </Box>
           <Box>
-            <SiteContext.Consumer>{site => <Skills skills={site.skills} />}</SiteContext.Consumer>
+            <SiteContext.Consumer>
+              {site => <Skills skills={site.skills} />}
+            </SiteContext.Consumer>
           </Box>
         </Box>
       </Box>
@@ -140,7 +175,10 @@ const IndexPage: React.SFC<IndexData> = ({ data }) => {
       </IndexSection>
       <IndexSection title="Public repositories">
         {data.github.viewer.repositories.edges
-          .filter(node => !node.node.isArchived)
+          .filter(
+            node =>
+              !node.node.isArchived && node.node.owner.login === "oorestisime"
+          )
           .slice(0, 4)
           .map(repo => (
             <GithubRepo key={repo.node.name} repo={repo.node} />
@@ -151,8 +189,8 @@ const IndexPage: React.SFC<IndexData> = ({ data }) => {
           <Post key={post.node.frontmatter.path} post={post.node} />
         ))}
       </IndexSection>
-      <Box fill align="center" justify="center" margin={{ vertical: 'small' }}>
-        <Button onClick={() => push('/blog')} label="Load more" />
+      <Box fill align="center" justify="center" margin={{ vertical: "small" }}>
+        <Button onClick={() => push("/blog")} label="Load more" />
       </Box>
     </Layout>
   )
@@ -167,7 +205,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(limit: 4, sort: { order: DESC, fields: frontmatter___date }) {
+    allMarkdownRemark(
+      limit: 4
+      sort: { order: DESC, fields: frontmatter___date }
+    ) {
       edges {
         node {
           excerpt
@@ -203,12 +244,19 @@ export const pageQuery = graphql`
             }
           }
         }
-        repositories(first: 6, isFork: false, orderBy: { direction: DESC, field: STARGAZERS }) {
+        repositories(
+          first: 10
+          isFork: false
+          orderBy: { direction: DESC, field: STARGAZERS }
+        ) {
           edges {
             node {
               isArchived
               stargazers {
                 totalCount
+              }
+              owner {
+                login
               }
               forkCount
               name

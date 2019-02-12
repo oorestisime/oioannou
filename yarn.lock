@@ -4962,6 +4962,16 @@ gatsby-react-router-scroll@^2.0.1:
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
 
+gatsby-remark-autolink-headers@^2.0.13:
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-autolink-headers/-/gatsby-remark-autolink-headers-2.0.13.tgz#b49d9e417685202ed765ba60dc2505522a3853b6"
+  integrity sha512-KzSInFkND4VT52NgX/Af1nmLjHRtcA66l/+DMbUp89T8DbFOV4kUhMlFWxnP9nbWDGiFru0/enojpxIlqGhqIg==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    github-slugger "^1.1.1"
+    mdast-util-to-string "^1.0.2"
+    unist-util-visit "^1.3.0"
+
 gatsby-remark-images@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/gatsby-remark-images/-/gatsby-remark-images-3.0.1.tgz#01ac72451841ba5b82b9b260fe99ffca005c1eb4"
@@ -5513,10 +5523,10 @@ gray-matter@^4.0.0:
     section-matter "^1.0.0"
     strip-bom-string "^1.0.0"
 
-grommet-icons@^4.0.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-4.1.0.tgz#4705d2828461348ff38ddd2c42b8cd551e0569a0"
-  integrity sha512-S9TqY4R/J/xG6++xNXa5JoQeZ9/jO8b6FgmDOhHAD8Vdx/btPswp2hUliTdQiFZFxne4ILldQoCK0w1xwN9eSA==
+grommet-icons@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-4.2.0.tgz#7bcf7d4b37f694516ade084e2536c72b224c6a76"
+  integrity sha512-HMPLQa2pgnCZFImUXwfq+79VizL6oyP2/AAfAzQDw57x/6qgWouoqoRrrt+2zodTjTxtKXxliBY1w/o5uC+DpA==
   dependencies:
     grommet-styles "^0.2.0"
 
@@ -5525,13 +5535,13 @@ grommet-styles@^0.2.0:
   resolved "https://registry.yarnpkg.com/grommet-styles/-/grommet-styles-0.2.0.tgz#b2eac2b7e2747cb523434d21728ce5234f8ce4f4"
   integrity sha512-0OMSYuGeyifYKpg4Gv2HzL8rUdd0ddnJ5LbCBKgDuloC71XIwr9g/Fxa6rs737MbPV7OZ4pEm4wvrjH4epzf1A==
 
-grommet@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/grommet/-/grommet-2.3.1.tgz#18b00e50ed6ceeecbe133f843ffd52881922bc80"
-  integrity sha512-HgadVH6wNPXe/sw+10jIWSUF2WziMNl4iWm6Kv4sznsxfLNp/WonbxXn5igeJ3d+p8QcfX/8WgLUtpIVKcBC/w==
+grommet@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/grommet/-/grommet-2.4.0.tgz#ade4f12210f6cb4d3ff113a9565acbeb3e56d7f1"
+  integrity sha512-Ou7Y4JUdiGjnHRtGLg0OCr8RS8EKaSdyOsfTStWVfd+C/20zFkxtX9Bq3KMCBBvrLpqHwN4FBkrjzLnZbaE52A==
   dependencies:
     css "^2.2.3"
-    grommet-icons "^4.0.0"
+    grommet-icons "^4.2.0"
     grommet-styles "^0.2.0"
     hoist-non-react-statics "^3.2.0"
     markdown-to-jsx "^6.6.6"

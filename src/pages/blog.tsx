@@ -1,9 +1,9 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import { Box, ResponsiveContext, Grid } from 'grommet'
-import Layout from '../components/Layout'
-import Header from '../components/Header'
-import Post from '../components/Post'
+import React from "react"
+import { graphql } from "gatsby"
+import { Box, ResponsiveContext, Grid } from "grommet"
+import Layout from "../components/Layout"
+import Header from "../components/Header"
+import Post from "../components/Post"
 
 interface SkillsBoxProps {
   data: {
@@ -26,13 +26,15 @@ interface Post {
   }
 }
 
-const BlogPage: React.SFC<SkillsBoxProps> = ({ data: { allMarkdownRemark } }) => (
+const BlogPage: React.SFC<SkillsBoxProps> = ({
+  data: { allMarkdownRemark },
+}) => (
   <Layout>
     <Header title="Blog" />
-    <Box margin={{ horizontal: 'large' }}>
+    <Box margin={{ horizontal: "large" }}>
       <ResponsiveContext.Consumer>
         {size => (
-          <Grid align="start" columns={size || 'medium'} gap="medium">
+          <Grid align="start" columns={size || "medium"} gap="medium">
             {allMarkdownRemark.edges.map(post => (
               <Post key={post.node.frontmatter.path} post={post.node} />
             ))}

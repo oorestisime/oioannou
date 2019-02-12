@@ -1,10 +1,10 @@
-import React, { ReactChild } from 'react'
-import { Grommet } from 'grommet'
+import React, { ReactChild } from "react"
+import { Grommet } from "grommet"
 
-import data from '../data'
-import SiteContext from '../context'
-import { customTheme, GlobalTheme } from '../theme'
-import Footer from './Footer'
+import data from "../data"
+import SiteContext from "../context"
+import { customTheme, GlobalTheme } from "../theme"
+import Footer from "./Footer"
 
 interface LayoutProps {
   children: ReactChild[]
