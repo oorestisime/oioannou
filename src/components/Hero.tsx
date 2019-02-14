@@ -1,6 +1,6 @@
-import React, { ReactChild } from "react"
+import React, { ReactChild, useContext } from "react"
 import Img from "gatsby-image"
-import { Box, Heading, ResponsiveContext } from "grommet"
+import { Box, Heading, ResponsiveContext, Text } from "grommet"
 
 interface HeroType {
   image: object
@@ -10,42 +10,38 @@ interface HeroType {
   background?: string
 }
 
-const Hero: React.SFC<HeroType> = ({
+export const Hero: React.SFC<HeroType> = ({
   image,
   title,
   subtitle,
   anchor,
   background = "dark-2",
 }) => {
+  const size = useContext(ResponsiveContext)
   return (
     <Box height="100vh" background={background} align="center" justify="center">
-      <ResponsiveContext.Consumer>
-        {size => (
-          <Box
-            margin="medium"
-            direction={size === "small" ? "column" : "row"}
-            gap="medium"
-          >
-            <Box
-              margin={{ vertical: `${size === "small" ? "none" : size}` }}
-              alignSelf="center"
-            >
-              <Img alt="avatar" fixed={image} />
-            </Box>
-            <Box alignSelf="center">
-              <Heading>
-                <strong>{title}</strong>
-              </Heading>
-              {subtitle}
-              <Box direction="row" gap="xsmall" align="center">
-                Follow me on {anchor.map(link => link)}
-              </Box>
-            </Box>
+      <Box
+        margin="medium"
+        direction={size === "small" ? "column" : "row"}
+        gap="medium"
+      >
+        <Box
+          margin={{ vertical: `${size === "small" ? "none" : size}` }}
+          alignSelf="center"
+        >
+          <Img alt="avatar" fixed={image} />
+        </Box>
+        <Box alignSelf="center">
+          <Heading>
+            <strong>{title}</strong>
+          </Heading>
+          {subtitle}
+          <Box direction="row" gap="xsmall" align="center">
+            <Text>Follow me on</Text>
+            {anchor.map(link => link)}
           </Box>
-        )}
-      </ResponsiveContext.Consumer>
+        </Box>
+      </Box>
     </Box>
   )
 }
-
-export default Hero

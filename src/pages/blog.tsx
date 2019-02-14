@@ -1,9 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, ResponsiveContext, Grid } from "grommet"
-import Layout from "../components/Layout"
-import Header from "../components/Header"
-import Post from "../components/Post"
+import { Box } from "grommet"
+import { Layout, Header, Post, Section } from "../components/"
 
 interface SkillsBoxProps {
   data: {
@@ -28,22 +26,20 @@ interface Post {
 
 const BlogPage: React.SFC<SkillsBoxProps> = ({
   data: { allMarkdownRemark },
-}) => (
-  <Layout>
-    <Header title="Blog" />
-    <Box margin={{ horizontal: "large" }}>
-      <ResponsiveContext.Consumer>
-        {size => (
-          <Grid align="start" columns={size || "medium"} gap="medium">
-            {allMarkdownRemark.edges.map(post => (
-              <Post key={post.node.frontmatter.path} post={post.node} />
-            ))}
-          </Grid>
-        )}
-      </ResponsiveContext.Consumer>
-    </Box>
-  </Layout>
-)
+}) => {
+  return (
+    <Layout>
+      <Header title="Blog" />
+      <Box margin={{ horizontal: "large" }}>
+        <Section>
+          {allMarkdownRemark.edges.map(post => (
+            <Post key={post.node.frontmatter.path} post={post.node} />
+          ))}
+        </Section>
+      </Box>
+    </Layout>
+  )
+}
 
 export const pageQuery = graphql`
   query BlogQuery {

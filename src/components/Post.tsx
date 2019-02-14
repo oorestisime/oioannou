@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import {
   ResponsiveContext,
   Box,
@@ -9,7 +9,7 @@ import {
 } from "grommet"
 import { Clock, Calendar } from "grommet-icons"
 
-import Tags from "./Tags"
+import { Tags, InternalLink } from "."
 
 interface PostProps {
   post: {
@@ -24,38 +24,37 @@ interface PostProps {
   }
 }
 
-const Post: React.SFC<PostProps> = ({ post }) => (
-  <Box align="start" fill pad="small">
-    <Box fill="horizontal" elevation="small" round="xsmall" pad="small">
-      <Heading level="3" margin="none">
-        {post.frontmatter.title}
-      </Heading>
-      <Box
-        direction="row"
-        gap="xsmall"
-        align="center"
-        margin={{ left: "xsmall", top: "xsmall" }}
-      >
-        <Calendar size="small" />
-        <Text size="small">{post.frontmatter.date}</Text>
-        <Clock size="small" />
-        <Text size="small">{post.timeToRead} min read</Text>
+export const Post: React.SFC<PostProps> = ({ post }) => {
+  const size = useContext(ResponsiveContext)
+  return (
+    <Box width="medium" align="start" pad="small">
+      <Box elevation="small" round="xsmall" pad="small">
+        <Heading level="3" margin="none">
+          {post.frontmatter.title}
+        </Heading>
+        <Box
+          direction="row"
+          gap="xsmall"
+          align="center"
+          margin={{ left: "xsmall", top: "xsmall" }}
+        >
+          <Calendar size="small" />
+          <Text size="small">{post.frontmatter.date}</Text>
+          <Clock size="small" />
+          <Text size="small">{post.timeToRead} min read</Text>
+        </Box>
+        <Paragraph size="small" margin={{ horizontal: "medium" }}>
+          {post.excerpt}
+          <InternalLink to={post.frontmatter.path}>
+            <Anchor as="span" label=" Read more" size="small" />
+          </InternalLink>
+        </Paragraph>
+        {size !== "small" && (
+          <Box gap="xsmall" direction="row" align="center">
+            <Tags tags={post.frontmatter.tags} />
+          </Box>
+        )}
       </Box>
-      <Paragraph size="small" margin={{ horizontal: "medium" }}>
-        {post.excerpt}
-        <Anchor href={post.frontmatter.path} label=" Read more" size="small" />
-      </Paragraph>
-      <ResponsiveContext.Consumer>
-        {size =>
-          size !== "small" && (
-            <Box gap="xsmall" direction="row" wrap align="center">
-              <Tags tags={post.frontmatter.tags} />
-            </Box>
-          )
-        }
-      </ResponsiveContext.Consumer>
     </Box>
-  </Box>
-)
-
-export default Post
+  )
+}

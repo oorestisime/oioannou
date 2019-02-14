@@ -1,14 +1,14 @@
 import React from "react"
-import { push } from "gatsby"
-import { Box, Button, Text } from "grommet"
+import { Box, Text } from "grommet"
+import { InternalLink } from "."
 interface TagsProps {
   tags: string[]
 }
 
-const Tags: React.SFC<TagsProps> = ({ tags }) => (
-  <Box direction="row" gap="xsmall">
+export const Tags: React.SFC<TagsProps> = ({ tags }) => (
+  <Box wrap direction="row" gap="xsmall">
     {tags.map(tag => (
-      <Button key={tag} onClick={() => push(`/tag/${tag.toLowerCase()}`)}>
+      <InternalLink key={tag} to={`/tag/${tag.toLowerCase()}`}>
         <Box
           margin={{ top: "xsmall" }}
           background="brand"
@@ -17,8 +17,7 @@ const Tags: React.SFC<TagsProps> = ({ tags }) => (
         >
           <Text size="small">{tag}</Text>
         </Box>
-      </Button>
+      </InternalLink>
     ))}
   </Box>
 )
-export default Tags

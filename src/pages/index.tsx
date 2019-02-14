@@ -1,16 +1,17 @@
-import React, { Fragment } from "react"
-import { Box, Paragraph, Anchor, Button } from "grommet"
+import React from "react"
+import { Box, Paragraph, Anchor, Button, Text } from "grommet"
 import { Github, Twitter } from "grommet-icons"
-import { graphql, push } from "gatsby"
+import { graphql } from "gatsby"
 
-import SiteContext from "../context"
-import Layout from "../components/Layout"
-import Skills from "../components/Skills"
-import GithubRepo from "../components/GithubRepo"
-import Post from "../components/Post"
-import IndexSection from "../components/IndexSection"
-import Hero from "../components/Hero"
-import Seo from "../components/Seo"
+import {
+  Layout,
+  GithubRepo,
+  Post,
+  Section,
+  Hero,
+  Seo,
+  InternalLink,
+} from "../components/"
 
 type pullRequest = {
   merged: boolean
@@ -129,68 +130,59 @@ const IndexPage: React.SFC<IndexData> = ({ data }) => {
           />,
         ]}
       />
-      <Box background="brand">
-        <Box
-          justify="between"
-          direction="row-responsive"
-          margin={{ horizontal: "medium" }}
-        >
-          <Box>
-            <Paragraph color="white" size="large">
-              {`My journey in life started ${new Date().getFullYear() -
-                1992} years ago in a little but beautiful island in the Mediterranean , Cyprus.`}
-            </Paragraph>
-            <Paragraph color="white" size="large">
-              I wear a Full stack dev hat by day in Paris and spending most of
-              the nights contributing to Open Source projects such as{" "}
-              <Anchor
-                color="white"
-                href="https://v2.grommet.io/"
-                label="Grommet "
-              />
-              and{" "}
-              <Anchor
-                color="white"
-                href="https://gatsbyjs.org/"
-                label=" Gatsby"
-              />
-              . I am always open to discuss exciting projects around these
-              technologies.
-            </Paragraph>
-          </Box>
-          <Box>
-            <SiteContext.Consumer>
-              {site => <Skills skills={site.skills} />}
-            </SiteContext.Consumer>
-          </Box>
+      <Box pad="small" align="center" background="brand">
+        <Box gap="medium" width="large">
+          <Text textAlign="center" color="white" size="large">
+            {`My journey in life started ${new Date().getFullYear() -
+              1992} years ago in a little but beautiful island in the Mediterranean , Cyprus.`}
+          </Text>
+          <Text textAlign="center" color="white" size="large">
+            I wear a Full stack dev hat by day in Paris and spending most of the
+            nights contributing to Open Source projects such as{" "}
+            <Anchor
+              color="white"
+              href="https://v2.grommet.io/"
+              label="Grommet "
+            />
+            and{" "}
+            <Anchor
+              color="white"
+              href="https://gatsbyjs.org/"
+              label=" Gatsby"
+            />
+            . I am always open to discuss exciting projects around these
+            technologies.
+          </Text>
         </Box>
       </Box>
-      <IndexSection title="Recent OS contributions">
+      <Section title="Recent OS contributions">
         {Object.values(contributions)
           .sort((a, b) => a.count < b.count)
           .slice(0, 6)
           .map(repo => (
             <GithubRepo key={repo.name} repo={repo} />
           ))}
-      </IndexSection>
-      <IndexSection title="Public repositories">
+      </Section>
+      <Section title="Public repositories">
         {data.github.viewer.repositories.edges
           .filter(
             node =>
               !node.node.isArchived && node.node.owner.login === "oorestisime"
           )
-          .slice(0, 4)
+          .slice(0, 6)
           .map(repo => (
             <GithubRepo key={repo.node.name} repo={repo.node} />
           ))}
-      </IndexSection>
-      <IndexSection title="I sometimes blog">
+      </Section>
+      <Section title="I sometimes blog">
         {data.allMarkdownRemark.edges.map(post => (
           <Post key={post.node.frontmatter.path} post={post.node} />
         ))}
-      </IndexSection>
-      <Box fill align="center" justify="center" margin={{ vertical: "small" }}>
-        <Button onClick={() => push("/blog")} label="Load more" />
+      </Section>
+      <Box align="center" justify="center" margin={{ vertical: "small" }}>
+        <InternalLink to="/blog">
+          <Button as="span" label="Load more" />
+        </InternalLink>
       </Box>
     </Layout>
   )
@@ -206,7 +198,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      limit: 4
+      limit: 6
       sort: { order: DESC, fields: frontmatter___date }
     ) {
       edges {

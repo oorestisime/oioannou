@@ -1,10 +1,7 @@
 import React from "react"
-import { Box, ResponsiveContext, Grid } from "grommet"
+import { Box } from "grommet"
 
-import Layout from "../components/Layout"
-import Header from "../components/Header"
-import Post from "../components/Post"
-import Seo from "../components/Seo"
+import { Section, Layout, Header, Post, Seo } from "../components/"
 
 type TagProps = {
   pageContext: {
@@ -30,15 +27,11 @@ const Tag: React.SFC<TagProps> = ({ pageContext: { title, posts } }) => (
     />
     <Header title={`Tag: ${title}`} />
     <Box margin={{ horizontal: "large" }}>
-      <ResponsiveContext.Consumer>
-        {size => (
-          <Grid align="start" columns={size || "medium"} gap="medium">
-            {posts.map(post => (
-              <Post key={post.frontmatter.path} post={post} />
-            ))}
-          </Grid>
-        )}
-      </ResponsiveContext.Consumer>
+      <Section>
+        {posts.map(post => (
+          <Post key={post.frontmatter.path} post={post} />
+        ))}
+      </Section>
     </Box>
   </Layout>
 )

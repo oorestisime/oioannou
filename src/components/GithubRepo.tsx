@@ -19,7 +19,7 @@ interface GithubRepoProps {
   }
 }
 
-const GithubRepo: React.SFC<GithubRepoProps> = ({ repo }) => (
+export const GithubRepo: React.SFC<GithubRepoProps> = ({ repo }) => (
   <Box margin="xsmall" animation="fadeIn" pad="xsmall" elevation="small">
     <Heading level="3" margin="xsmall">
       {repo.nameWithOwner || repo.name}
@@ -57,4 +57,3 @@ const GithubRepo: React.SFC<GithubRepoProps> = ({ repo }) => (
     </Box>
   </Box>
 )
-export default GithubRepo

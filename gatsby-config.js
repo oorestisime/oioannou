@@ -8,7 +8,6 @@ module.exports = {
     siteUrl: "https://oioannou.com",
   },
   plugins: [
-    "gatsby-plugin-netlify-cache",
     "gatsby-transformer-sharp",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-typescript",

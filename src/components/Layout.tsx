@@ -1,23 +1,24 @@
 import React, { ReactChild } from "react"
-import { Grommet } from "grommet"
+import { Grommet, Box } from "grommet"
 
 import data from "../data"
 import SiteContext from "../context"
-import { customTheme, GlobalTheme } from "../theme"
-import Footer from "./Footer"
+import { customTheme } from "../theme"
+import { Footer } from "."
 
 interface LayoutProps {
   children: ReactChild[]
 }
 
-const Layout: React.SFC<LayoutProps> = props => (
+export const Layout: React.SFC<LayoutProps> = props => (
   <SiteContext.Provider value={data}>
-    <Grommet theme={customTheme}>
-      <GlobalTheme />
-      {props.children}
-      <Footer />
+    <Grommet full theme={customTheme}>
+      <Box alignSelf="center">
+        <Box width="xxxlarge">
+          {props.children}
+          <Footer />
+        </Box>
+      </Box>
     </Grommet>
   </SiteContext.Provider>
 )
-
-export default Layout

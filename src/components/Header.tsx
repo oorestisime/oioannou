@@ -1,101 +1,62 @@
-import React from "react"
-import { push } from "gatsby"
-import {
-  Box,
-  Button,
-  Heading,
-  ResponsiveContext,
-  Layer,
-  RoutedAnchor,
-  Text,
-} from "grommet"
+import React, { useContext, useState } from "react"
+import { Box, Button, Heading, ResponsiveContext, Layer, Anchor } from "grommet"
 import { Down, Up } from "grommet-icons"
 
+import { InternalLink } from "."
 import SiteContext from "../context"
 
 type HeaderProps = {
   title?: string
 }
 
-class Header extends React.Component<HeaderProps, {}> {
-  state = {
-    showLayer: false,
-  }
+export const Header: React.FunctionComponent<HeaderProps> = ({ title }) => {
+  const size = useContext(ResponsiveContext)
+  const site = useContext(SiteContext)
+  const [layer, setLayer] = useState(false)
 
-  render() {
-    const { title } = this.props
-    return (
-      <SiteContext.Consumer>
-        {site => (
-          <Box
-            pad="small"
-            tag="header"
-            direction="row"
-            background="brand"
-            align="center"
-            elevation="small"
-            justify="between"
-          >
-            <Button>
-              <Box
-                flex={false}
-                direction="row"
-                align="center"
-                margin={{ left: "small" }}
-              >
-                <Heading level="2" margin={{ left: "small", vertical: "none" }}>
-                  {title || `Blog`}
-                </Heading>
-              </Box>
-            </Button>
+  return (
+    <Box
+      pad={{ horizontal: "large", vertical: "small" }}
+      tag="header"
+      direction="row"
+      background="brand"
+      elevation="small"
+      justify="between"
+      align="center"
+    >
+      <Heading level="2" margin={{ left: "small", vertical: "none" }}>
+        {title || `Blog`}
+      </Heading>
 
-            <ResponsiveContext.Consumer>
-              {size =>
-                size === "small" ? (
-                  <Button
-                    icon={<Down />}
-                    onClick={() => this.setState({ showLayer: true })}
-                  />
-                ) : (
-                  <Box
-                    margin={{ horizontal: "medium" }}
-                    direction="row"
-                    align="center"
-                    gap="medium"
-                  >
-                    {site.menu.map(item => (
-                      <Button
-                        plain
-                        onClick={() => push(item.path)}
-                        label={item.label}
-                      />
-                    ))}
-                  </Box>
-                )
-              }
-            </ResponsiveContext.Consumer>
+      {size === "small" ? (
+        <Button icon={<Down />} onClick={() => setLayer(true)} />
+      ) : (
+        <Box
+          margin={{ horizontal: "medium" }}
+          direction="row"
+          align="center"
+          gap="medium"
+        >
+          {site.menu.map(item => (
+            <InternalLink to={item.path}>
+              <Button as="span" plain label={item.label} />
+            </InternalLink>
+          ))}
+        </Box>
+      )}
 
-            {this.state.showLayer && (
-              <Layer full>
-                <Box fill background="light-1" align="start" pad="small">
-                  <Button
-                    plain
-                    icon={<Up />}
-                    onClick={() => this.setState({ showLayer: false })}
-                  />
-                  {site.menu.map(item => (
-                    <RoutedAnchor method={push} path={item.path}>
-                      <Text size="large">{item.label}</Text>
-                    </RoutedAnchor>
-                  ))}
-                </Box>
-              </Layer>
-            )}
+      {layer && (
+        <Layer full>
+          <Box fill background="light-1" align="start" pad="small">
+            <Button plain icon={<Up />} onClick={() => setLayer(false)} />
+            {site.menu.map(item => (
+              <InternalLink to={item.path}>
+                <Anchor label={item.label} as="span" size="large" />
+              </InternalLink>
+            ))}
           </Box>
-        )}
-      </SiteContext.Consumer>
-    )
-  }
+        </Layer>
+      )}
+    </Box>
+  )
 }
-
-export default Header

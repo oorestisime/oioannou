@@ -30,7 +30,12 @@ const query = graphql`
   }
 `
 
-const SEO: React.SFC<SeoType> = ({ title, description, slug, lang = "en" }) => {
+export const Seo: React.SFC<SeoType> = ({
+  title,
+  description,
+  slug,
+  lang = "en",
+}) => {
   return (
     <StaticQuery
       query={query}
@@ -96,5 +101,3 @@ const SEO: React.SFC<SeoType> = ({ title, description, slug, lang = "en" }) => {
     />
   )
 }
-
-export default SEO

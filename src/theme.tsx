@@ -1,12 +1,5 @@
 import { deepFreeze } from "grommet/utils"
-import { createGlobalStyle } from "styled-components"
-import "typeface-montserrat"
 
-export const GlobalTheme = createGlobalStyle`
-  body {
-    margin: 0;
-  }
-`
 export const customTheme = deepFreeze({
   global: {
     colors: {

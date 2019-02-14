@@ -5,3 +5,4 @@
  */
 
 require("prismjs/themes/prism-solarizedlight.css")
+require("typeface-montserrat")

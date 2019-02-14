@@ -4,10 +4,7 @@ import { Box, Anchor, Text, Heading } from "grommet"
 import { History } from "grommet-icons"
 import rehypeReact from "rehype-react"
 
-import Layout from "../components/Layout"
-import Header from "../components/Header"
-import Tags from "../components/Tags"
-import Seo from "../components/Seo"
+import { Layout, Header, Tags, Seo } from "../components/"
 
 // eslint-disable-next-line new-cap
 const renderAst = new rehypeReact({
