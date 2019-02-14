@@ -132,5 +132,19 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Orestis Ioannou`,
+        short_name: `OIoannou`,
+        start_url: `/`,
+        background_color: `#89bdd3`,
+        theme_color: `#89bdd3`,
+        display: `standalone`,
+        icon: `src/images/me.png`, // This path is relative to the root of the site.
+        include_favicon: true, // Include favicon
+      },
+    },
+    `gatsby-plugin-offline`,
   ],
 }
