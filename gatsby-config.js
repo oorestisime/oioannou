@@ -14,6 +14,12 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-catch-links",
     {
+      resolve: `gatsby-plugin-scroll-indicator`,
+      options: {
+        color: "#89bdd3",
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
