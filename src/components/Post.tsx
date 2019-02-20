@@ -29,7 +29,7 @@ export const Post: React.SFC<PostProps> = ({ post }) => {
   return (
     <Box width="medium" align="start" pad="small">
       <Box elevation="small" round="xsmall" pad="small">
-        <Heading level="3" margin="none">
+        <Heading level="2" margin="none">
           {post.frontmatter.title}
         </Heading>
         <Box
@@ -38,10 +38,14 @@ export const Post: React.SFC<PostProps> = ({ post }) => {
           align="center"
           margin={{ left: "xsmall", top: "xsmall" }}
         >
-          <Calendar size="small" />
-          <Text size="small">{post.frontmatter.date}</Text>
-          <Clock size="small" />
-          <Text size="small">{post.timeToRead} min read</Text>
+          <Calendar color="dark-4" size="small" />
+          <Text color="dark-4" size="small">
+            {post.frontmatter.date}
+          </Text>
+          <Clock color="dark-4" size="small" />
+          <Text color="dark-4" size="small">
+            {post.timeToRead} min read
+          </Text>
         </Box>
         <Paragraph size="small" margin={{ horizontal: "medium" }}>
           {post.excerpt}

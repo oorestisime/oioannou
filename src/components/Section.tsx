@@ -26,7 +26,6 @@ export const Section: React.FC<SectionType> = ({
       margin={{ horizontal: "medium" }}
       justify={justify || "center"}
       direction="row-responsive"
-      gap="small"
     >
       {children}
     </Box>

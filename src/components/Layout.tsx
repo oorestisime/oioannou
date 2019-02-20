@@ -19,12 +19,8 @@ export const Layout: React.SFC<LayoutProps> = props => (
   <SiteContext.Provider value={data}>
     <FullGlobalStyle />
     <Grommet theme={customTheme}>
-      <Box alignSelf="center">
-        <Box width="xxxlarge">
-          {props.children}
-          <Footer />
-        </Box>
-      </Box>
+      {props.children}
+      <Footer />
     </Grommet>
   </SiteContext.Provider>
 )

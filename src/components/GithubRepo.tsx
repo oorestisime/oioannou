@@ -43,6 +43,7 @@ export const GithubRepo: React.SFC<GithubRepoProps> = ({ repo }) => (
       direction="row-responsive"
       justify="between"
       fill="horizontal"
+      alignSelf="end"
     >
       <Box direction="row" gap="xsmall" pad="xsmall">
         <Star color="brand" />
