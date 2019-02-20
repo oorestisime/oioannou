@@ -4927,10 +4927,10 @@ gatsby-plugin-react-helmet@^3.0.6:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-gatsby-plugin-scroll-indicator@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-scroll-indicator/-/gatsby-plugin-scroll-indicator-0.0.6.tgz#eaef1ca322e1a382eaf4d4185ae864b998a5759a"
-  integrity sha512-DH1eY0EzuXJlNbDK8nC7fogk9oQYkKkCtjpxRYskcmk4eC6CfZeDFDq1k343rumA5+8V5lezEnzfknS3RuNYkA==
+gatsby-plugin-scroll-indicator@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-scroll-indicator/-/gatsby-plugin-scroll-indicator-0.0.7.tgz#fc30c1e62bb5941d974aed6f1750b0243d1e8aba"
+  integrity sha512-jfpQNmWB5e30ULkJ/16aG1m/C7ZfCYlrFHIom9T3TDYr2kO4EM0LdgeUy8aASSzERmgWvKBJ8kA1vKEUq26pVA==
   dependencies:
     "@babel/runtime" "7.3.1"
 
@@ -5087,10 +5087,10 @@ gatsby-transformer-sharp@^2.1.14:
     probe-image-size "^4.0.0"
     sharp "^0.21.3"
 
-gatsby@^2.1.9:
-  version "2.1.9"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.1.9.tgz#940530ad392313ac931ae20bd0d7e291f1a2e5ad"
-  integrity sha512-pVjkldHxcJTD691nEg0N6z1+SBmsPNiHKBgMbIz6PvhqN9RWK8uxgzqVgpvzaYdCuOaTHvj9Z4oQpSIRH/Fvbg==
+gatsby@^2.1.10:
+  version "2.1.10"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.1.10.tgz#130f91efa9ccfc9331e33d5883cda96bc99b8df0"
+  integrity sha512-yqC9KRfsNct1QAI9ilrNofXz9fPQlqb5DliZnJ3su9KX4BzVCO3J8ysafTAmzP8LvnpGIxI7rF8YUcN63/HaJQ==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/core" "^7.0.0"
