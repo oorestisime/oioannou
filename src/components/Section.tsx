@@ -7,7 +7,7 @@ interface SectionType {
   justify?: "start" | "end" | "center" | "around" | "between"
 }
 
-export const Section: React.SFC<SectionType> = ({
+export const Section: React.FC<SectionType> = ({
   title,
   children,
   justify,

@@ -23,14 +23,23 @@ export const Footer = () => {
             icon={<Gremlin color="brand" />}
             href="//grommet.io"
             target="_blank"
+            rel="noopener noreferrer"
           />{" "}
-          and <Anchor label="Gatsby" href="//gatsbyjs.org" target="_blank" />.
+          and{" "}
+          <Anchor
+            rel="noopener noreferrer"
+            label="Gatsby"
+            href="//gatsbyjs.org"
+            target="_blank"
+          />
+          .
         </Heading>
         {data.social.github && (
           <Anchor
             label="Get source from Github"
             href={data.social.github}
             target="_blank"
+            rel="noopener noreferrer"
           />
         )}
       </Box>

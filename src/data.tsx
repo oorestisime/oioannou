@@ -8,7 +8,7 @@ export default {
       path: "/",
     },
     {
-      label: "Blog",
+      label: "Archive",
       path: "/blog",
     },
   ],

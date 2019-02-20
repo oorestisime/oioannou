@@ -10,6 +10,36 @@ export const customTheme = deepFreeze({
       family: "Montserrat, Arial, sans-serif",
     },
   },
+  heading: {
+    level: {
+      2: {
+        font: {
+          weight: 400,
+        },
+      },
+      3: {
+        font: {
+          weight: 350,
+        },
+      },
+      4: {
+        font: {
+          weight: 300,
+        },
+      },
+      5: {
+        font: {
+          weight: 300,
+        },
+      },
+      6: {
+        font: {
+          weight: 300,
+        },
+      },
+    },
+    weight: 500,
+  },
   anchor: {
     color: {
       dark: "#89bdd3",

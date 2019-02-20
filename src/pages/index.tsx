@@ -115,6 +115,7 @@ const IndexPage: React.SFC<IndexData> = ({ data }) => {
         image={data.avatar.childImageSharp.fixed}
         anchor={[
           <Anchor
+            key="github"
             color="brand"
             icon={<Github />}
             href="//github.com/oorestisime"
@@ -122,6 +123,7 @@ const IndexPage: React.SFC<IndexData> = ({ data }) => {
             rel="noopener noreferrer"
           />,
           <Anchor
+            key="twitter"
             color="brand"
             icon={<Twitter />}
             href="//twitter.com/oorestisime"

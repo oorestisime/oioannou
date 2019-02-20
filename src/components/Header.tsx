@@ -15,48 +15,52 @@ export const Header: React.FunctionComponent<HeaderProps> = ({ title }) => {
   const [layer, setLayer] = useState(false)
 
   return (
-    <Box
-      pad={{ horizontal: "large", vertical: "small" }}
-      tag="header"
-      direction="row"
-      background="brand"
-      elevation="small"
-      justify="between"
-      align="center"
-    >
-      <Heading level="2" margin={{ left: "small", vertical: "none" }}>
-        {title || `Blog`}
-      </Heading>
+    <Box tag="header" background="brand" elevation="small">
+      <Box
+        width="xlarge"
+        alignSelf="center"
+        pad={{ horizontal: "xsmall", vertical: "small" }}
+        justify="between"
+        direction="row"
+      >
+        <InternalLink to="/">
+          <Anchor color="dark-1" as="span">
+            <Heading level="3" margin={{ left: "small", vertical: "none" }}>
+              {title || `@oorestisime`}
+            </Heading>
+          </Anchor>
+        </InternalLink>
 
-      {size === "small" ? (
-        <Button icon={<Down />} onClick={() => setLayer(true)} />
-      ) : (
-        <Box
-          margin={{ horizontal: "medium" }}
-          direction="row"
-          align="center"
-          gap="medium"
-        >
-          {site.menu.map(item => (
-            <InternalLink to={item.path}>
-              <Button as="span" plain label={item.label} />
-            </InternalLink>
-          ))}
-        </Box>
-      )}
-
-      {layer && (
-        <Layer full>
-          <Box fill background="light-1" align="start" pad="small">
-            <Button plain icon={<Up />} onClick={() => setLayer(false)} />
+        {size === "small" ? (
+          <Button icon={<Down />} onClick={() => setLayer(true)} />
+        ) : (
+          <Box
+            margin={{ horizontal: "medium" }}
+            direction="row"
+            align="center"
+            gap="medium"
+          >
             {site.menu.map(item => (
-              <InternalLink to={item.path}>
-                <Anchor label={item.label} as="span" size="large" />
+              <InternalLink key={item.path} to={item.path}>
+                <Button as="span" plain label={item.label} />
               </InternalLink>
             ))}
           </Box>
-        </Layer>
-      )}
+        )}
+
+        {layer && (
+          <Layer full>
+            <Box fill background="light-1" align="start" pad="small">
+              <Button plain icon={<Up />} onClick={() => setLayer(false)} />
+              {site.menu.map(item => (
+                <InternalLink to={item.path}>
+                  <Anchor label={item.label} as="span" size="large" />
+                </InternalLink>
+              ))}
+            </Box>
+          </Layer>
+        )}
+      </Box>
     </Box>
   )
 }
