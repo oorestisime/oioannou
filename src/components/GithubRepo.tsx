@@ -27,26 +27,22 @@ export const GithubRepo: React.SFC<GithubRepoProps> = ({ repo }) => (
     animation="fadeIn"
     pad="xsmall"
     elevation="xsmall"
+    height="small"
+    justify="between"
   >
-    <Anchor
-      rel="noopener noreferrer"
-      label={`${repo.nameWithOwner || repo.name}`}
-      target="_blank"
-      href={repo.url}
-    >
+    <Anchor rel="noopener noreferrer" target="_blank" href={repo.url}>
       <Heading level="3" margin="xsmall">
         {repo.nameWithOwner || repo.name}
       </Heading>
     </Anchor>
     <Box margin={{ horizontal: "medium" }}>
-      <Paragraph size="small">{repo.description}</Paragraph>
+      <Text size="medium">{repo.description}</Text>
     </Box>
     <Box
       margin={{ top: "small" }}
-      direction="row-responsive"
+      direction="row"
       justify="between"
       fill="horizontal"
-      alignSelf="end"
     >
       <Box direction="row" gap="xsmall" pad="xsmall">
         <Star color="brand" />

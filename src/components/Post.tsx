@@ -1,17 +1,11 @@
 import React, { useContext } from "react"
-import {
-  ResponsiveContext,
-  Box,
-  Heading,
-  Paragraph,
-  Text,
-  Anchor,
-} from "grommet"
+import { ResponsiveContext, Box, Heading, Text, Anchor } from "grommet"
 import { Clock, Calendar } from "grommet-icons"
 
 import { Tags, InternalLink } from "."
 
 interface PostProps {
+  dark: boolean
   post: {
     timeToRead: number
     excerpt: string
@@ -24,11 +18,15 @@ interface PostProps {
   }
 }
 
-export const Post: React.SFC<PostProps> = ({ post }) => {
+export const Post: React.SFC<PostProps> = ({ post, dark }) => {
   const size = useContext(ResponsiveContext)
+  const additionalProps = {
+    elevation: dark ? undefined : "xsmall",
+    border: dark && true,
+  }
   return (
     <Box width="xlarge" align="start" pad="small">
-      <Box elevation="xsmall" round="xsmall" pad="small">
+      <Box {...additionalProps} round="xsmall" pad="small">
         <Heading level="2" margin="none">
           {post.frontmatter.title}
         </Heading>

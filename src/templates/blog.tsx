@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
-import { Box, Anchor, Text, Heading, CheckBox, Button } from "grommet"
-import { History, FormPreviousLink } from "grommet-icons"
+import { Box, Anchor, Text, Heading } from "grommet"
+import { History } from "grommet-icons"
 import rehypeReact from "rehype-react"
 
-import { Layout, InternalLink, Tags, Seo } from "../components/"
+import { useThemeToggle } from "../tools"
+import { Layout, Tags, Seo, Header, BlogContainer } from "../components/"
 
 const Quote = styled.blockquote`
   position: relative;
   margin: 40px auto;
-  width: 400px;
+  width: 300px;
   font-size: 48px;
   line-height: 56px;
   padding-left: 40px;
@@ -60,13 +61,7 @@ const BlogPage: React.SFC<BlogPageType> = ({
     markdownRemark: { htmlAst, excerpt, frontmatter },
   },
 }) => {
-  const initialTheme = window.localStorage.getItem("theme")
-  const [dark, setDark] = useState(initialTheme === "true")
-  const toggleTheme = () => setDark(!dark)
-  useEffect(() => {
-    window.localStorage.setItem("theme", dark.toString())
-  }, [dark])
-
+  const [dark, toggleTheme] = useThemeToggle()
   return (
     <Layout>
       <Seo
@@ -74,33 +69,22 @@ const BlogPage: React.SFC<BlogPageType> = ({
         description={excerpt}
         slug={frontmatter.path}
       />
-      <Box background={dark ? "dark-1" : "light-2"}>
+      <BlogContainer dark={dark}>
+        <Header article toggleTheme={() => toggleTheme(!dark)} dark={dark} />
+        <Heading level="1">{frontmatter.title}</Heading>
+        {renderAst(htmlAst)}
         <Box
-          alignSelf="center"
-          width="large"
-          pad={{ horizontal: "medium", vertical: "small" }}
+          direction="row-responsive"
+          justify="between"
+          margin={{ top: "medium" }}
         >
-          <Box justify="between" direction="row">
-            <InternalLink key="blog" to="/blog">
-              <Button as="span" plain icon={<FormPreviousLink />} />
-            </InternalLink>
-            <CheckBox checked={dark} toggle onChange={toggleTheme} />
+          <Box align="center" direction="row" gap="xsmall">
+            <History size="small" />
+            <Text size="small">{frontmatter.date}</Text>
           </Box>
-          <Heading level="1">{frontmatter.title}</Heading>
-          {renderAst(htmlAst)}
-          <Box
-            direction="row-responsive"
-            justify="between"
-            margin={{ top: "medium" }}
-          >
-            <Box align="center" direction="row" gap="xsmall">
-              <History size="small" />
-              <Text size="small">{frontmatter.date}</Text>
-            </Box>
-            <Tags tags={frontmatter.tags} />
-          </Box>
+          <Tags tags={frontmatter.tags} />
         </Box>
-      </Box>
+      </BlogContainer>
     </Layout>
   )
 }

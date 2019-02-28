@@ -1,21 +1,29 @@
-import React from "react"
-import { Box, Anchor, Heading, Text } from "grommet"
-import { InternalLink } from "."
+import React, { useContext } from "react"
+import { Box, Button, CheckBox, ResponsiveContext } from "grommet"
+import { FormPreviousLink } from "grommet-icons"
+import { InternalLink, BlogHeader } from "."
 
-export const Header = () => (
-  <Box align="center">
-    <Box direction="row" gap="xsmall">
-      <Heading level="1">Thoughts of</Heading>
-      <InternalLink to="/">
-        <Anchor
-          as="span"
-          label={<Heading level="1">Orestis Ioannou</Heading>}
-          size="small"
-        />
+type HeaderProps = {
+  article?: boolean
+  dark?: boolean
+  toggleTheme?: () => void
+}
+
+export const Header: React.SFC<HeaderProps> = ({
+  article = false,
+  dark,
+  toggleTheme,
+}) => {
+  const size = useContext(ResponsiveContext)
+  return (
+    <Box align="center" justify="between" direction="row-responsive">
+      <InternalLink key="blog" to="/blog">
+        <Button as="span" plain icon={<FormPreviousLink />} />
       </InternalLink>
+      {!article && <BlogHeader />}
+      {size !== "small" && (
+        <CheckBox checked={dark} toggle onChange={toggleTheme} />
+      )}
     </Box>
-    <Text size="small">
-      I blog about OS, python, react, gatsby, grommet, debian...
-    </Text>
-  </Box>
-)
+  )
+}

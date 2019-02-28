@@ -1,7 +1,16 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { Box } from "grommet"
-import { Layout, Post, Section, Header } from "../components/"
+
+import {
+  Layout,
+  Post,
+  Section,
+  Header,
+  Seo,
+  BlogContainer,
+} from "../components/"
+import { useThemeToggle } from "../tools"
 
 interface SkillsBoxProps {
   data: {
@@ -27,16 +36,26 @@ interface Post {
 const BlogPage: React.SFC<SkillsBoxProps> = ({
   data: { allMarkdownRemark },
 }) => {
+  const [dark, toggleTheme] = useThemeToggle()
   return (
     <Layout>
-      <Header />
-      <Box margin={{ vertical: "medium", horizontal: "large" }}>
+      <Seo
+        title="Blog"
+        description="Personal blog, I blog about OS, python, react, gatsby, grommet, debian..."
+        slug="blog"
+      />
+      <BlogContainer dark={dark}>
+        <Header toggleTheme={() => toggleTheme(!dark)} dark={dark} />
         <Section direction="column" align="center">
           {allMarkdownRemark.edges.map(post => (
-            <Post key={post.node.frontmatter.path} post={post.node} />
+            <Post
+              dark={dark}
+              key={post.node.frontmatter.path}
+              post={post.node}
+            />
           ))}
         </Section>
-      </Box>
+      </BlogContainer>
     </Layout>
   )
 }
