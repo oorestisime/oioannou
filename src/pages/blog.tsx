@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { Box } from "grommet"
-import { Layout, Header, Post, Section } from "../components/"
+import { Layout, Post, Section, Header } from "../components/"
 
 interface SkillsBoxProps {
   data: {
@@ -29,9 +29,9 @@ const BlogPage: React.SFC<SkillsBoxProps> = ({
 }) => {
   return (
     <Layout>
-      <Header title="Blog" />
-      <Box margin={{ horizontal: "large" }}>
-        <Section>
+      <Header />
+      <Box margin={{ vertical: "medium", horizontal: "large" }}>
+        <Section direction="column" align="center">
           {allMarkdownRemark.edges.map(post => (
             <Post key={post.node.frontmatter.path} post={post.node} />
           ))}
@@ -46,7 +46,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 480)
           timeToRead
           frontmatter {
             title

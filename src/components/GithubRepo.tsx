@@ -16,6 +16,7 @@ interface GithubRepoProps {
       totalCount?: number
     }
     count?: number
+    url: string
   }
 }
 
@@ -25,18 +26,20 @@ export const GithubRepo: React.SFC<GithubRepoProps> = ({ repo }) => (
     margin="xsmall"
     animation="fadeIn"
     pad="xsmall"
-    elevation="small"
+    elevation="xsmall"
   >
-    <Heading level="3" margin="xsmall">
-      {repo.nameWithOwner || repo.name}
-    </Heading>
+    <Anchor
+      rel="noopener noreferrer"
+      label={`${repo.nameWithOwner || repo.name}`}
+      target="_blank"
+      href={repo.url}
+    >
+      <Heading level="3" margin="xsmall">
+        {repo.nameWithOwner || repo.name}
+      </Heading>
+    </Anchor>
     <Box margin={{ horizontal: "medium" }}>
       <Paragraph size="small">{repo.description}</Paragraph>
-      {repo.homepageUrl && (
-        <Anchor href={repo.homepageUrl}>
-          <Text size="small">{repo.homepageUrl}</Text>
-        </Anchor>
-      )}
     </Box>
     <Box
       margin={{ top: "small" }}

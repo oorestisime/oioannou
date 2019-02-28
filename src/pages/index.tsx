@@ -132,31 +132,6 @@ const IndexPage: React.SFC<IndexData> = ({ data }) => {
           />,
         ]}
       />
-      <Box pad="small" align="center" background="brand">
-        <Box gap="medium" width="large">
-          <Text textAlign="center" color="white" size="large">
-            {`My journey in life started ${new Date().getFullYear() -
-              1992} years ago in a little but beautiful island in the Mediterranean , Cyprus.`}
-          </Text>
-          <Text textAlign="center" color="white" size="large">
-            I wear a Full stack dev hat by day in Paris and spending most of the
-            nights contributing to Open Source projects such as{" "}
-            <Anchor
-              color="white"
-              href="https://v2.grommet.io/"
-              label="Grommet "
-            />
-            and{" "}
-            <Anchor
-              color="white"
-              href="https://gatsbyjs.org/"
-              label=" Gatsby"
-            />
-            . I am always open to discuss exciting projects around these
-            technologies.
-          </Text>
-        </Box>
-      </Box>
       <Section title="Recent OS contributions">
         {Object.values(contributions)
           .sort((a, b) => a.count < b.count)
@@ -200,12 +175,12 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      limit: 6
+      limit: 3
       sort: { order: DESC, fields: frontmatter___date }
     ) {
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 280)
           timeToRead
           frontmatter {
             title

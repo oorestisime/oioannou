@@ -6,7 +6,7 @@ import SiteContext from "../context"
 export const Footer = () => {
   const data = useContext(SiteContext)
   return (
-    <Box background="dark-2">
+    <Box background="dark-1">
       <Box
         animation="fadeIn"
         align="center"

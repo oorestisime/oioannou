@@ -5,12 +5,15 @@ interface SectionType {
   title?: string
   children: ReactChild[]
   justify?: "start" | "end" | "center" | "around" | "between"
+  direction?: "column" | "row-responsive"
 }
 
 export const Section: React.FC<SectionType> = ({
   title,
   children,
   justify,
+  direction = "row-responsive",
+  ...rest
 }) => (
   <Box>
     {title && (
@@ -25,7 +28,8 @@ export const Section: React.FC<SectionType> = ({
       wrap
       margin={{ horizontal: "medium" }}
       justify={justify || "center"}
-      direction="row-responsive"
+      direction={direction}
+      {...rest}
     >
       {children}
     </Box>

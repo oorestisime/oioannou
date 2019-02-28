@@ -1,5 +1,5 @@
 import React, { ReactChild } from "react"
-import { Grommet, Box } from "grommet"
+import { Grommet } from "grommet"
 import { createGlobalStyle } from "styled-components"
 
 import data from "../data"

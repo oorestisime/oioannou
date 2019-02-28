@@ -1,10 +1,20 @@
 import { deepFreeze } from "grommet/utils"
+import { css } from "styled-components"
+
+const checkboxCheckStyle = css`
+  background-color: #2196f3;
+  border-color: #2196f3;
+`
 
 export const customTheme = deepFreeze({
   global: {
     colors: {
       background: "#ffffff",
       brand: "#89bdd3",
+      control: {
+        dark: "brand",
+        light: "brand",
+      },
     },
     font: {
       family: "Montserrat, Arial, sans-serif",
@@ -45,11 +55,5 @@ export const customTheme = deepFreeze({
       dark: "#89bdd3",
       light: "#89bdd3",
     },
-  },
-  tab: {
-    active: {
-      color: "white",
-    },
-    color: "white",
   },
 })

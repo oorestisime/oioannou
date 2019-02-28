@@ -27,16 +27,16 @@ interface PostProps {
 export const Post: React.SFC<PostProps> = ({ post }) => {
   const size = useContext(ResponsiveContext)
   return (
-    <Box width="medium" align="start" pad="small">
-      <Box elevation="small" round="xsmall" pad="small">
+    <Box width="xlarge" align="start" pad="small">
+      <Box elevation="xsmall" round="xsmall" pad="small">
         <Heading level="2" margin="none">
           {post.frontmatter.title}
         </Heading>
         <Box
           direction="row"
-          gap="xsmall"
+          gap="small"
           align="center"
-          margin={{ left: "xsmall", top: "xsmall" }}
+          margin={{ left: "xsmall", top: "small" }}
         >
           <Calendar color="dark-4" size="small" />
           <Text color="dark-4" size="small">
@@ -47,12 +47,12 @@ export const Post: React.SFC<PostProps> = ({ post }) => {
             {post.timeToRead} min read
           </Text>
         </Box>
-        <Paragraph size="small" margin={{ horizontal: "medium" }}>
+        <Text size="medium" margin="medium">
           {post.excerpt}
           <InternalLink to={post.frontmatter.path}>
             <Anchor as="span" label=" Read more" size="small" />
           </InternalLink>
-        </Paragraph>
+        </Text>
         {size !== "small" && (
           <Box gap="xsmall" direction="row" align="center">
             <Tags tags={post.frontmatter.tags} />

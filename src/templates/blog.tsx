@@ -1,30 +1,26 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
-import { Box, Anchor, Text, Heading } from "grommet"
-import { History } from "grommet-icons"
+import { Box, Anchor, Text, Heading, CheckBox, Button } from "grommet"
+import { History, FormPreviousLink } from "grommet-icons"
 import rehypeReact from "rehype-react"
 
-import { Layout, Header, Tags, Seo } from "../components/"
+import { Layout, InternalLink, Tags, Seo } from "../components/"
 
 const Quote = styled.blockquote`
-  padding: 10px 80px 20px;
   position: relative;
-  color: ${props => props.theme.global.colors["dark-3"]};
-  p {
-    font-size: 22px;
-    text-align: center;
-    line-height: 22px;
-  }
+  margin: 40px auto;
+  width: 400px;
+  font-size: 48px;
+  line-height: 56px;
+  padding-left: 40px;
+  border-left: 2px solid #89bdd3;
 
-  ::after {
-    content: "";
-    top: 0px;
-    left: 50%;
-    margin-left: -100px;
-    position: absolute;
-    border-bottom: 3px solid #89bdd3;
-    width: 200px;
+  span {
+    display: block;
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 10px;
   }
 `
 
@@ -33,6 +29,7 @@ const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
     a: Anchor,
+    p: data => <Text style={{ lineHeight: "150%" }} {...data} />,
     h1: data => <Heading level={1} {...data} />,
     h2: data => <Heading level={2} {...data} />,
     h3: data => <Heading level={3} {...data} />,
@@ -62,36 +59,51 @@ const BlogPage: React.SFC<BlogPageType> = ({
   data: {
     markdownRemark: { htmlAst, excerpt, frontmatter },
   },
-}) => (
-  <Layout>
-    <Seo
-      title={frontmatter.title}
-      description={excerpt}
-      slug={frontmatter.path}
-    />
-    <Header />
-    <Box
-      alignSelf="center"
-      width="large"
-      margin={{ horizontal: "medium", vertical: "small" }}
-    >
-      <Heading level="1">{frontmatter.title}</Heading>
-      {renderAst(htmlAst)}
-      <Box
-        direction="row-responsive"
-        justify="between"
-        margin={{ top: "medium" }}
-      >
-        <Box align="center" direction="row" gap="xsmall">
-          <History size="small" />
-          <Text size="small">{frontmatter.date}</Text>
-        </Box>
-        <Tags tags={frontmatter.tags} />
-      </Box>
-    </Box>
-  </Layout>
-)
+}) => {
+  const initialTheme = window.localStorage.getItem("theme")
+  const [dark, setDark] = useState(initialTheme === "true")
+  const toggleTheme = () => setDark(!dark)
+  useEffect(() => {
+    window.localStorage.setItem("theme", dark.toString())
+  }, [dark])
 
+  return (
+    <Layout>
+      <Seo
+        title={frontmatter.title}
+        description={excerpt}
+        slug={frontmatter.path}
+      />
+      <Box background={dark ? "dark-1" : "light-2"}>
+        <Box
+          alignSelf="center"
+          width="large"
+          pad={{ horizontal: "medium", vertical: "small" }}
+        >
+          <Box justify="between" direction="row">
+            <InternalLink key="blog" to="/blog">
+              <Button as="span" plain icon={<FormPreviousLink />} />
+            </InternalLink>
+            <CheckBox checked={dark} toggle onChange={toggleTheme} />
+          </Box>
+          <Heading level="1">{frontmatter.title}</Heading>
+          {renderAst(htmlAst)}
+          <Box
+            direction="row-responsive"
+            justify="between"
+            margin={{ top: "medium" }}
+          >
+            <Box align="center" direction="row" gap="xsmall">
+              <History size="small" />
+              <Text size="small">{frontmatter.date}</Text>
+            </Box>
+            <Tags tags={frontmatter.tags} />
+          </Box>
+        </Box>
+      </Box>
+    </Layout>
+  )
+}
 export default BlogPage
 
 export const pageQuery = graphql`
