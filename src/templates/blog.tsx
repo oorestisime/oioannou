@@ -11,7 +11,7 @@ import { Layout, Tags, Seo, Header, BlogContainer } from "../components/"
 const Quote = styled.blockquote`
   position: relative;
   margin: 40px auto;
-  width: 300px;
+  width: 70%;
   font-size: 48px;
   line-height: 56px;
   padding-left: 40px;
@@ -30,7 +30,7 @@ const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
     a: Anchor,
-    p: data => <Text style={{ lineHeight: "150%" }} {...data} />,
+    p: data => <Text as="p" style={{ lineHeight: "150%" }} {...data} />,
     h1: data => <Heading level={1} {...data} />,
     h2: data => <Heading level={2} {...data} />,
     h3: data => <Heading level={3} {...data} />,
