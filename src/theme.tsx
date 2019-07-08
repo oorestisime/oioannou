@@ -2,7 +2,6 @@ import { deepFreeze } from "grommet/utils"
 import sun from "./images/sun.png"
 import moon from "./images/moon.png"
 
-console.log(moon, sun)
 const checkboxCheckStyle = (checked: boolean) => `
   background: ${
     checked
