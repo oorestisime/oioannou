@@ -135,7 +135,7 @@ const IndexPage: React.SFC<IndexData> = ({ data }) => {
       <Section title="Recent OS contributions">
         {Object.values(contributions)
           .sort((a, b) => a.count < b.count)
-          .slice(0, 6)
+          .slice(0, 8)
           .map(repo => (
             <GithubRepo key={repo.name} repo={repo} />
           ))}
@@ -146,7 +146,7 @@ const IndexPage: React.SFC<IndexData> = ({ data }) => {
             node =>
               !node.node.isArchived && node.node.owner.login === "oorestisime"
           )
-          .slice(0, 6)
+          .slice(0, 4)
           .map(repo => (
             <GithubRepo key={repo.node.name} repo={repo.node} />
           ))}

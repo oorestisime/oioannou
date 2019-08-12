@@ -9,7 +9,7 @@ interface HeightType {
 const HEIGHT: HeightType = {
   small: `100vh`,
   medium: `100vh`,
-  large: `40vh`,
+  large: `60vh`,
 }
 interface HeroType {
   image: object

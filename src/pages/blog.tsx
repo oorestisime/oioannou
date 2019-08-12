@@ -45,7 +45,7 @@ const BlogPage: React.SFC<SkillsBoxProps> = ({
         slug="blog"
       />
       <BlogContainer dark={dark}>
-        <Header toggleTheme={() => toggleTheme(!dark)} dark={dark} />
+        <Header backHome toggleTheme={() => toggleTheme(!dark)} dark={dark} />
         <Section direction="column" align="center">
           {allMarkdownRemark.edges.map(post => (
             <Post

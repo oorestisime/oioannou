@@ -29,6 +29,7 @@ export const Section: React.FC<SectionType> = ({
       margin={{ horizontal: "medium" }}
       justify={justify || "center"}
       direction={direction}
+      alignContent="center"
       {...rest}
     >
       {children}
