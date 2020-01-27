@@ -98,7 +98,6 @@ const IndexPage: React.SFC<IndexData> = ({ data }) => {
     p[name].count++
     return p
   }, {})
-
   return (
     <Layout>
       <Seo />
