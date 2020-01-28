@@ -98,7 +98,6 @@ const IndexPage: React.SFC<IndexData> = ({ data }) => {
     p[name].count++
     return p
   }, {})
-
   return (
     <Layout>
       <Seo />
@@ -175,7 +174,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      limit: 3
+      limit: 4
       sort: { order: DESC, fields: frontmatter___date }
     ) {
       edges {

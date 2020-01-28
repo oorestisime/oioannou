@@ -13,6 +13,7 @@ module.exports = {
     "gatsby-plugin-typescript",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-catch-links",
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-scroll-indicator`,
       options: {

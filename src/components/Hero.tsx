@@ -12,7 +12,7 @@ const HEIGHT: HeightType = {
   large: `60vh`,
 }
 interface HeroType {
-  image: object
+  image: any
   title: string
   subtitle: ReactChild[]
   anchor: ReactChild[]
