@@ -174,7 +174,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      limit: 3
+      limit: 4
       sort: { order: DESC, fields: frontmatter___date }
     ) {
       edges {
