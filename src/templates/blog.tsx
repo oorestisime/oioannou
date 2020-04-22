@@ -62,6 +62,7 @@ const BlogPage: React.SFC<BlogPageType> = ({
   },
 }) => {
   const [dark, toggleTheme] = useThemeToggle()
+  console.log("the ast", htmlAst)
   return (
     <Layout>
       <Seo

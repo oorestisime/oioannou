@@ -15,7 +15,7 @@ export const Section: React.FC<SectionType> = ({
   direction = "row-responsive",
   ...rest
 }) => (
-  <Box>
+  <Box width={{ max: "xxlarge" }} margin="0 auto">
     {title && (
       <Box align="center" alignContent="center">
         <Heading textAlign="center" size="medium">

@@ -1,5 +1,5 @@
 import React from "react"
-import Helmet from "react-helmet"
+import { Helmet } from "react-helmet"
 import { StaticQuery, graphql } from "gatsby"
 
 interface SeoType {
@@ -39,7 +39,7 @@ export const Seo: React.SFC<SeoType> = ({
   return (
     <StaticQuery
       query={query}
-      render={data => {
+      render={(data) => {
         const {
           site: { siteMetadata },
           avatar,

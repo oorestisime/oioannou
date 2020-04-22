@@ -145,7 +145,7 @@ const IndexPage: React.SFC<IndexData> = ({ data }) => {
             node =>
               !node.node.isArchived && node.node.owner.login === "oorestisime"
           )
-          .slice(0, 4)
+          .slice(0, 5)
           .map(repo => (
             <GithubRepo key={repo.node.name} repo={repo.node} />
           ))}

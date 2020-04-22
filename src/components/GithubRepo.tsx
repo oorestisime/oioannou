@@ -36,7 +36,9 @@ export const GithubRepo: React.SFC<GithubRepoProps> = ({ repo }) => (
       </Heading>
     </Anchor>
     <Box margin={{ horizontal: "medium" }}>
-      <Text size="medium">{repo.description}</Text>
+      <Text css={["word-break: break-all;"]} size="medium">
+        {repo.description}
+      </Text>
     </Box>
     <Box
       margin={{ top: "small" }}
