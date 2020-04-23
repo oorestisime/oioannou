@@ -16,7 +16,7 @@ export const customTheme = deepFreeze({
   global: {
     colors: {
       background: "#ffffff",
-      brand: "#89bdd3",
+      brand: { light: "#2f667d", dark: "#89bdd3" },
       "toggle-bg": "#757575",
       "toggle-knob": "white",
       control: {
@@ -32,12 +32,12 @@ export const customTheme = deepFreeze({
     level: {
       2: {
         font: {
-          weight: 400,
+          weight: 500,
         },
       },
       3: {
         font: {
-          weight: 350,
+          weight: 400,
         },
       },
       4: {
@@ -61,7 +61,7 @@ export const customTheme = deepFreeze({
   anchor: {
     color: {
       dark: "#89bdd3",
-      light: "#89bdd3",
+      light: "#2f667d",
     },
   },
   checkBox: {

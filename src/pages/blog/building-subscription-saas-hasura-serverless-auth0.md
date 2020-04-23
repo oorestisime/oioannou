@@ -6,13 +6,13 @@ tags: ["Hasura", "backend", "serverless", "Auth0"]
 photo: "./img/me.png"
 ---
 
-During the last month of staying at home at practicing social distancing has given me ample time to play around with Hasura and serverless environments to challenge myself into building a Subscription based application platform using as less backend code as possible. By backend code I mean the typical CRUD workflow but also auth handling, payments registration, authorization and task handling.
+During the last month of staying at home and practicing social distancing has given me ample time to play around with Hasura and serverless environments to challenge myself into building a Subscription based application platform using as less backend code as possible. By backend code I mean the typical CRUD workflow but also auth handling, payments registration, authorization and task handling.
 
-As i am building this I am documenting the most common issues and architectural challenges I am facing while also providing answers into some of the questions I have been Google or discord channels! This series of articles will be less of a tutorial and more of a public note taking that other can read and build upon.
+As i am building this I am documenting the most common issues and architectural challenges I am facing while also providing answers into some of the questions I have been directing at Google or Discord servers! This series of articles will be less of a tutorial and more of a public note taking that others can read and build upon.
 
 ## What I am building
 
-First thing to get out is a rough idea of what I am building. And rough because it could be generic enough to be applied in many scenarios but abstract enough to actually refer into a product. A sort of boilerplate or skeleton.
+First thing to get out is a rough idea of what I am building. And rough because it could be generic enough to be applied in many scenarios but abstract enough to actually to not relate to an actual product. A sort of boilerplate or skeleton.
 
 The whole idea is around users, projects, project members and various project workflows (be it upload files, convert images, exporting projects into something readable). A few of the requirements we could setup are:
 
@@ -78,7 +78,7 @@ Starting with the easiest first, Select. Since we will be having every project m
 
 Nothing more fancy here unless you want to limit project members getting at private user data! [Luckily Hasura has us covered again!](https://hasura.io/docs/1.0/graphql/manual/auth/authorization/role-multiple-rules.html)
 
-Equally simple is Update and Delete `{"user_id":{"_eq":"X-Hasura-User-Id"}}` since this is the reason we have the user_id foreign key there. If we wanted it to be a bit more feature-full then we could make use of the can_edit field in members and allow other users to edit a project. It would look like
+Equally simple is Update and Delete `{"user_id":{"_eq":"X-Hasura-User-Id"}}` since this is the reason we have the `user_id` foreign key there. If we wanted it to be a bit more feature-full then we could make use of the `can_edit` field in members and allow other users to edit a project. It would look like
 
 ```json
 {
@@ -91,11 +91,11 @@ Equally simple is Update and Delete `{"user_id":{"_eq":"X-Hasura-User-Id"}}` sin
 }
 ```
 
-Something to also keep in mind is what to allow a user to edit. They should be allowed to change the name of the project and maybe other user related metadata that a project could have but feature flags, created_at / updated_at or ids are of the bat! And that is super easy to do using the column permissions on Hasura.
+Something to also keep in mind is what to allow a user to edit. They should be allowed to change the name of the project and maybe other user related metadata that a project could have but feature flags, `created_at` / `updated_at` or ids are of the bat! And that is super easy to do using the column permissions on Hasura.
 
-And finally Insert. At the beginning i thought hey this is easy, no need for any checks any user should be able to create a project we just need to make sure that when a user creates a project the user_id is assigned automatically to them. And that is again pretty simple with column presets. Setting up user_id to be a preset from the `X-Hasura-User-Id` session variable.
+And finally Insert. At the beginning i thought hey this is easy, no need for any checks any user should be able to create a project we just need to make sure that when a user creates a project the `user_id` is assigned automatically to them. And that is again pretty simple with column presets. Setting up user_id to be a preset from the `X-Hasura-User-Id` session variable.
 
-The problem really started when I needed to add the user in the project_members automatically at the project creation. I couldn't use any preset since a user should be allowed to also add other users in the project_members. First solution I came up with was passing the user_id in the mutation. Looked like:
+The problem really started when I needed to add the user in the `project_members` automatically at the project creation. I couldn't use any preset since a user should be allowed to also add other users in the `project_members`. First solution I came up with was passing the `user_id` in the mutation. Looked like:
 
 ```graphql
 mutation insert_project {
@@ -119,8 +119,8 @@ mutation insert_project {
 
 This solution was flawed because that user_id in the mutation could have been user selected and abused.
 
-Enter roles. Up until now I couldn't understand how roles came into play. Sure having admin and user was making sense since admin had superpowers but how would I use other roles? Well turns out it makes sense for this case. Hence introducing a new role project_creator that is going to be used at project creating. User role won't be able to create a project and that's perfect!
-The project_creator would have permission to create a project allowed only to insert the name and automatically setting up the user_id with column presets.
+Enter roles. Up until now I couldn't understand how roles came into play. Sure having admin and user was making sense since admin had superpowers but how would I use other roles? Well turns out it makes sense for this case. Hence introducing a new role **project_creator** that is going to be used at project creating. User role won't be able to create a project and that's perfect!
+The project\\\_creator would have permission to create a project allowed only to insert the name and automatically setting up the user_id with column presets.
 
 And this would make more sense when using this role in project_members.
 

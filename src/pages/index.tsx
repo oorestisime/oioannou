@@ -85,19 +85,7 @@ type IndexData = {
     }
   }
 }
-
 const IndexPage: React.SFC<IndexData> = ({ data }) => {
-  const contributions = data.github.viewer.pullRequests.edges.reduce((p, c) => {
-    const name = c.node.repository.name
-    if (!p.hasOwnProperty(name)) {
-      p[name] = {
-        ...c.node.repository,
-        count: 0,
-      }
-    }
-    p[name].count++
-    return p
-  }, {})
   return (
     <Layout>
       <Seo />
@@ -131,14 +119,6 @@ const IndexPage: React.SFC<IndexData> = ({ data }) => {
           />,
         ]}
       />
-      <Section title="Recent OS contributions">
-        {Object.values(contributions)
-          .sort((a, b) => a.count < b.count)
-          .slice(0, 8)
-          .map(repo => (
-            <GithubRepo key={repo.name} repo={repo} />
-          ))}
-      </Section>
       <Section title="Public repositories">
         {data.github.viewer.repositories.edges
           .filter(
@@ -192,26 +172,6 @@ export const pageQuery = graphql`
     }
     github {
       viewer {
-        pullRequests(states: MERGED, first: 100) {
-          edges {
-            node {
-              merged
-              repository {
-                name
-                stargazers {
-                  totalCount
-                }
-                forkCount
-                description
-                nameWithOwner
-                primaryLanguage {
-                  name
-                }
-                url
-              }
-            }
-          }
-        }
         repositories(
           first: 10
           isFork: false
@@ -220,6 +180,7 @@ export const pageQuery = graphql`
           edges {
             node {
               isArchived
+              isPrivate
               stargazers {
                 totalCount
               }
