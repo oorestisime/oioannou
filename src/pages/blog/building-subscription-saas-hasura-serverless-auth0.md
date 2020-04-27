@@ -6,13 +6,13 @@ tags: ["Hasura", "backend", "serverless", "Auth0"]
 photo: "./img/me.png"
 ---
 
-During the last month of staying at home and practicing social distancing has given me ample time to play around with Hasura and serverless environments to challenge myself into building a Subscription based application platform using as less backend code as possible. By backend code I mean the typical CRUD workflow but also auth handling, payments registration, authorization and task handling.
+The last months of staying at home and practicing social distancing have given me ample time to play around with Hasura and serverless environments to challenge myself into building a Subscription based application platform using as less backend code as possible. By backend code I mean the typical CRUD workflow but also auth handling, payments registration, authorization and task handling.
 
-As i am building this I am documenting the most common issues and architectural challenges I am facing while also providing answers into some of the questions I have been directing at Google or Discord servers! This series of articles will be less of a tutorial and more of a public note taking that others can read and build upon.
+As i am building this I am documenting the most common issues and architectural challenges I am facing while also providing answers into some of the questions I have been directing at Google or Discord servers!
 
 ## What I am building
 
-First thing to get out is a rough idea of what I am building. And rough because it could be generic enough to be applied in many scenarios but abstract enough to actually to not relate to an actual product. A sort of boilerplate or skeleton.
+First thing to get out is a rough idea of what I am building. And rough because it could be generic enough to be applied in many scenarios but abstract enough to actually not relate to an actual product. A sort of boilerplate or skeleton.
 
 The whole idea is around users, projects, project members and various project workflows (be it upload files, convert images, exporting projects into something readable). A few of the requirements we could setup are:
 
@@ -25,9 +25,9 @@ This gives a good skeleton to work with and I believe shares many requirements o
 
 ## Choice of tooling
 
-With the choice of building this in the serverless environment and with as less backend code as possible, Hasura was pretty much the only real choice. It provides a wide range of features to work with authorization, permissions, queries, mutations and so on. I contemplated using Prisma for something like this but I would still need to build a lot of backend code on my own even if they give a very nice querying layer from the get go.
+With the choice of building this in the serverless environment and with as less backend code as possible, [Hasura](https://hasura.io/) was pretty much the most obvious choice in my mind. It provides a wide range of features to work with authorization, permissions, queries, mutations and so on. I contemplated using Prisma for something like this but I would still need to build a lot of backend code on my own even if they give a very nice querying layer from the get go.
 
-The only other real choice was how to handle authentication since Hasura doesn't handle that part of the stack. I spent a couple of days going through Cognito and Auth0 and even if the pricing of Auth0 is way bigger it comes with better frontend integrations, better documentations and all-in-all better features. This choice was also involved by how easy would be build the frontend of the auth layer. With cognito even if amplify seems to be making nice strides towards unifying and tidying the experience, the docs just didn't feel compelling and I would need more code to handle authentication than I was ready to spend on.
+The only other real choice was how to handle authentication since Hasura doesn't handle that part of the stack. I spent a couple of days going through [Cognito](https://aws.amazon.com/cognito/) and [Auth0](https://auth0.com/) and even if the pricing of Auth0 is way bigger it comes with better frontend integrations, better documentations and all-in-all better features. This choice was also involved by how easy would be build the frontend of the auth layer. With cognito even if amplify seems to be making nice strides towards unifying and tidying the experience, the docs just didn't feel compelling and I would need more code to handle authentication than I was ready to spend on.
 
 So the general stack looks like:
 
@@ -36,7 +36,7 @@ So the general stack looks like:
 - Auth0 handles the authentication providing the frontend JWT tokens to forward to Hasura.
 
 Frontend would be React because this is what I am most familiar with even if the choice isn't consolidated at the moment.
-And finally payments and plans would probably be with Stripe. I haven't yet used Stripe subscriptions and the logic here might be a bit flawed and should evolve as I explore solutions and test implementations. Learning in public!
+And finally payments and plans would probably be with [Stripe](https://stripe.com/). I haven't yet used Stripe subscriptions and the logic here might be a bit flawed and should evolve as I explore solutions and test implementations. Learning in public!
 
 ## Scaffolding Hasura tables
 
@@ -53,22 +53,33 @@ Everything here looks pretty straightforward and the only thing that might picke
 - store subscription information in the user table and deduce project access through the owner
 - store each project feature access on the project itself
 
-The reason I opted for the second solution is because the permissions handling is much much easier. When user subscribes for features A then automatically turn this feature on for all of their project. Similarly when user cancels their subscription then turn the features off. This way if User B is collaborating with User A on project A then we don't necessarily care whether User B is paying. Only source of truth is what is happening in the project. The inverse is the same. Somebody who is paying a feature but is invited to work on a project without this feature on shouldn't have access to it.
+The reason I opted for the second solution is because the permissions handling is much much easier. When user subscribes for feature A then automatically turn this feature on for all of their project. Similarly when user cancels their subscription then turn the feature off. This way if User B is collaborating with User A on project A then we don't necessarily care whether User B is paying. Only source of truth is what is happening in the project. The inverse is the same. Somebody who is paying a feature but is invited to work on a project without this feature on shouldn't have access to it.
 
-Turning those features on and off would be easy with Stripe webhook since we would listen on the specific subscription changes flow. Only question left is how to set these features during project creation. And the most plausible solution for this right now is to make use of [Hasura event triggers](https://hasura.io/docs/1.0/graphql/manual/event-triggers/index.html). I haven't touched that part yet so can't talk about a solution but seems like the best case for handling such side effects!
+Turning those features on and off would be easy with Stripe webhook since we would listen on the specific subscription changes flow. Only question left is how to set these features on/off during project creation. And the most plausible solution for this right now is to make use of [Hasura event triggers](https://hasura.io/docs/1.0/graphql/manual/event-triggers/index.html). I haven't touched that part yet so can't talk about a solution but seems like the best case for handling such side effects!
 
 ## Setting up Hasura roles working through authorizations
 
+A small note before diving in: Hasura doesn't enable nested objects for the relationships by default so when looking at creating permissions with a nested object be sure to check whether the relationship is enabled. Otherwise it won't appear on the permissions editor!
+
 ### User table
 
-User permissions are the easiest since Insert and Delete will be handled by Auth0. What's interesting here is how to handle Select and Update permissions for the user and fortunately this would be pretty straight forward, we allow a user to select and update only their own profile `{"id":{"_eq":"X-Hasura-User-Id"}}`.
+User permissions are the easiest since Insert and Delete will be handled by Auth0. What's interesting here is how to handle Select and Update permissions for the user and fortunately this would be pretty straight forward, we allow a user to select and update only their own profile using the following rule
+
+```json
+{ "id": { "_eq": "X-Hasura-User-Id" } }
+```
+
 We also need to make sure that the user can only update their `first_name` and `last_name` or eventually other metadata not related to the authentication flow such as `email` or `id`. For the id I also opted for a less conventional approach using `id - text, primary key, unique` instead of an auto-increment approach since that id needs to correspond to the auth0 id to facilitate the flow.
 
 When the user logs in they receive a JWT token that will have an `X-HASURA-USER-ID` claim equal to their auth0_id. More details on the authentication would follow on another article along with details on how to keep in sync the auth0 users with the Hasura table and the whole frontend bootstrap. [Hasura docs](https://hasura.io/docs/1.0/graphql/manual/guides/integrations/auth0-jwt.html) already covers this up if you are impatient!
 
 ### Project table
 
-On to something fairly trickier and where the Hasura mental model both shines and shows that it might be not trivial at first sight! There are a few things that need to be taken care off, from the trivial allow a user to view only projects they own or they are member to something like allow a user to create a project force them to be the owner and the project member.
+On to something fairly trickier and where the Hasura mental model both shines and shows that it might be not trivial at first sight! There are a few things that need to be taken care off, some easy and some tricky such as
+
+- allow a user to view only projects they own
+- allow a user to view projects they are member
+- allow a user to create a project and force them to be the owner and a project member.
 
 Starting with the easiest first, Select. Since we will be having every project member, even owner, in the project_members the permission is as simple as
 
@@ -78,7 +89,13 @@ Starting with the easiest first, Select. Since we will be having every project m
 
 Nothing more fancy here unless you want to limit project members getting at private user data! [Luckily Hasura has us covered again!](https://hasura.io/docs/1.0/graphql/manual/auth/authorization/role-multiple-rules.html)
 
-Equally simple is Update and Delete `{"user_id":{"_eq":"X-Hasura-User-Id"}}` since this is the reason we have the `user_id` foreign key there. If we wanted it to be a bit more feature-full then we could make use of the `can_edit` field in members and allow other users to edit a project. It would look like
+Equally simple is Update
+
+```json
+{ "user_id": { "_eq": "X-Hasura-User-Id" } }
+```
+
+since this is the reason we have the `user_id` foreign key there. If we wanted it to be a bit more feature-full then we could make use of the `can_edit` field in members and allow other users to edit a project. It would look like
 
 ```json
 {
@@ -88,6 +105,17 @@ Equally simple is Update and Delete `{"user_id":{"_eq":"X-Hasura-User-Id"}}` sin
       { "can_edit": { "_eq": true } }
     ]
   }
+}
+```
+
+For the Delete permissions we need to make sure that the project owner can't remove itself from the project members.
+
+```json
+{
+  "_and": [
+    { "project": { "user_id": { "_eq": "X-Hasura-User-Id" } } },
+    { "user_id": { "_ne": "X-Hasura-User-Id" } }
+  ]
 }
 ```
 
@@ -120,13 +148,13 @@ mutation insert_project {
 This solution was flawed because that user_id in the mutation could have been user selected and abused.
 
 Enter roles. Up until now I couldn't understand how roles came into play. Sure having admin and user was making sense since admin had superpowers but how would I use other roles? Well turns out it makes sense for this case. Hence introducing a new role **project_creator** that is going to be used at project creating. User role won't be able to create a project and that's perfect!
-The project\\\_creator would have permission to create a project allowed only to insert the name and automatically setting up the user_id with column presets.
+The **project_creator** would have permission to create a project allowed only to insert the name and automatically setting up the user_id with column presets.
 
 And this would make more sense when using this role in project_members.
 
-### Project_members
+### Project members
 
-So following up on the project_creator role, the role is allowed to create any project_member but the user_id would be a column preset and they shouldn't be allowed to pick a project_id. The mutation to create a project would then become:
+So following up on the `project_creator` role, the role is allowed to create any `project_member` but the `user_id` would be a column preset and they shouldn't be allowed to pick a `project_id`. The mutation to create a project would then become:
 
 ```graphql
 mutation insert_project {
@@ -151,7 +179,7 @@ mutation insert_project {
 
 🎉 Hasura takes care about the rest! Small note for this to work is to send `x-hasura-role` header and set it to `project_creator`!
 
-The rest of the permissions are quite easy. The project_creator role does not need any more permissions unless you want to be returning the inserted project from the mutation.
+The rest of the permissions are easier. The project_creator role does not need any more permissions unless you want to be returning the inserted project from the mutation.
 As for the user role, we only need to make sure that the user adding another member in the project actually is the owner of the project. And to do this we can simply do
 
 ```json
@@ -160,7 +188,7 @@ As for the user role, we only need to make sure that the user adding another mem
 
 We just need to make sure that project_members table has the object relation to project. Otherwise this wouldn't work and the project field wouldn't appear in the permission editor. And this would essentially be the same permission for the Select and Delete permissions. I don't think we need any Update authorizations. User only needs to add or remove users!
 
-This might be due for a refactoring later since almost every time project_members would need to be invited and then them accepting the invitation. Shouldn't be hard to integrate since we can have has_confirmed boolean in the table. Maybe that wouldn't be enough
+This might be due for a refactoring later since almost every time `project_members` would need to be invited and then them accepting the invitation. Shouldn't be hard to integrate since we can have has_confirmed boolean in the table.
 
 ### Project feature table
 
