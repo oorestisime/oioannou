@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Heading, Paragraph, Anchor, Text } from "grommet"
+import { Box, Heading, Anchor, Text } from "grommet"
 import { Star, Language } from "grommet-icons"
 import { GoGitPullRequest } from "react-icons/go"
 
@@ -36,7 +36,9 @@ export const GithubRepo: React.SFC<GithubRepoProps> = ({ repo }) => (
       </Heading>
     </Anchor>
     <Box margin={{ horizontal: "medium" }}>
-      <Text size="medium">{repo.description}</Text>
+      <Text css={["word-break: break-all;"]} size="medium">
+        {repo.description}
+      </Text>
     </Box>
     <Box
       margin={{ top: "small" }}
@@ -48,13 +50,6 @@ export const GithubRepo: React.SFC<GithubRepoProps> = ({ repo }) => (
         <Star color="brand" />
         {repo.stargazers.totalCount}
       </Box>
-
-      {repo.count && (
-        <Box direction="row" gap="xsmall" pad="xsmall" align="center">
-          <GoGitPullRequest style={{ color: "#89bdd3" }} />
-          {repo.count}
-        </Box>
-      )}
 
       <Box direction="row" gap="xsmall" pad="xsmall">
         <Language color="brand" />
