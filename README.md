@@ -4,14 +4,29 @@ This is the code for my personal website.
 
 - It was initially built using Flask Python Frozen-Flask FlatPages.
 - Second iteration using Gatsby and Grommet
+- Third iteration React Router + shadcn
 
 You can see it live at [www.oioannou.com](http://www.oioannou.com).
 
-### Running locally
+## Development
 
-To get this working you need to
+```bash
+# Install dependencies
+npm install
 
-- `git clone`
-- `yarn install`
-- add a `.env` file containing a valid github token as `GITHUB=token`
-- `gatsby develop`
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## Structure
+
+- `/app` - Main application code
+  - `/assets` - Static assets
+  - `/components` - UI components
+  - `/content` - Blog posts and page content
+  - `/lib` - Utility functions and services
+  - `/routes` - Page components and routing
+
