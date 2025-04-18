@@ -75,6 +75,7 @@ export default function Blog() {
               title={post.title}
               date={post.date}
               description={post.description}
+              excerpt={post.excerpt}
               tags={post.tags}
               path={post.path}
             />

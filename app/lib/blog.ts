@@ -16,6 +16,7 @@ export type PostMeta = {
   date: string
   tags?: string[]
   description?: string
+  excerpt?: string
 }
 
 export type Post = PostMeta & {
@@ -36,10 +37,20 @@ export function getSortedPostsData() {
       const fileContents = fs.readFileSync(fullPath, "utf8")
 
       // Use gray-matter to parse the post metadata
-      const { data } = matter(fileContents)
+      const { data, content } = matter(fileContents)
 
       // Extract custom path from frontmatter or use slug-based path
       const customPath = data.path || `/blog/${slug}`
+
+      // Extract first 200 characters of content for preview
+      const excerpt = content
+        .replace(/---(.|\n)*?---/, '') // Remove frontmatter
+        .replace(/\r?\n|\r/g, ' ')     // Replace newlines with spaces
+        .replace(/!\[.*?\]\(.*?\)/g, '') // Remove markdown images
+        .replace(/\[(.*?)\]\(.*?\)/g, '$1') // Replace markdown links with just text
+        .replace(/[#*_`]/g, '')        // Remove markdown formatting
+        .trim()
+        .slice(0, 200) + '...'         // Take first 200 chars and add ellipsis
 
       // Combine the data with the slug
       return {
@@ -47,6 +58,7 @@ export function getSortedPostsData() {
         path: customPath,
         url: data.path?.replaceAll("/", "") || slug,
         fullPath,
+        excerpt,
         ...(data as {
           title: string
           date: string

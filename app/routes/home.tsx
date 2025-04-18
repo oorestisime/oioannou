@@ -48,6 +48,7 @@ export default function Home() {
             title={post.title}
             date={post.date}
             description={post.description}
+            excerpt={post.excerpt}
             tags={post.tags}
             path={post.path}
           />
@@ -56,7 +57,7 @@ export default function Home() {
 
       <Section
         title="Featured Projects"
-        subtitle="Some of my open source work and personal projects"
+        subtitle="Some of my open source work and personal projects. ngl not much time for this."
         contentClassName="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
       >
         {repos.map((repo) => (
