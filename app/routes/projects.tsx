@@ -4,6 +4,13 @@ import { MainLayout } from "~/components/layout/main-layout"
 import { Section } from "~/components/ui/section"
 import { ProjectCard } from "~/components/home/project-card"
 import { getGithubRepos, type GithubRepo } from "~/lib/github"
+import type { Route } from "./+types/projects"
+
+export function headers(_: Route.HeadersArgs) {
+  return {
+    "Cache-Control": "public, max-age=3600, s-maxage=86400",
+  }
+}
 
 export const meta: MetaFunction = () => {
   return [

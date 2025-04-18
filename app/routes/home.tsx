@@ -8,6 +8,13 @@ import { PostCard } from "~/components/blog/post-card"
 import { getGithubRepos, type GithubRepo } from "~/lib/github"
 import { getSortedPostsData, type PostMeta } from "~/lib/blog"
 import meImage from "~/assets/me.png"
+import type { Route } from "./+types/home"
+
+export function headers(_: Route.HeadersArgs) {
+  return {
+    "Cache-Control": "public, max-age=3600, s-maxage=86400",
+  }
+}
 
 export const meta: MetaFunction = () => {
   return [
