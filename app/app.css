@@ -1,0 +1,305 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+html,
+body {
+  @apply bg-gray-950;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  /* Dark green background - matching profile image */
+  --background: #0F2419;
+  --foreground: #f8f9fa;
+  --card: #153020;
+  --card-foreground: #f8f9fa;
+  --popover: #153020;
+  --popover-foreground: #f8f9fa;
+  /* Turquoise as primary color */
+  --primary: #00c896;
+  --primary-foreground: #0F2419;
+  --secondary: #1b3927;
+  --secondary-foreground: #f8f9fa;
+  --muted: #1b3927;
+  --muted-foreground: #9ca3af;
+  /* Softer accent color - toned down from magenta */
+  --accent: #00e1b0;
+  --accent-foreground: #f8f9fa;
+  --destructive: #ef4444;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: #00c896;
+  /* Golden yellow for highlights */
+  --chart-1: #f6c90e;
+  --chart-2: #00c896;
+  --chart-3: #d81b9c;
+  --chart-4: #3f51b5;
+  --chart-5: #2196f3;
+  --sidebar: #153020;
+  --sidebar-foreground: #f8f9fa;
+  --sidebar-primary: #00c896;
+  --sidebar-primary-foreground: #0F2419;
+  --sidebar-accent: #1b3927;
+  --sidebar-accent-foreground: #f8f9fa;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #00c896;
+  /* Code colors */
+  --code-background: rgba(27, 57, 39, 0.5);
+  --code-text: #00e1b0;
+  --code-keyword: #f6c90e;
+  --code-function: #00c896;
+  --code-comment: #6b7280;
+  --code-string: #f0c674;
+  --code-variable: #e6e6e6;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  h1 {
+    @apply text-3xl sm:text-4xl font-bold tracking-tight;
+  }
+  
+  h2 {
+    @apply text-2xl sm:text-3xl font-bold;
+  }
+  
+  h3 {
+    @apply text-xl sm:text-2xl font-semibold;
+  }
+  
+  a {
+    @apply text-primary hover:text-primary/80 transition-colors;
+  }
+  
+  pre {
+    @apply bg-secondary/50 p-6 rounded-md overflow-x-auto my-6 border border-border/30;
+  }
+  
+  code {
+    @apply font-mono text-accent bg-secondary/30 px-1.5 py-0.5 rounded-sm;
+  }
+
+  p {
+    @apply leading-relaxed my-4;
+  }
+
+  ul, ol {
+    @apply pl-6 my-4 space-y-2;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  blockquote {
+    @apply italic border-l-4 border-primary/40 pl-4 py-2 my-4 text-muted-foreground;
+  }
+}
+
+/* Terminal-inspired styling */
+.terminal {
+  @apply font-mono bg-card rounded-md border border-border p-4;
+}
+
+.terminal-header {
+  @apply font-mono text-primary text-sm mb-1;
+}
+
+.command-prompt {
+  @apply text-accent font-mono;
+}
+
+.command-output {
+  @apply text-foreground font-mono mt-1 pl-4;
+}
+
+/* Card styling */
+.card {
+  @apply bg-card rounded-lg border border-border p-6 transition-all hover:shadow-md hover:border-primary/50;
+}
+
+.nav-link {
+  @apply text-foreground/80 hover:text-primary transition-colors;
+}
+
+.nav-link.active {
+  @apply text-primary;
+}
+
+/* Custom styling for profile image */
+.profile-image-border {
+  @apply border-4 border-primary/80;
+}
+
+/* Golden highlights */
+.highlight-text {
+  @apply text-[#f6c90e];
+}
+
+/* Gradient accents */
+.gradient-border {
+  @apply border border-transparent bg-gradient-to-tr from-primary to-accent p-[1px];
+}
+
+.gradient-border > * {
+  @apply bg-card h-full w-full;
+}
+
+/* Code syntax highlighting */
+pre code {
+  @apply bg-transparent p-0 text-foreground;
+}
+
+/* Prism.js token styles */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  @apply text-[#6b7280];
+}
+
+.token.punctuation {
+  @apply text-foreground/70;
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  @apply text-[#e06c75];
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  @apply text-[#f0c674];
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  @apply text-[#56b6c2];
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  @apply text-[#f6c90e];
+}
+
+.token.function,
+.token.class-name {
+  @apply text-[#00c896];
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  @apply text-[#e06c75];
+}
+
+/* Language specific rules */
+code.language-javascript .token.keyword,
+code.language-typescript .token.keyword,
+code.language-jsx .token.keyword,
+code.language-tsx .token.keyword,
+code.language-python .token.keyword {
+  @apply text-[#f6c90e];
+}
+
+code.language-javascript .token.function,
+code.language-typescript .token.function,
+code.language-jsx .token.function,
+code.language-tsx .token.function,
+code.language-python .token.function {
+  @apply text-[#00c896];
+}
+
+code.language-javascript .token.string,
+code.language-typescript .token.string,
+code.language-jsx .token.string,
+code.language-tsx .token.string,
+code.language-python .token.string {
+  @apply text-[#f0c674];
+}
+
+code.language-javascript .token.comment,
+code.language-typescript .token.comment,
+code.language-jsx .token.comment,
+code.language-tsx .token.comment,
+code.language-python .token.comment {
+  @apply text-[#6b7280];
+}
+
+/* Blog post image alignment */
+.prose img {
+  @apply mx-auto my-8;
+}

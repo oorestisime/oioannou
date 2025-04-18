@@ -1,17 +1,6 @@
-bin/
-build/
-include/
-lib/
-local/
-static/upload
-# Project dependencies
-.cache
-node_modules
-yarn-error.log
-plugins
-
-# Build directory
-/public
 .DS_Store
-.vscode
-.env
+/node_modules/
+
+# React Router
+/.react-router/
+/build/
