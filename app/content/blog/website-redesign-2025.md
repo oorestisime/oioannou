@@ -1,7 +1,7 @@
 ---
 title: "Website Redesign 2025: Back to Basics & New Beginnings"
 path: /website-redesign-2025-back-to-basics-new-beginnings/
-date: "2025-04-18"
+date: 2025-04-18
 tags: ["website", "redesign", "react", "AI", "gatsby"]
 ---
 

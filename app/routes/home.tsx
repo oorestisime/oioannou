@@ -29,7 +29,7 @@ export const meta: MetaFunction = () => {
 
 export async function loader() {
   const repos = await getGithubRepos("oorestisime")
-  const recentPosts = getSortedPostsData().slice(0, 3)
+  const recentPosts = getSortedPostsData().slice(0, 6)
 
   return { repos, recentPosts }
 }

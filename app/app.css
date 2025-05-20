@@ -55,7 +55,7 @@ body {
 :root {
   --radius: 0.625rem;
   /* Dark green background - matching profile image */
-  --background: #0F2419;
+  --background: #0f2419;
   --foreground: #f8f9fa;
   --card: #153020;
   --card-foreground: #f8f9fa;
@@ -63,7 +63,7 @@ body {
   --popover-foreground: #f8f9fa;
   /* Turquoise as primary color */
   --primary: #00c896;
-  --primary-foreground: #0F2419;
+  --primary-foreground: #0f2419;
   --secondary: #1b3927;
   --secondary-foreground: #f8f9fa;
   --muted: #1b3927;
@@ -84,7 +84,7 @@ body {
   --sidebar: #153020;
   --sidebar-foreground: #f8f9fa;
   --sidebar-primary: #00c896;
-  --sidebar-primary-foreground: #0F2419;
+  --sidebar-primary-foreground: #0f2419;
   --sidebar-accent: #1b3927;
   --sidebar-accent-foreground: #f8f9fa;
   --sidebar-border: rgba(255, 255, 255, 0.1);
@@ -106,27 +106,27 @@ body {
   body {
     @apply bg-background text-foreground;
   }
-  
+
   h1 {
     @apply text-3xl sm:text-4xl font-bold tracking-tight;
   }
-  
+
   h2 {
     @apply text-2xl sm:text-3xl font-bold;
   }
-  
+
   h3 {
     @apply text-xl sm:text-2xl font-semibold;
   }
-  
+
   a {
     @apply text-primary hover:text-primary/80 transition-colors;
   }
-  
+
   pre {
     @apply bg-secondary/50 p-6 rounded-md overflow-x-auto my-6 border border-border/30;
   }
-  
+
   code {
     @apply font-mono text-accent bg-secondary/30 px-1.5 py-0.5 rounded-sm;
   }
@@ -135,7 +135,8 @@ body {
     @apply leading-relaxed my-4;
   }
 
-  ul, ol {
+  ul,
+  ol {
     @apply pl-6 my-4 space-y-2;
   }
 
@@ -302,4 +303,39 @@ code.language-python .token.comment {
 /* Blog post image alignment */
 .prose img {
   @apply mx-auto my-8;
+}
+
+/* ── Table defaults ─────────────────────────────────────────────────────── */
+@layer base {
+  /* Put every Markdown table inside an overflow wrapper for small screens */
+  .md-table {
+    @apply w-full overflow-x-auto rounded-lg py-8;
+  }
+
+  .md-table table {
+    @apply w-full border-collapse text-sm leading-relaxed;
+  }
+
+  /* Header row */
+  .md-table thead {
+    @apply bg-secondary text-muted-foreground;
+  }
+  .md-table th {
+    @apply px-4 py-2 font-semibold text-left tracking-wide;
+  }
+
+  /* Body cells */
+  .md-table td {
+    @apply px-4 py-2 border-t border-border;
+  }
+
+  /* Zebra stripes */
+  .md-table tbody tr:nth-child(even) {
+    @apply bg-secondary/40;
+  }
+
+  /* Hover highlight */
+  .md-table tbody tr:hover {
+    @apply bg-secondary/60;
+  }
 }
