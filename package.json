@@ -3,10 +3,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "react-router build",
+    "build": "react-router build && bun app/scripts/generate-sitemap.ts",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "react-router typegen && tsc",
+    "generate-sitemap": "bun scripts/generate-sitemap.ts"
   },
   "dependencies": {
     "@netlify/vite-plugin-react-router": "^1.0.1",

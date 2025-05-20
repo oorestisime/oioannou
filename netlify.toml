@@ -4,3 +4,11 @@ publish = "build/client"
 
 [dev]
 command = "react-router dev"
+
+# Catch-all redirect for blog posts with exclusions
+[[redirects]]
+  from = "/:slug"
+  to = "/blog/:slug"
+  status = 301
+  # Exclude existing routes from being redirected
+  conditions = {Path = {exclude = ["", "blog/*", "projects", "tags/*", "assets/*", "img/*", "favicon.ico", "sitemap.xml"]}}
