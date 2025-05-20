@@ -3,6 +3,7 @@ import path from "path"
 import matter from "gray-matter"
 import { remark } from "remark"
 import html from "remark-html"
+import remarkGfm from "remark-gfm"
 import prism from "remark-prism"
 
 const postsDirectory = path.join(process.cwd(), "app/content/blog")
@@ -43,14 +44,15 @@ export function getSortedPostsData() {
       const customPath = data.path || `/blog/${slug}`
 
       // Extract first 200 characters of content for preview
-      const excerpt = content
-        .replace(/---(.|\n)*?---/, '') // Remove frontmatter
-        .replace(/\r?\n|\r/g, ' ')     // Replace newlines with spaces
-        .replace(/!\[.*?\]\(.*?\)/g, '') // Remove markdown images
-        .replace(/\[(.*?)\]\(.*?\)/g, '$1') // Replace markdown links with just text
-        .replace(/[#*_`]/g, '')        // Remove markdown formatting
-        .trim()
-        .slice(0, 200) + '...'         // Take first 200 chars and add ellipsis
+      const excerpt =
+        content
+          .replace(/---(.|\n)*?---/, "") // Remove frontmatter
+          .replace(/\r?\n|\r/g, " ") // Replace newlines with spaces
+          .replace(/!\[.*?\]\(.*?\)/g, "") // Remove markdown images
+          .replace(/\[(.*?)\]\(.*?\)/g, "$1") // Replace markdown links with just text
+          .replace(/[#*_`]/g, "") // Remove markdown formatting
+          .trim()
+          .slice(0, 200) + "..." // Take first 200 chars and add ellipsis
 
       // Combine the data with the slug
       return {
@@ -91,6 +93,7 @@ export async function getPostData(postSlug: string) {
 
     // Use remark to convert markdown into HTML string
     const processedContent = await remark()
+      .use(remarkGfm)
       .use(html, { sanitize: false })
       .use(prism)
       .process(content)
