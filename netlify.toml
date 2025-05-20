@@ -5,10 +5,114 @@ publish = "build/client"
 [dev]
 command = "react-router dev"
 
-# Catch-all redirect for blog posts with exclusions
+# Specific redirects for pre-2025 blog posts
 [[redirects]]
-  from = "/:slug"
-  to = "/blog/:slug"
+  from = "/first-post"
+  to = "/blog/first-post"
   status = 301
-  # Exclude existing routes from being redirected
-  conditions = {Path = {exclude = ["", "blog/*", "projects", "tags/*", "assets/*", "img/*", "favicon.ico", "sitemap.xml"]}}
+
+[[redirects]]
+  from = "/pyconf"
+  to = "/blog/pyconf"
+  status = 301
+
+[[redirects]]
+  from = "/sublime-text"
+  to = "/blog/sublime-text"
+  status = 301
+
+[[redirects]]
+  from = "/hidden-services"
+  to = "/blog/hidden-services"
+  status = 301
+
+[[redirects]]
+  from = "/debian"
+  to = "/blog/debian"
+  status = 301
+
+[[redirects]]
+  from = "/coding-game"
+  to = "/blog/coding-game"
+  status = 301
+
+[[redirects]]
+  from = "/middle-relay"
+  to = "/blog/middle-relay"
+  status = 301
+
+[[redirects]]
+  from = "/tornado"
+  to = "/blog/tornado"
+  status = 301
+
+[[redirects]]
+  from = "/research"
+  to = "/blog/research"
+  status = 301
+
+[[redirects]]
+  from = "/gsoc2015"
+  to = "/blog/gsoc2015"
+  status = 301
+
+[[redirects]]
+  from = "/gsoc-week1"
+  to = "/blog/gsoc-week1"
+  status = 301
+
+[[redirects]]
+  from = "/gsoc-updates"
+  to = "/blog/gsoc-updates"
+  status = 301
+
+[[redirects]]
+  from = "/gsoc-midterm"
+  to = "/blog/gsoc-midterm"
+  status = 301
+
+[[redirects]]
+  from = "/copyright-and-patches"
+  to = "/blog/copyright-and-patches"
+  status = 301
+
+[[redirects]]
+  from = "/one-liner"
+  to = "/blog/one-liner"
+  status = 301
+
+[[redirects]]
+  from = "/joining-grommet"
+  to = "/blog/joining-grommet"
+  status = 301
+
+[[redirects]]
+  from = "/website-reloaded"
+  to = "/blog/website-reloaded"
+  status = 301
+
+[[redirects]]
+  from = "/migrate-from-mui-to-grommet"
+  to = "/blog/migrate-from-mui-to-grommet"
+  status = 301
+
+[[redirects]]
+  from = "/build-on-circleci-deploy-netlify"
+  to = "/blog/build-on-circleci-deploy-netlify"
+  status = 301
+
+[[redirects]]
+  from = "/jamstack-paris"
+  to = "/blog/jamstack-paris"
+  status = 301
+
+[[redirects]]
+  from = "/gatsby-partial-rebuilds-diy"
+  to = "/blog/gatsby-partial-rebuilds-diy"
+  status = 301
+
+[[redirects]]
+  from = "/building-subcription-saas-hasura-serverless-auth0"
+  to = "/blog/building-subcription-saas-hasura-serverless-auth0"
+  status = 301
+
