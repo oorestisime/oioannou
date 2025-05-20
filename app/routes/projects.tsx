@@ -4,6 +4,7 @@ import { MainLayout } from "~/components/layout/main-layout"
 import { Section } from "~/components/ui/section"
 import { ProjectCard } from "~/components/home/project-card"
 import { getGithubRepos, type GithubRepo } from "~/lib/github"
+import { generateCanonicalUrl, generateProjectsPageSchema } from "~/lib/seo"
 import type { Route } from "./+types/projects"
 
 export function headers(_: Route.HeadersArgs) {
@@ -13,11 +14,30 @@ export function headers(_: Route.HeadersArgs) {
 }
 
 export const meta: MetaFunction = () => {
+  // Generate canonical URL
+  const canonicalUrl = generateCanonicalUrl("/projects")
+  
+  // Generate JSON-LD structured data
+  const jsonLd = generateProjectsPageSchema()
+  
   return [
     { title: "Projects - Orestis Ioannou" },
     {
       name: "description",
       content: "Open source projects and personal work by Orestis Ioannou",
+    },
+    // Canonical URL
+    { tagName: "link", rel: "canonical", href: canonicalUrl },
+    // Open Graph tags
+    { property: "og:title", content: "Projects - Orestis Ioannou" },
+    { property: "og:description", content: "Open source projects and personal work by Orestis Ioannou" },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: canonicalUrl },
+    // JSON-LD structured data
+    {
+      tagName: "script",
+      type: "application/ld+json",
+      children: jsonLd,
     },
   ]
 }

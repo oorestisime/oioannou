@@ -7,6 +7,7 @@ import { ProjectCard } from "~/components/home/project-card"
 import { PostCard } from "~/components/blog/post-card"
 import { getGithubRepos, type GithubRepo } from "~/lib/github"
 import { getSortedPostsData, type PostMeta } from "~/lib/blog"
+import { generateCanonicalUrl, generateHomePageSchema } from "~/lib/seo"
 import meImage from "~/assets/me.png"
 import type { Route } from "./+types/home"
 
@@ -17,12 +18,33 @@ export function headers(_: Route.HeadersArgs) {
 }
 
 export const meta: MetaFunction = () => {
+  // Generate canonical URL
+  const canonicalUrl = generateCanonicalUrl("/")
+
+  // Generate JSON-LD structured data
+  const jsonLd = generateHomePageSchema()
+
   return [
-    { title: "Orestis Ioannou - Software Engineer" },
+    { title: "Orestis Ioannou" },
     {
       name: "description",
-      content:
-        "Personal website and blog of Orestis Ioannou, Software Engineer",
+      content: "Personal website and blog of Orestis Ioannou",
+    },
+    // Canonical URL
+    { tagName: "link", rel: "canonical", href: canonicalUrl },
+    // Open Graph tags
+    { property: "og:title", content: "Orestis Ioannou" },
+    {
+      property: "og:description",
+      content: "Personal website and blog of Orestis Ioannou",
+    },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: canonicalUrl },
+    // JSON-LD structured data
+    {
+      tagName: "script",
+      type: "application/ld+json",
+      children: jsonLd,
     },
   ]
 }

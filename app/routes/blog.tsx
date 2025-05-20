@@ -6,6 +6,7 @@ import { PostCard } from "~/components/blog/post-card"
 import { getAllTags, getSortedPostsData, type PostMeta } from "~/lib/blog"
 import { Tag } from "~/components/blog/tag"
 import { useState } from "react"
+import { generateBlogListSchema, generateCanonicalUrl } from "~/lib/seo"
 import type { Route } from "./+types/blog"
 
 export function headers(_: Route.HeadersArgs) {
@@ -15,11 +16,30 @@ export function headers(_: Route.HeadersArgs) {
 }
 
 export const meta: MetaFunction = () => {
+  // Generate canonical URL
+  const canonicalUrl = generateCanonicalUrl("/blog")
+  
+  // Generate JSON-LD structured data
+  const jsonLd = generateBlogListSchema()
+
   return [
     { title: "Blog - Orestis Ioannou" },
     {
       name: "description",
       content: "Articles, tutorials and thoughts by Orestis Ioannou",
+    },
+    // Canonical URL
+    { tagName: "link", rel: "canonical", href: canonicalUrl },
+    // Open Graph tags
+    { property: "og:title", content: "Blog - Orestis Ioannou" },
+    { property: "og:description", content: "Articles, tutorials and thoughts by Orestis Ioannou" },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: canonicalUrl },
+    // JSON-LD structured data
+    {
+      tagName: "script",
+      type: "application/ld+json",
+      children: jsonLd,
     },
   ]
 }

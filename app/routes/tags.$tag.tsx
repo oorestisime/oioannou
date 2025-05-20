@@ -6,6 +6,7 @@ import { PostCard } from "~/components/blog/post-card"
 import { getPostsByTag, type PostMeta } from "~/lib/blog"
 import { Tag } from "~/components/blog/tag"
 import { Link } from "react-router"
+import { generateCanonicalUrl, generateTagPageSchema } from "~/lib/seo"
 import type { Route } from "./+types/tags.$tag"
 
 export function headers(_: Route.HeadersArgs) {
@@ -22,11 +23,30 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     ]
   }
 
+  // Generate canonical URL
+  const canonicalUrl = generateCanonicalUrl(`/tags/${data.tag}`)
+  
+  // Generate JSON-LD structured data
+  const jsonLd = generateTagPageSchema(data.tag, data.posts)
+
   return [
     { title: `Posts tagged with "${data.tag}" - Orestis Ioannou` },
     {
       name: "description",
       content: `Explore blog posts tagged with "${data.tag}" by Orestis Ioannou`,
+    },
+    // Canonical URL
+    { tagName: "link", rel: "canonical", href: canonicalUrl },
+    // Open Graph tags
+    { property: "og:title", content: `Posts tagged with "${data.tag}" - Orestis Ioannou` },
+    { property: "og:description", content: `Explore blog posts tagged with "${data.tag}" by Orestis Ioannou` },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: canonicalUrl },
+    // JSON-LD structured data
+    {
+      tagName: "script",
+      type: "application/ld+json",
+      children: jsonLd,
     },
   ]
 }
