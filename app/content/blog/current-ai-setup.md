@@ -1,7 +1,7 @@
 ---
 title: "AI setup: May 2025"
 path: /ai-setup-may-2025/
-date: "2025-05-19"
+date: 2025-05-19
 tags: ["Claude", "AI", "OpenAI"]
 ---
 

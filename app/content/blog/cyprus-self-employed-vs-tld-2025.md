@@ -1,17 +1,13 @@
 ---
 title: "Self-Employed vs Limited Company in Cyprus (2025)"
 path: /self-employed-vs-ltd-cyprus-2025/
-date: "2025-05-20"
+date: 2025-05-20
 tags: ["Tax", "Cyprus", "self-employed", "ltd"]
 ---
 
-# Self-Employed vs Limited Company in Cyprus (2025)
-
-_Decision maths for first-time tech founders & freelancers_
-
 ## 1 Why compare right now?
 
-Whether you sell mobile apps to Berlin, build a SaaS for Limassol cafés, **or bill a local agency by the hour**, the Cyprus tax rules you face are identical. Your only structural choice is:
+Whether you sell mobile apps to international audience, build a SaaS for Limassol cafés, or bill a local agency by the hour, the Cyprus tax rules you face are identical. Your only structural choice is:
 
 <div class="md-table">
 
@@ -22,7 +18,9 @@ Whether you sell mobile apps to Berlin, build a SaaS for Limassol cafés, **or b
 
 </div>
 
-As of **May 2025** the law still says **12.5 % corporate tax** and **17 % dividend Special Defence Contribution (SDC)**. A draft bill to move those to **15 % / 5 % in 2026** is _not_ enacted yet, so every number below is the **current reality**.
+When I moved back to Cyprus after many years I was facing the question of self-employment vs Ltd for being able to clear the money I was paid for working remotely at [Bold.org](https://bold.org). Hopefully this article clears the question for you!
+
+> As of **May 2025** the law still says **12.5 % corporate tax** and **17 % dividend Special Defence Contribution (SDC)**. A draft bill to move those to **15 % and 5 % in 2026** is _not_ enacted yet, so every number below is the **current reality**. I am writing a follow-up article to see if those changes affect current math.
 
 ## 2 TL;DR — who keeps more cash?
 
@@ -160,13 +158,12 @@ _Ltd_: net **€105 761** (29.5 %) ➜ **Ltd ahead × €15.2 k**
 
 ### Incorporating a Ltd
 
-1. Reserve a name via **e-Registrar** (€30).
-2. File **HE1–HE3**, pay stamp duty.
-3. Open a business bank account (expect deep KYC).
-4. Obtain **TIN** + **Taxisnet** logins.
-5. Register as employer on **ERGANI**; run payroll.
-6. Hook up bookkeeping SaaS.
-7. Book an auditor for year-end.
+1. Hire a lawyer for drafting the necessary papers and reserve name. Cost me 800€.
+2. Open a business bank account (expect deep KYC).
+3. Obtain **TIN** + **Taxisnet** logins.
+4. Register as employer on **ERGANI**; run payroll.
+5. Book an auditor for year-end. Hook up bookkeeping service or pay the auditor to also do bookkeping
+6. Create a company stamp. Yes this is still used in 2025 regardless of the absurdity of how you create those.
 
 ## 11 FAQ
 
@@ -177,12 +174,12 @@ No. The Tax Department expects a market-value salary; keeping one at **€19 500
 Yes, but only if you are _not_ Cyprus-domiciled. This guide assumes you are.
 
 **“Is the 15 % CIT / 5 % SDC reform certain?”**  
-Not yet. The bill is still in committee. I’ll publish a follow-up as soon as it passes.
+Not yet. The bill is still in committee. I’ll publish a follow-up discussing it.
 
 ### Bottom line for 2025
 
-- **Profit < €40 k** → stay self-employed.
-- **Profit €40 k – €80 k** → run your own spreadsheet; savings may not justify admin.
+- **Profit < €45 k** → stay self-employed.
+- **Profit €45 k – €80 k** → run your own spreadsheet; savings may not justify admin.
 - **Profit > €80 k** → a one-person Ltd saves five-figure sums net, even before any 2026 reform.
 
 _Last verified **20 May 2025**. Use this guide for orientation only — crunch your own numbers or talk to a licensed adviser._
