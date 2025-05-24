@@ -38,11 +38,11 @@ export const meta: MetaFunction = () => {
     { property: "og:url", content: canonicalUrl },
     {
       property: "og:image",
-      content: "https://oioannou.com/public/img/me.png",
+      content: "https://oioannou.com/img/me.jpg",
     },
     {
       property: "twitter:image",
-      content: "https://oioannou.com/public/img/me.png",
+      content: "https://oioannou.com/img/me.jpg",
     },
     // JSON-LD structured data
     {

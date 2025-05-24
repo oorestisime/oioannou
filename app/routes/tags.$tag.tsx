@@ -50,11 +50,11 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     { property: "og:url", content: canonicalUrl },
     {
       property: "og:image",
-      content: "https://oioannou.com/public/img/me.png",
+      content: "https://oioannou.com/img/blog-by-orestis.jpg",
     },
     {
       property: "twitter:image",
-      content: "https://oioannou.com/public/img/me.png",
+      content: "https://oioannou.com/img/blog-by-orestis.jpg",
     },
     // JSON-LD structured data
     {

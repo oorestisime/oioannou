@@ -40,11 +40,11 @@ export const meta: MetaFunction = () => {
     },
     {
       property: "og:image",
-      content: "https://oioannou.com/public/img/me.png",
+      content: "https://oioannou.com/img/me.jpg",
     },
     {
       property: "twitter:image",
-      content: "https://oioannou.com/public/img/me.png",
+      content: "https://oioannou.com/img/me.jpg",
     },
     { property: "og:type", content: "website" },
     { property: "og:url", content: canonicalUrl },
