@@ -5,6 +5,7 @@ import { remark } from "remark"
 import html from "remark-html"
 import remarkGfm from "remark-gfm"
 import prism from "remark-prism"
+import postsData from "./posts.json"
 
 const postsDirectory = path.join(process.cwd(), "app/content/blog")
 
@@ -25,6 +26,9 @@ export type Post = PostMeta & {
 }
 
 export function getSortedPostsData() {
+  if (postsData.length > 0) {
+    return postsData
+  }
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory)
   const allPostsData = fileNames

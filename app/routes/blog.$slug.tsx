@@ -9,6 +9,7 @@ import type { Route } from "./+types/blog.$slug"
 export function headers(_: Route.HeadersArgs) {
   return {
     "Cache-Control": "public, max-age=3600, s-maxage=86400",
+    "Netlify-CDN-Cache-Control": "public, max-age=86400",
   }
 }
 
@@ -33,7 +34,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     { title: `${data.post.title} - Orestis Ioannou` },
     {
       name: "description",
-      content: data.post.description || `${data.post.title} by Orestis Ioannou`,
+      content: data.post.excerpt || `${data.post.title} by Orestis Ioannou`,
     },
     // Canonical URL
     { tagName: "link", rel: "canonical", href: canonicalUrl },
@@ -41,7 +42,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     { property: "og:title", content: data.post.title },
     {
       property: "og:description",
-      content: data.post.description || `${data.post.title} by Orestis Ioannou`,
+      content: data.post.excerpt || `${data.post.title} by Orestis Ioannou`,
     },
     { property: "og:type", content: "article" },
     { property: "og:url", content: canonicalUrl },
@@ -59,7 +60,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     { name: "twitter:title", content: data.post.title },
     {
       name: "twitter:description",
-      content: data.post.description || `${data.post.title} by Orestis Ioannou`,
+      content: data.post.excerpt || `${data.post.title} by Orestis Ioannou`,
     },
     // JSON-LD structured data
     {
