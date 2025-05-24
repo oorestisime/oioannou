@@ -16,122 +16,132 @@
   
   <!-- Blog posts -->
   <url>
-    <loc>https://oioannou.com/current-ai-setup-april-2025/</loc>
-    <lastmod>2025-04-19</lastmod>
+    <loc>https://oioannou.com/blog/cyprus-tax-reform-2026/</loc>
+    <lastmod>2025-05-24</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/website-redesign-2025-back-to-basics-new-beginnings/</loc>
+    <loc>https://oioannou.com/blog/self-employed-vs-ltd-cyprus-2025/</loc>
+    <lastmod>2025-05-20</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://oioannou.com/blog/ai-setup-may-2025/</loc>
+    <lastmod>2025-05-19</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://oioannou.com/blog/website-redesign-2025-back-to-basics-new-beginnings/</loc>
     <lastmod>2025-04-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/building-subcription-saas-hasura-serverless-auth0/</loc>
+    <loc>https://oioannou.com/blog/building-subcription-saas-hasura-serverless-auth0/</loc>
     <lastmod>2020-04-20</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/gatsby-partial-rebuilds-diy</loc>
+    <loc>https://oioannou.com/blog/gatsby-partial-rebuilds-diy</loc>
     <lastmod>2020-01-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/jamstack-paris</loc>
+    <loc>https://oioannou.com/blog/jamstack-paris</loc>
     <lastmod>2019-07-31</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/build-on-circleci-deploy-netlify</loc>
+    <loc>https://oioannou.com/blog/build-on-circleci-deploy-netlify</loc>
     <lastmod>2019-03-06</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/migrate-from-mui-to-grommet</loc>
+    <loc>https://oioannou.com/blog/migrate-from-mui-to-grommet</loc>
     <lastmod>2019-03-04</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/joining-grommet</loc>
+    <loc>https://oioannou.com/blog/joining-grommet</loc>
     <lastmod>2019-02-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/website-reloaded</loc>
+    <loc>https://oioannou.com/blog/website-reloaded</loc>
     <lastmod>2019-01-23</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/one-liner</loc>
+    <loc>https://oioannou.com/blog/one-liner</loc>
     <lastmod>2016-02-09</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/copyright-and-patches</loc>
+    <loc>https://oioannou.com/blog/copyright-and-patches</loc>
     <lastmod>2016-02-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/gsoc-midterm</loc>
+    <loc>https://oioannou.com/blog/gsoc-midterm</loc>
     <lastmod>2015-07-22</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/gsoc-updates</loc>
+    <loc>https://oioannou.com/blog/gsoc-updates</loc>
     <lastmod>2015-06-23</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/gsoc-week1</loc>
+    <loc>https://oioannou.com/blog/gsoc-week1</loc>
     <lastmod>2015-05-31</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/gsoc2015</loc>
+    <loc>https://oioannou.com/blog/gsoc2015</loc>
     <lastmod>2015-04-28</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/research</loc>
+    <loc>https://oioannou.com/blog/research</loc>
     <lastmod>2015-03-05</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/tornado</loc>
+    <loc>https://oioannou.com/blog/tornado</loc>
     <lastmod>2015-02-20</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/middle-relay</loc>
+    <loc>https://oioannou.com/blog/middle-relay</loc>
     <lastmod>2015-01-11</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/coding-game</loc>
+    <loc>https://oioannou.com/blog/coding-game</loc>
     <lastmod>2014-11-14</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/debian</loc>
+    <loc>https://oioannou.com/blog/debian</loc>
     <lastmod>2014-11-11</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/hidden-services</loc>
+    <loc>https://oioannou.com/blog/hidden-services</loc>
     <lastmod>2014-10-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/sublime-text</loc>
+    <loc>https://oioannou.com/blog/sublime-text</loc>
     <lastmod>2014-10-23</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/pyconf</loc>
+    <loc>https://oioannou.com/blog/pyconf</loc>
     <lastmod>2014-10-21</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://oioannou.com/first-post</loc>
+    <loc>https://oioannou.com/blog/first-post</loc>
     <lastmod>2014-10-20</lastmod>
     <priority>0.7</priority>
   </url>

@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "bun scripts/generate-sitemap.ts && react-router build",
+    "build": "bun scripts/generate-posts-map.ts && bun scripts/generate-sitemap.ts && react-router build",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
