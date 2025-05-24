@@ -25,7 +25,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 
   // Generate canonical URL
   const canonicalUrl = generateCanonicalUrl(`/tags/${data.tag}`)
-  
+
   // Generate JSON-LD structured data
   const jsonLd = generateTagPageSchema(data.tag, data.posts)
 
@@ -38,10 +38,24 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     // Canonical URL
     { tagName: "link", rel: "canonical", href: canonicalUrl },
     // Open Graph tags
-    { property: "og:title", content: `Posts tagged with "${data.tag}" - Orestis Ioannou` },
-    { property: "og:description", content: `Explore blog posts tagged with "${data.tag}" by Orestis Ioannou` },
+    {
+      property: "og:title",
+      content: `Posts tagged with "${data.tag}" - Orestis Ioannou`,
+    },
+    {
+      property: "og:description",
+      content: `Explore blog posts tagged with "${data.tag}" by Orestis Ioannou`,
+    },
     { property: "og:type", content: "website" },
     { property: "og:url", content: canonicalUrl },
+    {
+      property: "og:image",
+      content: "https://oioannou.com/public/img/me.png",
+    },
+    {
+      property: "twitter:image",
+      content: "https://oioannou.com/public/img/me.png",
+    },
     // JSON-LD structured data
     {
       tagName: "script",

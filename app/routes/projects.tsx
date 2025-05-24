@@ -16,10 +16,10 @@ export function headers(_: Route.HeadersArgs) {
 export const meta: MetaFunction = () => {
   // Generate canonical URL
   const canonicalUrl = generateCanonicalUrl("/projects")
-  
+
   // Generate JSON-LD structured data
   const jsonLd = generateProjectsPageSchema()
-  
+
   return [
     { title: "Projects - Orestis Ioannou" },
     {
@@ -30,9 +30,20 @@ export const meta: MetaFunction = () => {
     { tagName: "link", rel: "canonical", href: canonicalUrl },
     // Open Graph tags
     { property: "og:title", content: "Projects - Orestis Ioannou" },
-    { property: "og:description", content: "Open source projects and personal work by Orestis Ioannou" },
+    {
+      property: "og:description",
+      content: "Open source projects and personal work by Orestis Ioannou",
+    },
     { property: "og:type", content: "website" },
     { property: "og:url", content: canonicalUrl },
+    {
+      property: "og:image",
+      content: "https://oioannou.com/public/img/me.png",
+    },
+    {
+      property: "twitter:image",
+      content: "https://oioannou.com/public/img/me.png",
+    },
     // JSON-LD structured data
     {
       tagName: "script",

@@ -38,6 +38,14 @@ export const meta: MetaFunction = () => {
       property: "og:description",
       content: "Personal website and blog of Orestis Ioannou",
     },
+    {
+      property: "og:image",
+      content: "https://oioannou.com/public/img/me.png",
+    },
+    {
+      property: "twitter:image",
+      content: "https://oioannou.com/public/img/me.png",
+    },
     { property: "og:type", content: "website" },
     { property: "og:url", content: canonicalUrl },
     // JSON-LD structured data

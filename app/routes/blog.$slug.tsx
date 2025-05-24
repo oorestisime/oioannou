@@ -25,7 +25,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 
   // Generate canonical URL for this post
   const canonicalUrl = generateCanonicalUrl(`/blog${data.post.path}`)
-  
+
   // Generate JSON-LD structured data
   const jsonLd = generateBlogPostSchema(data.post)
 
@@ -45,6 +45,14 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     },
     { property: "og:type", content: "article" },
     { property: "og:url", content: canonicalUrl },
+    {
+      property: "og:image",
+      content: "https://oioannou.com/public/img/me.png",
+    },
+    {
+      property: "twitter:image",
+      content: "https://oioannou.com/public/img/me.png",
+    },
     // Twitter tags
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:creator", content: "@oorestisime" },
