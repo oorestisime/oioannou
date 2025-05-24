@@ -5,6 +5,8 @@ date: 2025-05-20
 tags: ["Tax", "Cyprus", "self-employed", "ltd"]
 ---
 
+> Read also the [follow up article](/blog/cyprus-tax-reform-2026/) discussing the tax reform implications
+
 ## 1 Why compare right now?
 
 Whether you sell mobile apps to international audience, build a SaaS for Limassol cafés, or bill a local agency by the hour, the Cyprus tax rules you face are identical. Your only structural choice is:

@@ -1,6 +1,6 @@
 ---
 title: "Cyprus Tax Reform 2026 — Will 15 % CIT & 5 % Dividend Tax Make a Ltd the Default Choice?"
-path: /cyprus-tax-reform-2026-/
+path: /cyprus-tax-reform-2026/
 date: 2025-05-24
 tags: ["Tax", "Cyprus", "self-employed", "ltd"]
 ---
@@ -29,14 +29,16 @@ Personal income tax is getting also very small modifications like taking the 0% 
 
 ## 2 Who wins now vs. after reform?
 
+> Read also the [initial comparison](/blog//self-employed-vs-ltd-cyprus-2025/) of self employed vs ltd
+
 <div class="md-table">
 
-|     Gross € | **Sole trader** net | **Ltd 12.5 % / 17 %** net | **Ltd 15 % / 5 %** net | Biggest winner |
-| ----------: | ------------------: | ------------------------: | ---------------------: | -------------- |
-|  **30 000** |              21 620 |                    21 393 |             **21 874** | _Still close_  |
-|  **60 000** |              36 755 |                    42 485 |             **45 423** | Ltd (reform)   |
-| **100 000** |              60 057 |                    70 608 |             **76 822** | Ltd (reform)   |
-| **150 000** |              90 557 |                   105 761 |            **116 071** | Ltd (reform)   |
+|     Gross € | **Solo** net | **Ltd 12.5 % / 17 %** net | **Ltd 15 % / 5 %** net | Biggest winner |
+| ----------: | -----------: | ------------------------: | ---------------------: | -------------- |
+|  **30 000** |       21 620 |                    21 393 |             **21 874** | _Still close_  |
+|  **60 000** |       36 755 |                    42 485 |             **45 423** | Ltd (reform)   |
+| **100 000** |       60 057 |                    70 608 |             **76 822** | Ltd (reform)   |
+| **150 000** |       90 557 |                   105 761 |            **116 071** | Ltd (reform)   |
 
 </div>
 
@@ -76,7 +78,7 @@ _Before_ €105 761 → _After_ €116 071 (+ €10 310) – effective tax **29.
 | ----------------------------------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------- |
 | **Defer large dividends until law passes**      | Existing Ltds with retained earnings | Save 12 % SDC immediately. Still no word if SDC change will change also for 2025 and prior dividents |
 | **Incorporate in 2025 but take minimal salary** | High-margin freelancers > €80 k      | Lock in liability protection; enjoy 5 % SDC later.                                                   |
-| **Stay sole for ≤ €40 k profit**                | Lower margin freelancers             | Still cheaper, zero audit admin.                                                                     |
+| **Stay solo for ≤ €40 k profit**                | Lower margin freelancers             | Still cheaper, zero audit admin.                                                                     |
 | **Re-run the numbers Q4 2025**                  | Everyone                             | Bill could still be tweaked in committee.                                                            |
 
 </div>
