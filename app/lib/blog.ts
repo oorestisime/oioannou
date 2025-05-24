@@ -13,7 +13,6 @@ export type PostMeta = {
   slug: string
   path: string
   url: string
-  fullPath: string
   title: string
   date: string
   tags?: string[]
@@ -25,8 +24,8 @@ export type Post = PostMeta & {
   content: string
 }
 
-export function getSortedPostsData() {
-  if (postsData.length > 0) {
+export function getSortedPostsData(generate = false) {
+  if (!generate && postsData.length > 0) {
     return postsData
   }
   // Get file names under /posts
@@ -63,7 +62,7 @@ export function getSortedPostsData() {
         slug,
         path: customPath,
         url: data.path?.replaceAll("/", "") || slug,
-        fullPath,
+        fileName,
         excerpt,
         ...(data as {
           title: string
@@ -90,7 +89,8 @@ export async function getPostData(postSlug: string) {
       throw new Error(`Post not found: ${postSlug}`)
     }
 
-    const fileContents = fs.readFileSync(post.fullPath, "utf8")
+    const fullPath = path.join(postsDirectory, post.fileName)
+    const fileContents = fs.readFileSync(fullPath, "utf8")
 
     // Use gray-matter to parse the post metadata
     const { content } = matter(fileContents)
