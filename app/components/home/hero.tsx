@@ -35,7 +35,7 @@ export function Hero({ image }: HeroProps) {
             <div className="terminal-header">$ uname -a</div>
             <div className="command-output">
               <span className="highlight-text">
-                Principal Engineer @ Bold.org | Based in Cyprus
+               VP of Tech @ Bold.org | Based in Cyprus
               </span>
             </div>
             <div className="terminal-header py-1">
