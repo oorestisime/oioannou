@@ -1,0 +1,25 @@
+---
+const footerLinks = [
+  { label: "LinkedIn", href: "https://linkedin.com/in/oorestisime" },
+  { label: "GitHub", href: "https://github.com/oorestisime" },
+  { label: "Email", href: "mailto:oorestisime@gmail.com" },
+]
+---
+
+<footer class="w-full border-t border-border py-8">
+  <div class="container mx-auto flex flex-col gap-5 px-4 text-sm sm:flex-row sm:items-center sm:justify-between sm:px-6">
+    <p class="my-0 text-muted-foreground">&copy; {new Date().getFullYear()} Orestis Ioannou</p>
+    <nav class="flex flex-wrap gap-x-6 gap-y-2" aria-label="Social links">
+      {footerLinks.map((link) => (
+        <a
+          href={link.href}
+          target={link.href.startsWith("http") ? "_blank" : undefined}
+          rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+          class="font-medium text-foreground/80 hover:text-primary"
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</footer>

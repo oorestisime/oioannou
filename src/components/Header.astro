@@ -1,0 +1,52 @@
+---
+const pathname = Astro.url.pathname
+const writingActive = pathname === "/blog" || pathname.startsWith("/blog/") || pathname.startsWith("/tags/")
+
+const navItems = [
+  { name: "Selected work", href: "/#selected-work", active: false },
+  { name: "Writing", href: "/blog", active: writingActive },
+  { name: "Work with me", href: "/#work-with-me", active: false },
+]
+---
+
+<header class="sticky top-0 z-40 w-full border-b border-border bg-background/90 backdrop-blur-xl">
+  <div class="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
+    <a href="/" class="flex items-center gap-2 font-mono text-base font-semibold text-foreground">
+      <svg class="size-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <polyline points="4 17 10 11 4 5"></polyline>
+        <line x1="12" x2="20" y1="19" y2="19"></line>
+      </svg>
+      <span>Orestis<span class="text-[#f6c90e]">Ioannou</span></span>
+    </a>
+
+    <nav class="hidden items-center gap-7 md:flex" aria-label="Primary navigation">
+      {navItems.map((item) => (
+        <a href={item.href} class:list={["nav-link text-sm font-medium", { active: item.active }]}>
+          {item.name}
+        </a>
+      ))}
+    </nav>
+
+    <details class="group relative md:hidden">
+      <summary class="flex size-10 cursor-pointer list-none items-center justify-center rounded-md text-foreground hover:bg-secondary [&::-webkit-details-marker]:hidden">
+        <span class="sr-only">Toggle menu</span>
+        <svg class="size-5 group-open:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="4" x2="20" y1="6" y2="6"></line>
+          <line x1="4" x2="20" y1="12" y2="12"></line>
+          <line x1="4" x2="20" y1="18" y2="18"></line>
+        </svg>
+        <svg class="hidden size-5 group-open:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg>
+      </summary>
+      <nav class="absolute right-0 top-12 flex w-52 flex-col gap-1 rounded-lg border border-border bg-background p-3 shadow-xl" aria-label="Mobile navigation">
+        {navItems.map((item) => (
+          <a href={item.href} class:list={["nav-link rounded-md px-3 py-2 text-sm font-medium hover:bg-secondary", { active: item.active }]}>
+            {item.name}
+          </a>
+        ))}
+      </nav>
+    </details>
+  </div>
+</header>

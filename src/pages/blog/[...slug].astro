@@ -1,0 +1,43 @@
+---
+import { getCollection, render } from "astro:content"
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import Tag from "../../components/Tag.astro"
+import { blogPostSchema } from "../../lib/seo"
+import { formatPostDate, getPostExcerpt, getPostSlug, getPostUrl, type BlogPost } from "../../lib/content"
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog")
+  return posts.map((post) => ({ params: { slug: getPostSlug(post) }, props: { post } }))
+}
+
+interface Props {
+  post: BlogPost
+}
+
+const { post } = Astro.props
+const { Content } = await render(post)
+const description = getPostExcerpt(post)
+---
+
+<BaseLayout
+  title={`${post.data.title} - Orestis Ioannou`}
+  description={description}
+  canonicalPath={getPostUrl(post)}
+  image="/img/blog-by-orestis.jpg"
+  imageAlt={`Blog post: ${post.data.title}`}
+  type="article"
+  schema={blogPostSchema(post)}
+>
+  <article class="mx-auto max-w-3xl py-12 sm:py-16">
+    <header class="mb-12">
+      <h1 class="mb-4 text-3xl font-bold tracking-tight sm:text-5xl">{post.data.title}</h1>
+      <div class="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+        <time datetime={post.data.date.toISOString()}>{formatPostDate(post.data.date)}</time>
+        <div class="flex flex-wrap gap-2">
+          {post.data.tags.map((tag) => <Tag name={tag} />)}
+        </div>
+      </div>
+    </header>
+    <div class="prose"><Content /></div>
+  </article>
+</BaseLayout>

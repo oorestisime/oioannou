@@ -1,9 +1,9 @@
 [build]
-command = "react-router build"
-publish = "build/client"
+command = "bun run build"
+publish = "dist"
 
 [dev]
-command = "react-router dev"
+command = "bun run dev"
 
 # Specific redirects for pre-2025 blog posts
 [[redirects]]
@@ -113,6 +113,21 @@ command = "react-router dev"
 
 [[redirects]]
   from = "/building-subcription-saas-hasura-serverless-auth0"
-  to = "/blog/building-subcription-saas-hasura-serverless-auth0"
+  to = "/blog/building-subcription-saas-hasura-serverless-auth0/"
   status = 301
 
+# Preserve older internal URLs found in archived articles.
+[[redirects]]
+  from = "/2015/research"
+  to = "/blog/research"
+  status = 301
+
+[[redirects]]
+  from = "/2016/blog/copyright-and-patches"
+  to = "/blog/copyright-and-patches"
+  status = 301
+
+[[redirects]]
+  from = "/tag/research"
+  to = "/tags/research"
+  status = 301

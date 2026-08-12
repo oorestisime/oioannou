@@ -1,0 +1,51 @@
+---
+import { getCollection } from "astro:content"
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import PostCard from "../../components/PostCard.astro"
+import Tag from "../../components/Tag.astro"
+import { canonicalUrl } from "../../lib/seo"
+import { getPostUrl, getTagGroups, sortPosts } from "../../lib/content"
+
+const posts = sortPosts(await getCollection("blog"))
+const tags = getTagGroups(posts)
+const title = "Blog - Orestis Ioannou"
+const description = "Articles, tutorials and thoughts by Orestis Ioannou"
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  headline: "Orestis Ioannou's Blog",
+  description,
+  url: canonicalUrl("/blog"),
+  author: { "@type": "Person", name: "Orestis Ioannou", url: canonicalUrl("/") },
+  blogPost: posts.slice(0, 10).map((post) => ({
+    "@type": "BlogPosting",
+    headline: post.data.title,
+    url: canonicalUrl(getPostUrl(post)),
+    datePublished: post.data.date.toISOString(),
+    author: { "@type": "Person", name: "Orestis Ioannou" },
+  })),
+}
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/blog"
+  image="/img/blog-by-orestis.jpg"
+  imageAlt="Blog by Orestis Ioannou"
+  schema={schema}
+>
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto mb-10 max-w-2xl text-center">
+      <p class="section-kicker">Writing</p>
+      <h1 class="text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">Articles, tutorials and thoughts</h1>
+      <p class="section-intro">Longer-form notes on engineering, products, AI and things learned by building.</p>
+    </div>
+    <nav class="mb-12 flex flex-wrap justify-center gap-2" aria-label="Browse by topic">
+      {tags.map((tag) => <Tag name={tag.name} count={tag.posts.length} />)}
+    </nav>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {posts.map((post) => <PostCard post={post} />)}
+    </div>
+  </section>
+</BaseLayout>

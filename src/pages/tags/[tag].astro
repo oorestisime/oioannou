@@ -1,0 +1,58 @@
+---
+import { getCollection } from "astro:content"
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import PostCard from "../../components/PostCard.astro"
+import { canonicalUrl } from "../../lib/seo"
+import { getPostUrl, getTagGroups, getTagUrl, type TagGroup } from "../../lib/content"
+
+export async function getStaticPaths() {
+  const groups = getTagGroups(await getCollection("blog"))
+  return groups.map((group) => ({ params: { tag: group.slug }, props: { group } }))
+}
+
+interface Props {
+  group: TagGroup
+}
+
+const { group } = Astro.props
+const title = `Posts tagged with "${group.name}" - Orestis Ioannou`
+const description = `Explore blog posts tagged with "${group.name}" by Orestis Ioannou`
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  headline: `Posts tagged with ${group.name}`,
+  description: `Articles about ${group.name}`,
+  url: canonicalUrl(getTagUrl(group.name)),
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": canonicalUrl(getTagUrl(group.name)),
+  },
+  itemListElement: group.posts.map((post, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    url: canonicalUrl(getPostUrl(post)),
+    name: post.data.title,
+  })),
+}
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath={getTagUrl(group.name)}
+  image="/img/blog-by-orestis.jpg"
+  imageAlt={`Articles about ${group.name}`}
+  schema={schema}
+>
+  <section class="py-16 sm:py-20">
+    <div class="mb-10 text-center">
+      <p class="section-kicker">Topic</p>
+      <h1 class="text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">{group.name}</h1>
+      <p class="section-intro">{group.posts.length} article{group.posts.length === 1 ? "" : "s"}</p>
+      <a href="/blog" class="mt-5 inline-flex text-sm font-semibold text-foreground hover:text-primary">← Back to all writing</a>
+    </div>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {group.posts.map((post) => <PostCard post={post} />)}
+    </div>
+  </section>
+</BaseLayout>

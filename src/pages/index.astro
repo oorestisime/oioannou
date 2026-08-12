@@ -1,0 +1,189 @@
+---
+import { getCollection } from "astro:content"
+import BaseLayout from "../layouts/BaseLayout.astro"
+import PostCard from "../components/PostCard.astro"
+import { personSchema } from "../lib/seo"
+import { sortPosts } from "../lib/content"
+
+const pageTitle = "Orestis Ioannou | Product, Engineering and AI"
+const pageDescription =
+  "VP of Tech and product engineering leader building AI-native products, teams and systems. Based in Cyprus and working internationally."
+
+const selectedWork = [
+  {
+    title: "Scaling Bold.org",
+    description:
+      "Helped build and scale Bold.org from its earliest days to more than 8 million registered users and a profitable business, growing from hands-on engineering into VP of Tech. Today I work across product architecture, engineering systems, reliability and the teams responsible for continuing to ship at scale.",
+    marker: "8M+",
+  },
+  {
+    title: "Agents that understand engineering systems",
+    description:
+      "I build agents that work across code, production signals and company context. Recent work includes production investigation, code review, recurring monitoring workflows and the infrastructure engineers need to use agents effectively.",
+    marker: "AI",
+  },
+  {
+    title: "Building products from zero to launch",
+    description:
+      "I also build products independently. Most recently, I built clssrm, operations software for class-based studios, working across customer discovery, product architecture, implementation, billing, onboarding and launch.",
+    marker: "0-1",
+    href: "https://clssrm.app",
+    linkLabel: "Visit clssrm",
+  },
+]
+
+const selectedPostIds = [
+  "ai-engineering-setup-15-months-later",
+  "current-ai-setup",
+  "partial-rebuilds",
+]
+const posts = sortPosts(await getCollection("blog"))
+const selectedPosts = selectedPostIds.flatMap((id) => {
+  const post = posts.find((candidate) => candidate.id === id)
+  return post ? [post] : []
+})
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/"
+  schema={personSchema()}
+>
+  <section class="relative overflow-hidden border-b border-border py-16 sm:py-24 lg:py-32">
+    <div class="pointer-events-none absolute -right-28 top-12 size-80 rounded-full bg-primary/10 blur-3xl"></div>
+    <div class="relative grid items-end gap-12 lg:grid-cols-[minmax(0,1fr)_16rem] lg:gap-20">
+      <div class="max-w-4xl">
+        <p class="mb-5 font-mono text-sm font-medium uppercase tracking-[0.18em] text-primary">
+          VP of Tech at Bold.org / Cyprus
+        </p>
+        <h1 class="max-w-4xl text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-foreground sm:text-6xl lg:text-7xl">
+          Product, engineering and AI. Building teams and systems that ship.
+        </h1>
+        <div class="mt-8 max-w-3xl space-y-4 text-lg leading-8 text-muted-foreground sm:text-xl">
+          <p class="my-0">
+            I&apos;m a product and engineering leader who still works close to the code,
+            with experience building teams, products and technical systems.
+          </p>
+          <p class="my-0">
+            Today I&apos;m focused on AI-native engineering and product development:
+            agents, tooling and workflows that work in real organizations. Based in
+            Cyprus, working internationally.
+          </p>
+        </div>
+        <div class="mt-9 flex flex-wrap gap-x-6 gap-y-3" aria-label="Contact links">
+          {[
+            ["LinkedIn", "https://linkedin.com/in/oorestisime"],
+            ["GitHub", "https://github.com/oorestisime"],
+            ["Email", "mailto:oorestisime@gmail.com"],
+          ].map(([label, href]) => (
+            <a
+              href={href}
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+              class="group inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-primary"
+            >
+              {label}
+              <svg class="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M7 17 17 7"></path>
+                <path d="M7 7h10v10"></path>
+              </svg>
+            </a>
+          ))}
+        </div>
+      </div>
+      <div class="hidden lg:block">
+        <div class="overflow-hidden rounded-2xl border border-border bg-card p-2 shadow-2xl shadow-black/20">
+          <img
+            src="/img/me.jpg"
+            alt="Illustration of Orestis Ioannou"
+            class="aspect-square w-full rounded-xl object-cover"
+            width="1024"
+            height="1024"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="selected-work" class="scroll-mt-20 border-b border-border py-16 sm:py-24">
+    <div class="mb-10 max-w-2xl">
+      <p class="section-kicker">Selected work</p>
+      <h2 class="section-title">Work, at scale and up close</h2>
+      <p class="section-intro">
+        Product leadership at scale, current AI engineering work and products I
+        continue to build hands-on.
+      </p>
+    </div>
+    <div class="grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-3">
+      {selectedWork.map((item) => (
+        <article class="bg-card p-6 sm:p-8">
+          <div class="mb-8 flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <span class="font-mono text-xs font-semibold" aria-hidden="true">{item.marker}</span>
+          </div>
+          <h3 class="text-xl font-semibold leading-snug tracking-tight">{item.title}</h3>
+          <p class="mb-0 mt-4 text-base leading-7 text-muted-foreground">{item.description}</p>
+          {item.href && (
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-primary"
+            >
+              {item.linkLabel}
+              <svg class="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M7 17 17 7"></path>
+                <path d="M7 7h10v10"></path>
+              </svg>
+            </a>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="border-b border-border py-16 sm:py-24">
+    <div class="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+      <div class="max-w-2xl">
+        <p class="section-kicker">Writing</p>
+        <h2 class="section-title">Ideas, worked through</h2>
+        <p class="section-intro">
+          Selected writing on AI, engineering systems and the practical work of shipping software.
+        </p>
+      </div>
+      <a href="/blog" class="group inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-foreground hover:text-primary">
+        Browse all writing
+        <svg class="size-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14"></path>
+          <path d="m13 6 6 6-6 6"></path>
+        </svg>
+      </a>
+    </div>
+    <div class="grid gap-5 md:grid-cols-3">
+      {selectedPosts.map((post) => <PostCard post={post} />)}
+    </div>
+  </section>
+
+  <section id="work-with-me" class="scroll-mt-20 py-16 sm:py-24">
+    <div class="relative overflow-hidden rounded-2xl border border-border bg-card px-6 py-10 sm:px-10 sm:py-12 lg:grid lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
+      <div class="pointer-events-none absolute -right-24 -top-24 size-72 rounded-full bg-primary/10 blur-3xl"></div>
+      <div class="relative max-w-3xl">
+        <p class="section-kicker">Work with me</p>
+        <h2 class="section-title">A practical way into AI-native work</h2>
+        <p class="mb-0 mt-5 text-lg leading-8 text-muted-foreground">
+          I occasionally work with product and engineering teams figuring out how AI
+          should change the way they build and operate, from internal agents and
+          engineering workflows to AI product strategy. If you&apos;re working through
+          something similar, I&apos;d be happy to talk.
+        </p>
+      </div>
+      <a href="mailto:oorestisime@gmail.com" class="group relative mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground lg:mt-0">
+        Get in touch
+        <svg class="size-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14"></path>
+          <path d="m13 6 6 6-6 6"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

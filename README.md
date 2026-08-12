@@ -5,6 +5,7 @@ This is the code for my personal website.
 - It was initially built using Flask Python Frozen-Flask FlatPages.
 - Second iteration using Gatsby and Grommet
 - Third iteration React Router + shadcn
+- Current iteration using Astro and static content collections
 
 You can see it live at [www.oioannou.com](http://www.oioannou.com).
 
@@ -12,21 +13,19 @@ You can see it live at [www.oioannou.com](http://www.oioannou.com).
 
 ```bash
 # Install dependencies
-npm install
+bun install
 
 # Start development server
-npm run dev
+bun run dev
 
 # Build for production
-npm run build
+bun run build
 ```
 
 ## Structure
 
-- `/app` - Main application code
-  - `/assets` - Static assets
-  - `/components` - UI components
-  - `/content` - Blog posts and page content
-  - `/lib` - Utility functions and services
-  - `/routes` - Page components and routing
-
+- `/src/pages` - Statically generated routes
+- `/src/components` - Reusable Astro components
+- `/src/content/blog` - Markdown articles
+- `/src/layouts` - Shared page metadata and document structure
+- `/public` - Static images, robots policy, and favicon

@@ -1,0 +1,36 @@
+---
+import type { BlogPost } from "../lib/content"
+import { formatPostDate, getPostExcerpt, getPostUrl } from "../lib/content"
+import Tag from "./Tag.astro"
+
+interface Props {
+  post: BlogPost
+}
+
+const { post } = Astro.props
+---
+
+<article class="group flex h-full flex-col rounded-lg border border-border bg-card text-card-foreground shadow-sm transition-colors hover:border-primary/50">
+  <header class="flex flex-col space-y-1.5 p-6 pb-4">
+    <time datetime={post.data.date.toISOString()} class="font-mono text-xs uppercase tracking-[0.12em] text-muted-foreground">
+      {formatPostDate(post.data.date)}
+    </time>
+    <h3 class="pt-2 text-xl font-semibold leading-snug tracking-tight">
+      <a href={getPostUrl(post)} class="inline-flex items-start gap-2 text-foreground hover:text-primary">
+        <span>{post.data.title}</span>
+        <svg class="mt-1 size-4 shrink-0 text-primary opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M7 17 17 7"></path>
+          <path d="M7 7h10v10"></path>
+        </svg>
+      </a>
+    </h3>
+  </header>
+  <div class="flex-1 px-6 pb-6">
+    <p class="my-0 line-clamp-4 text-sm leading-6 text-muted-foreground">{getPostExcerpt(post)}</p>
+  </div>
+  {post.data.tags.length > 0 && (
+    <footer class="flex flex-wrap gap-2 px-6 pb-6">
+      {post.data.tags.map((tag) => <Tag name={tag} />)}
+    </footer>
+  )}
+</article>

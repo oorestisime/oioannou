@@ -1,0 +1,30 @@
+---
+import { getTagUrl } from "../lib/content"
+
+interface Props {
+  name: string
+  count?: number
+}
+
+const { name, count } = Astro.props
+let hash = 0
+for (let index = 0; index < name.length; index += 1) {
+  hash = name.charCodeAt(index) + ((hash << 5) - hash)
+}
+
+const colors = [
+  { color: "#00c896", background: "rgba(0, 200, 150, 0.15)" },
+  { color: "#d81b9c", background: "rgba(216, 27, 156, 0.15)" },
+  { color: "#f6c90e", background: "rgba(246, 201, 14, 0.15)" },
+]
+const palette = colors[Math.abs(hash) % colors.length]
+---
+
+<a
+  href={getTagUrl(name)}
+  class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium"
+  style={`background-color: ${palette.background}; color: ${palette.color}`}
+>
+  {name}
+  {count !== undefined && <span class="ml-1 opacity-70">({count})</span>}
+</a>
