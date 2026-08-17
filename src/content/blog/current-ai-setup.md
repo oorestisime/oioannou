@@ -6,6 +6,8 @@ tags: ["Claude", "AI", "OpenAI"]
 description: "A practical look at using coding agents, company context and AI tooling in real engineering work."
 ---
 
+> **Update (August 2026):** I wrote a follow-up — [My AI Engineering Setup, 15 Months Later](/blog/ai-engineering-setup-15-months-later/).
+
 The AI landscape is shifting every week. New models, XYZ tool updates, MCP this, MCP that, yet more models—honestly, it’s overwhelming. Keeping track is already time-consuming; experimenting with it all? Good luck.
 
 My strategy remains pragmatic. AI is clearly improving, and engineers integrating AI into their workflows can significantly boost productivity. We're not fully there yet, but each iteration brings us closer.
