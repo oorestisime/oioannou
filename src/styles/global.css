@@ -325,6 +325,14 @@ code.language-python .token.comment {
   @apply max-w-none text-[1.05rem] leading-8 text-foreground/90;
 }
 
+.prose strong {
+  @apply text-accent;
+}
+
+.prose em {
+  @apply text-[#f6c90e];
+}
+
 .prose h2 {
   @apply mb-4 mt-12 text-2xl font-semibold tracking-tight sm:text-3xl;
 }
