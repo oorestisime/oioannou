@@ -1,5 +1,5 @@
 ---
-title: "Building an Internal Company Agent: 5 Things I Got Right and 5 I Would Do Differently"
+title: "Building an Internal Company Agent: 5 Things We Got Right and 5 I Would Do Differently"
 path: /internal-company-agent-lessons/
 date: 2026-08-17
 tags: ["AI", "Agents", "Engineering", "Product"]
@@ -12,9 +12,9 @@ The short version is that back in January 2026, Bold.org had structured backend 
 
 That summary makes the path sound much cleaner than it was.
 
-I made several decisions that helped the agent spread quickly. I also spent time solving problems I did not really have, left some important problems too late, and assumed things were obvious when they definitely were not.
+Several decisions helped the agent spread quickly. I also spent time solving problems I did not really have, left some important problems too late, and assumed things were obvious when they definitely were not.
 
-This is not a universal guide to building agents. It is a practical retrospective from building one inside a real company: five things I think I got right and five I would approach differently today.
+This is not a universal guide to building agents. It is a practical retrospective from building one inside a real company: five things we got right and five I would approach differently today.
 
 ## What this looked like in practice
 
@@ -26,13 +26,13 @@ The system consumes billions of tokens per month. That makes usage analytics and
 
 I made one security boundary deliberately simple. The agent is gated behind Google sign-in for our company domain, and all of its remote access is read-only. Rather than relying on the model to be smart about when a change is safe, I did not give it permissions to write to remote systems in the first place.
 
-## Five things I got right
+## What worked
 
-### 1. I made it visible before it was finished
+### 1. Make usage visible early
 
 By "visible," I mean visible inside the company.
 
-It is tempting to build an internal tool privately, make it feel complete, write an announcement, and then ask everyone to use it. I did almost the opposite. I used the agent in shared Slack channels and connected it to Linear, where people were already working and could see what it did.
+It is tempting to build an internal tool privately, make it feel complete, write an announcement, and then ask everyone to use it. We did almost the opposite. The agent was used in shared Slack channels and connected to Linear, where people were already working and could see what it did.
 
 This mattered more than any launch document.
 
@@ -46,21 +46,21 @@ Slack and Linear were important for another reason: they did not require people 
 
 The web interface is still useful, especially for private or longer work. But shared usage is what taught the company what was possible.
 
-### 2. I built small connectors when an MCP server did not exist
+### 2. Build small connectors when an MCP server does not exist
 
 An agent becomes much more useful when it can reach the systems where the company actually works. Unfortunately, many internal and third-party systems still do not have a useful MCP server. This is less of a blocker than it first appears.
 
-If a service has an API and an OpenAPI specification, building a basic connector is now surprisingly fast. I can point a coding agent at the specification, describe the small set of operations we need, and ask it to build a simple package around them. Then I review the generated code, narrow the permissions, test it, and connect it to the agent.
+If a service has an API and an OpenAPI specification, building a basic connector is now surprisingly fast. A coding agent can use the specification to build a simple package around the small set of operations needed. The generated code still needs review, narrow permissions, proper testing, and a deliberate connection to the agent.
 
 These connectors do not need to become ambitious integration platforms. In fact, making them boring is better. Expose a few clear operations, return structured results, handle errors properly, and keep credentials away from the model.
 
 The goal is not to reproduce the entire application through tools. It is to give the agent the capabilities needed for useful company workflows.
 
-This approach let me move without waiting for every vendor to ship an official MCP server. It also worked well for internal APIs, where an external connector was never going to exist anyway.
+This approach made it possible to move without waiting for every vendor to ship an official MCP server. It also worked well for internal APIs, where an external connector was never going to exist anyway.
 
-### 3. I tracked how people actually used it
+### 3. Track how people actually use it
 
-I added usage analytics early. Not to create a leaderboard or measure who was "doing AI" correctly, but to understand what I had built.
+Usage analytics went in early. Not to create a leaderboard or measure who was "doing AI" correctly, but to understand what had been built.
 
 Basic data such as tool calls, token spend, recurring workflows, and usage by department answered questions that conversations alone could not:
 
@@ -71,17 +71,17 @@ Basic data such as tool calls, token spend, recurring workflows, and usage by de
 - Which requests were expensive without producing much value?
 - What capabilities were people repeatedly trying to use?
 
-This helped me improve the product based on behavior rather than guesses. If one department kept using a connector in an unexpected way, that was a signal to make the workflow easier. If a tool was almost never called, either people did not know about it, its description was poor, or the capability was less useful than I thought.
+This made it possible to improve the product based on behavior rather than guesses. If one department kept using a connector in an unexpected way, that was a signal to make the workflow easier. If a tool was almost never called, either people did not know about it, its description was poor, or the capability was less useful than expected.
 
 Department-level patterns were especially interesting. The same agent can look like a debugging tool to engineering, a research tool to product, and an investigation tool to support. Looking only at total message count hides that.
 
 There is an important privacy line here. Internal analytics should help improve the tool, not make employees feel monitored or judged. Aggregate patterns and operational metrics were much more useful than ranking individual people.
 
-### 4. I listened to feedback and wrote basic documentation
+### 4. Close the feedback loop
 
 People will try things you did not anticipate. They will also hit confusing behavior that feels obvious to the person who built the system.
 
-I made it easy to share feedback and adjusted the agent as people used it. This sounds basic, but it created a useful loop: somebody tried a workflow, reported where it failed, and could often try the improved version shortly afterwards.
+Feedback was easy to share, and the agent was adjusted as people used it. This sounds basic, but it created a useful loop: somebody tried a workflow, reported where it failed, and could often try the improved version shortly afterwards.
 
 That responsiveness encouraged more experimentation. People are much more willing to explore a new tool when they know a failure is not the end of the conversation.
 
@@ -89,9 +89,9 @@ Some basic documentation also helped. It did not need to explain every tool or b
 
 The combination matters. Documentation without feedback becomes stale. Feedback without documentation means answering the same introductory questions forever.
 
-### 5. I did not make it an engineering-only tool
+### 5. Design for the whole company
 
-The agent started from an engineering and observability problem, so keeping it focused on engineers would have been the obvious path. I am glad I did not.
+The agent started from an engineering and observability problem, so keeping it focused on engineers would have been the obvious path. That would have been a mistake.
 
 Some of the most interesting usage came from product, support, operations, marketing, and growth. These teams often need information spread across several systems but do not have a convenient way to query or combine it. An agent with the right company context can remove a lot of that navigation. Support can be especially powerful here: people can investigate many reports themselves instead of waiting for engineering to gather the context.
 
@@ -101,11 +101,11 @@ They already have coding agents, terminal workflows, preferred models, custom in
 
 Other departments may have fewer existing agent workflows to replace. Once they see a relevant example and trust the access model, the value can be more immediate.
 
-Treating the agent as company infrastructure rather than an engineering experiment changed both its adoption and the features I prioritized.
+Treating the agent as company infrastructure rather than an engineering experiment changed both its adoption and the features that mattered most.
 
 ## Five things I would do differently
 
-### 1. I would design local access much earlier
+### 1. Design local access earlier
 
 The biggest missing piece is making company tools available safely from local agent harnesses.
 
@@ -117,7 +117,7 @@ That is a much harder problem than adding another interface. Authentication need
 
 I still have not solved this completely. But if I started again, I would treat secure local access as a core architecture requirement rather than a later integration. It is the clearest way to combine shared company knowledge with the personal context people already maintain.
 
-### 2. I would spend less time chasing the perfect architecture
+### 2. Spend less time chasing the perfect architecture
 
 Agent tooling changes constantly. Frameworks appear, model APIs improve, MCP conventions evolve, and every week there is a new opinion about the correct architecture.
 
@@ -129,7 +129,7 @@ Today I would pick one simple architecture that supports the immediate use case 
 
 Internal tools have an advantage here: they do not need to become a generic platform for every possible customer. They need to solve the company's actual problems.
 
-### 3. I would make contribution paths obvious from the beginning
+### 3. Make contribution paths obvious
 
 The agent improved quickly, but too much of that improvement depended on a small number of people.
 
@@ -149,7 +149,7 @@ A few examples and a short contribution guide would have removed a lot of uncert
 
 The company agent should capture knowledge from across the company. Its contribution model should reflect that.
 
-### 4. I would build fewer evals and less tracing infrastructure
+### 4. Build fewer evals and less tracing infrastructure
 
 I spent too much time on evals, detailed traces, and comparing model behavior.
 
@@ -163,7 +163,7 @@ A small set of tests for critical tools and permissions is valuable. A few repre
 
 This does not conflict with tracking usage. Usage analytics tells me whether the product is useful and where to improve it. A sophisticated eval suite tries to measure correctness across models and prompts. I needed much more of the first than the second.
 
-### 5. I would assume much less prior AI knowledge
+### 5. Assume less prior AI knowledge
 
 The largest mistake was probably assuming that capabilities obvious to me would be obvious to everyone else.
 
