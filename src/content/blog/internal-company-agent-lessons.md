@@ -20,9 +20,9 @@ This is not a universal guide to building agents. It is a practical retrospectiv
 
 The first workflow was straightforward: I gave the agent read-only access to structured backend events in ClickHouse so it could investigate production questions. I then connected more of the systems where people already worked, including Slack, Linear, PostHog, and Grafana.
 
-The practical effect was bigger than a faster way to write SQL. Support could investigate many customer reports autonomously, without waiting for engineering or another team to provide context. For the workflows we targeted, investigations that previously took multiple hours and required finding the right access through three or four people could usually be completed in zero to one hour. The agent also automated parts of dashboard setup and analysis in PostHog and Grafana without requiring engineering to step in.
+The practical effect is bigger than a faster way to write SQL. Support can investigate many customer reports autonomously, without waiting for engineering or another team to provide context. For the workflows we target, investigations that previously took multiple hours and required finding the right access through three or four people can usually be completed in zero to one hour. The agent also automates parts of dashboard setup and analysis in PostHog and Grafana without requiring engineering to step in.
 
-At peak, the system consumed billions of tokens per month. That made usage analytics and cost awareness important, but it was also a useful signal that the tool had become part of how people worked rather than a demo that was occasionally opened.
+The system consumes billions of tokens per month. That makes usage analytics and cost awareness important, but it is also a useful signal that the tool is part of how people work rather than a demo that is occasionally opened.
 
 I made one security boundary deliberately simple. The agent is gated behind Google sign-in for our company domain, and all of its remote access is read-only. Rather than relying on the model to be smart about when a change is safe, I did not give it permissions to write to remote systems in the first place.
 
