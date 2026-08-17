@@ -18,11 +18,11 @@ This is not a universal guide to building agents. It is a practical retrospectiv
 
 ## What this looked like in practice
 
-The first workflow was straightforward: I gave the agent read-only access to structured backend events in ClickHouse so it could investigate production questions. I then connected more of the systems where people already worked, including Slack, Linear, PostHog, and Grafana.
+The first workflow was straightforward: I gave the agent **read-only access** to structured backend events in ClickHouse so it could investigate production questions. I then connected more of the systems where people already worked, including Slack, Linear, PostHog, and Grafana.
 
-The practical effect is bigger than a faster way to write SQL. Support can investigate many customer reports autonomously, without waiting for engineering or another team to provide context. For the workflows we target, investigations that previously took multiple hours and required finding the right access through three or four people can usually be completed in zero to one hour. The agent also automates parts of dashboard setup and analysis in PostHog and Grafana without requiring engineering to step in.
+The practical effect is bigger than a faster way to write SQL. Support can investigate many customer reports **autonomously**, without waiting for engineering or another team to provide context. For the workflows we target, investigations that previously took multiple hours and required finding the right access through three or four people can usually be completed in **zero to one hour**. The agent also automates parts of dashboard setup and analysis in PostHog and Grafana without requiring engineering to step in.
 
-The system consumes billions of tokens per month. That makes usage analytics and cost awareness important, but it is also a useful signal that the tool is part of how people work rather than a demo that is occasionally opened.
+The system consumes **billions of tokens per month**. That makes usage analytics and cost awareness important, but it is also a useful signal that the tool is part of how people work rather than a demo that is occasionally opened.
 
 I made one security boundary deliberately simple. The agent is gated behind Google sign-in for our company domain, and all of its remote access is read-only. Rather than relying on the model to be smart about when a change is safe, I did not give it permissions to write to remote systems in the first place.
 
@@ -46,36 +46,17 @@ Slack and Linear were important for another reason: they did not require people 
 
 The web interface is still useful, especially for private or longer work. But shared usage is what taught the company what was possible.
 
-### 2. Build small connectors when an MCP server does not exist
+### 2. Connect the tools the company already uses
 
-An agent becomes much more useful when it can reach the systems where the company actually works. Unfortunately, many internal and third-party systems still do not have a useful MCP server. This is less of a blocker than it first appears.
+When I started this in January, MCP was still emerging and many of the systems we needed did not have useful servers. I closed the gap with small CLI tools, mostly thin wrappers around OpenAPI endpoints or existing SDKs, exposing only the operations needed for our workflows. They were intentionally boring: structured results, narrow permissions, proper error handling, and credentials kept away from the model.
 
-If a service has an API and an OpenAPI specification, building a basic connector is now surprisingly fast. A coding agent can use the specification to build a simple package around the small set of operations needed. The generated code still needs review, narrow permissions, proper testing, and a deliberate connection to the agent.
-
-These connectors do not need to become ambitious integration platforms. In fact, making them boring is better. Expose a few clear operations, return structured results, handle errors properly, and keep credentials away from the model.
-
-The goal is not to reproduce the entire application through tools. It is to give the agent the capabilities needed for useful company workflows.
-
-This approach made it possible to move without waiting for every vendor to ship an official MCP server. It also worked well for internal APIs, where an external connector was never going to exist anyway.
+The value was not just another action the agent could take. More access meant **more company context**: production data, tickets, analytics, dashboards, and operational information could be considered together. That gave the agent better evidence for its reasoning and made its answers more useful than anything it could infer from a single system.
 
 ### 3. Track how people actually use it
 
-Usage analytics went in early. Not to create a leaderboard or measure who was "doing AI" correctly, but to understand what had been built.
+Usage analytics went in early. *Not to create a leaderboard* or measure who was "doing AI" correctly, but to understand what had been built.
 
-Basic data such as tool calls, token spend, recurring workflows, and usage by department answered questions that conversations alone could not:
-
-- Which tools were actually valuable?
-- Were people mostly asking questions or asking the agent to take action?
-- Which departments had found useful workflows?
-- Where was usage growing or disappearing?
-- Which requests were expensive without producing much value?
-- What capabilities were people repeatedly trying to use?
-
-This made it possible to improve the product based on behavior rather than guesses. If one department kept using a connector in an unexpected way, that was a signal to make the workflow easier. If a tool was almost never called, either people did not know about it, its description was poor, or the capability was less useful than expected.
-
-Department-level patterns were especially interesting. The same agent can look like a debugging tool to engineering, a research tool to product, and an investigation tool to support. Looking only at total message count hides that.
-
-There is an important privacy line here. Internal analytics should help improve the tool, not make employees feel monitored or judged. Aggregate patterns and operational metrics were much more useful than ranking individual people.
+Tool calls, token spend, recurring workflows, and broad usage patterns showed which tools were valuable, where requests were becoming expensive, and what capabilities people kept trying to use. That made it possible to improve the product based on behavior rather than guesses: unexpected usage suggested a workflow needed simplifying, while unused tools pointed to poor discoverability, descriptions, or limited value. Aggregate operational metrics were more useful than ranking individuals and kept the analytics focused on improving the tool rather than monitoring employees.
 
 ### 4. Close the feedback loop
 
@@ -115,17 +96,13 @@ The ideal setup is not forcing everyone into one harness. It is allowing approve
 
 That is a much harder problem than adding another interface. Authentication needs to represent the person making the request. Secrets cannot be handed to the local model. Tool access should remain scoped and auditable. A compromised or badly configured local environment should not gain broad company access.
 
-I still have not solved this completely. But if I started again, I would treat secure local access as a core architecture requirement rather than a later integration. It is the clearest way to combine shared company knowledge with the personal context people already maintain.
-
 ### 2. Spend less time chasing the perfect architecture
 
-Agent tooling changes constantly. Frameworks appear, model APIs improve, MCP conventions evolve, and every week there is a new opinion about the correct architecture.
+Agent tooling changes constantly. Frameworks appear, models improve, MCP conventions evolve, and every week there is a new opinion about what AI should be, how it should be built, and which patterns or use cases are right or wrong.
 
 It is very easy to keep redesigning the system around what everyone is discussing online.
 
-I spent too much time considering whether I should rebuild parts of the agent around the latest approach. Most of that thinking had a short expiry date. The tool or pattern that looked essential one month could be irrelevant a few months later.
-
-Today I would pick one simple architecture that supports the immediate use case and move forward. Keep connectors small. Keep boundaries clear. Avoid coupling everything to one model or framework. Then replace pieces when there is a real reason, not because a new diagram is popular on social media.
+I spent too much time considering whether I should rebuild parts of the agent around the latest approach. Most of that thinking had a short expiry date: a tool or pattern that looked essential one month could be irrelevant a few months later. Today I would pick one simple architecture that supports the immediate use case and move forward. Keep connectors small, keep boundaries clear, avoid coupling everything to one model or framework, and replace pieces only when there is a real reason rather than because a new diagram is popular on social media.
 
 Internal tools have an advantage here: they do not need to become a generic platform for every possible customer. They need to solve the company's actual problems.
 
@@ -135,33 +112,15 @@ The agent improved quickly, but too much of that improvement depended on a small
 
 It was not obvious who could write a skill, add a connector, improve instructions, or contribute code. Even when the repository was available, people were understandably hesitant. Agent systems combine code, prompts, permissions, and unfamiliar conventions. Nobody wants to break a tool used across the company or accidentally expose something sensitive.
 
-Saying "contributions are welcome" is not enough.
+I have not solved this yet. People are welcome to use the agent, but it is **not obvious how to contribute safely**. The repository is available, but writing a skill, adding a connector, or changing instructions requires understanding code, prompts, permissions, and unfamiliar conventions.
 
-I would define contribution levels explicitly:
-
-- how anyone can propose or edit a skill
-- how teams can own documentation for their workflows
-- how engineers can add a tool or connector
-- which changes require security or code review
-- where to test changes before they reach everyone
-
-A few examples and a short contribution guide would have removed a lot of uncertainty. I would also identify owners in different departments instead of making every improvement flow through engineering.
-
-The company agent should capture knowledge from across the company. Its contribution model should reflect that.
+A short contribution guide with examples, ownership, review requirements, and a safe test path would make this easier. Until then, too much of the improvement depends on a small number of people.
 
 ### 4. Build fewer evals and less tracing infrastructure
 
-I spent too much time on evals, detailed traces, and comparing model behavior.
+I spent too much time on evals, detailed traces, and comparing model behavior. Some visibility is essential: enough tracing to debug failures, usage analytics to control spend, and tests for critical tools and permissions. But this is *not a frontier lab* or a product with a dedicated evaluation team. It is an internal tool, and I cannot devote all my time to building infrastructure around hypothetical failures.
 
-Some visibility is essential. You need enough tracing to debug failures, enough usage analytics to control spend, and enough logging to understand what tools were called. But it is easy to cross from useful visibility into building infrastructure for a problem you do not have.
-
-This is not a frontier lab evaluating model capabilities, and it is not an external agent product promising consistent behavior to thousands of customers. It is an internal tool used by colleagues who can report failures and adjust their requests.
-
-That changes the appropriate level of investment.
-
-A small set of tests for critical tools and permissions is valuable. A few representative workflows can catch obvious regressions. Beyond that, I would wait for recurring failures before building a large evaluation system.
-
-This does not conflict with tracking usage. Usage analytics tells me whether the product is useful and where to improve it. A sophisticated eval suite tries to measure correctness across models and prompts. I needed much more of the first than the second.
+The goal is to **make it simple, make it work, and keep it maintainable**. A few representative workflows and permission tests are enough until recurring failures justify more. The evaluation system should grow from real problems rather than from the fear of not measuring enough.
 
 ### 5. Assume less prior AI knowledge
 
@@ -177,14 +136,10 @@ What helps most is turning abstract capabilities into visible functionality. Do 
 
 Adoption does not happen because the architecture is impressive. It happens when somebody sees the agent solve a problem they recognize.
 
-## What I would optimize for now
+## The main lessons
 
-If I started again, I would spend less time optimizing the agent itself and more time optimizing the path from curiosity to useful work.
+These are the main lessons and mistakes from the first six months: make the agent visible early, connect it to the systems where context lives, keep access safe, and optimize for something **simple enough to maintain**.
 
-That means putting it where people already work, showing real examples, building the missing connectors quickly, making contributions safe and obvious, and giving local agents a secure path into company context.
+The best decision was letting people see the agent being used before it felt finished. The recurring lesson is that **what feels obvious to the builder is rarely obvious to everyone else**.
 
-The technical foundation still matters. Permissions need to be correct. Tools need to be reliable. Failures need to be debuggable. But internal adoption depends just as much on whether people understand the possibilities and feel comfortable trying them.
-
-The best decision I made was letting people see the agent being used before it felt finished. The biggest lesson I would carry into the next version is that what feels obvious to the builder is almost never obvious to everyone else.
-
-I am interested in hearing how other teams are adopting AI in practice, especially where their workflows are still awkward or blocked by access, context, or trust. If your team is working through similar questions, I would be glad to compare notes. You can [find out more about working with me](/#work-with-me).
+I am interested in hearing how other teams are adopting AI in practice, what is working, and where workflows are still awkward or blocked by access, context, or trust. [If you are working through similar questions or facing challenges introducing AI-native workflows in your team or company, I would love to hear more and see whether I can help](/#work-with-me).
