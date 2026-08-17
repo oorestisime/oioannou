@@ -33,9 +33,9 @@ const selectedWork = [
 ]
 
 const selectedPostIds = [
+  "internal-company-agent-lessons",
   "ai-engineering-setup-15-months-later",
   "current-ai-setup",
-  "internal-company-agent-lessons",
 ]
 const posts = sortPosts(await getCollection("blog"))
 const selectedPosts = selectedPostIds.flatMap((id) => {
