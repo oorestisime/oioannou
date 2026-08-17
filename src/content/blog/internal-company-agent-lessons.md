@@ -8,7 +8,7 @@ description: "A practical retrospective on building and rolling out an internal 
 
 In [my recent AI engineering setup article](/blog/ai-engineering-setup-15-months-later/), I briefly explained how an observability project at [Bold.org](https://bold.org/) turned into an internal company agent.
 
-The short version is that we had structured backend events in ClickHouse, engineers could investigate them with SQL, and I wanted to see whether an agent could do the same. It worked, so I kept connecting more company systems. Within weeks, people across Bold.org's engineering, product, support, and operations teams were using it.
+The short version is that back in January 2026 we had structured backend events in ClickHouse, engineers could investigate them with SQL, and I wanted to see whether an agent could do the same. It worked, so I kept connecting more company systems. Within weeks, people across Bold.org's engineering, product, support, and operations teams were using it.
 
 That summary makes the path sound much cleaner than it was.
 
