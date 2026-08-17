@@ -1,7 +1,7 @@
 ---
 title: "Building an Internal Company Agent: 5 Things We Got Right and 5 I Would Do Differently"
 path: /internal-company-agent-lessons/
-date: 2026-08-12
+date: 2026-08-17
 tags: ["AI", "Agents", "Engineering", "Product"]
 description: "A practical retrospective on building and rolling out an internal company agent at Bold.org, from connectors and usage analytics to adoption, contributions and overbuilt evals."
 ---

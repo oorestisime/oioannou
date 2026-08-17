@@ -1,7 +1,7 @@
 ---
 title: "My AI Engineering Setup, 15 Months Later"
 path: /ai-engineering-setup-15-months-later/
-date: 2026-08-17
+date: 2026-08-12
 tags: ["AI", "Agents", "OpenCode", "Engineering"]
 description: "How my engineering workflow moved from coding alongside one assistant to supervising parallel agents, and why company context became the real breakthrough."
 ---
