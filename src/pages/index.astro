@@ -32,6 +32,21 @@ const selectedWork = [
   },
 ]
 
+const currentProjects = [
+  {
+    name: "clssrm",
+    description:
+      "Simple software for independent studios to manage classes, attendance and payment records without juggling spreadsheets.",
+    href: "https://clssrm.app",
+  },
+  {
+    name: "Off Model",
+    description:
+      "An independent publication about anime, manga, collecting and fan-made culture, from Cyprus.",
+    href: "https://offmodel.media/",
+  },
+]
+
 const selectedPostIds = [
   "orpc-contract-migration-factory",
   "internal-company-agent-lessons",
@@ -161,6 +176,33 @@ const selectedPosts = selectedPostIds.flatMap((id) => {
     </div>
     <div class="grid gap-5 md:grid-cols-3">
       {selectedPosts.map((post) => <PostCard post={post} />)}
+    </div>
+  </section>
+
+  <section id="current-projects" aria-labelledby="current-projects-title" class="scroll-mt-20 border-b border-border py-12 sm:py-16">
+    <h2 id="current-projects-title" class="text-2xl font-semibold tracking-tight sm:text-3xl">
+      Things I&apos;m working on
+    </h2>
+    <div class="mt-6 grid gap-6 sm:grid-cols-2 sm:gap-10">
+      {currentProjects.map((project) => (
+        <article>
+          <h3 class="text-lg font-semibold">
+            <a
+              href={project.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group inline-flex items-center gap-1.5 text-foreground hover:text-primary"
+            >
+              {project.name}
+              <svg class="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M7 17 17 7"></path>
+                <path d="M7 7h10v10"></path>
+              </svg>
+            </a>
+          </h3>
+          <p class="mb-0 mt-3 text-base leading-7 text-muted-foreground">{project.description}</p>
+        </article>
+      ))}
     </div>
   </section>
 
