@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Rounded container -->
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="#1a5c5a" />
+
+  <!-- Grid lines (3 columns suggesting a weekly schedule) -->
+  <line x1="25" y1="16" x2="25" y2="48" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+  <line x1="39" y1="16" x2="39" y2="48" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+
+  <!-- Horizontal dividers -->
+  <line x1="14" y1="26" x2="50" y2="26" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+  <line x1="14" y1="37" x2="50" y2="37" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+
+  <!-- Class blocks – warm accent -->
+  <rect x="14" y="16" width="9" height="8" rx="3" fill="#d4956a" opacity="0.9" />
+  <rect x="27.5" y="28" width="9" height="7" rx="3" fill="#d4956a" opacity="0.9" />
+
+  <!-- Class blocks – light teal -->
+  <rect x="41" y="16" width="9" height="12" rx="3" fill="#5bbfb5" opacity="0.85" />
+  <rect x="14" y="39" width="9" height="9" rx="3" fill="#5bbfb5" opacity="0.85" />
+
+  <!-- Class block – soft purple -->
+  <rect x="27.5" y="39" width="9" height="6" rx="3" fill="#9b8ec4" opacity="0.8" />
+  <rect x="41" y="31" width="9" height="6" rx="3" fill="#9b8ec4" opacity="0.8" />
+</svg>

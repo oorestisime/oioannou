@@ -35,12 +35,14 @@ const selectedWork = [
 const currentProjects = [
   {
     name: "clssrm",
+    logo: "/img/projects/clssrm.svg",
     description:
       "Simple software for independent studios to manage classes, attendance and payment records without juggling spreadsheets.",
     href: "https://clssrm.app",
   },
   {
     name: "Off Model",
+    logo: "/img/projects/off-model.svg",
     description:
       "An independent publication about anime, manga, collecting and fan-made culture, from Cyprus.",
     href: "https://offmodel.media/",
@@ -191,8 +193,16 @@ const selectedPosts = selectedPostIds.flatMap((id) => {
               href={project.href}
               target="_blank"
               rel="noopener noreferrer"
-              class="group inline-flex items-center gap-1.5 text-foreground hover:text-primary"
+              class="group inline-flex items-center gap-3 text-foreground hover:text-primary"
             >
+              <img
+                src={project.logo}
+                alt=""
+                width="40"
+                height="40"
+                loading="lazy"
+                class="size-10 shrink-0 rounded-lg object-contain"
+              />
               {project.name}
               <svg class="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M7 17 17 7"></path>
