@@ -27,7 +27,7 @@ export function personSchema() {
       name: "Cyprus",
     },
     sameAs: [
-      "https://linkedin.com/in/oorestisime",
+      "https://www.linkedin.com/in/orestis-ioannou-242a0545/",
       "https://github.com/oorestisime",
     ],
     knowsAbout: [
