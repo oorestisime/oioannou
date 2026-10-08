@@ -123,6 +123,14 @@ for (const page of expectedPages) {
   if (!sitemap.includes(`<loc>${canonical}</loc>`)) fail(`Sitemap missing ${page}`)
 }
 
+assertOutput("/rss.xml")
+const feed = fs.readFileSync(path.join(dist, "rss.xml"), "utf8")
+const feedLinks = [...feed.matchAll(/<item>[\s\S]*?<link>([^<]+)<\/link>/g)].map(([, link]) => link)
+if (feedLinks.length !== posts.length) fail(`RSS feed has ${feedLinks.length} items, expected ${posts.length}`)
+for (const page of articlePaths) {
+  if (!feedLinks.includes(new URL(page.replace(/\/?$/, "/"), "https://oioannou.com").href)) fail(`RSS feed missing ${page}`)
+}
+
 if (redirects.length !== 25) fail(`Expected 25 redirects, found ${redirects.length}`)
 const redirectSources = new Set(redirects.map(({ from }) => from.replace(/\/$/, "")))
 if (redirectSources.size !== redirects.length) fail("Duplicate redirect source detected")
@@ -153,5 +161,5 @@ if (baseUrl) {
 }
 
 console.log(
-  `Verified ${expectedPages.length} canonical pages, ${htmlFiles.length} HTML files, ${redirects.length} redirects${baseUrl ? " via Netlify" : ""}, internal links, metadata, sitemap, assets, and zero client JavaScript.`
+  `Verified ${expectedPages.length} canonical pages, ${htmlFiles.length} HTML files, ${redirects.length} redirects${baseUrl ? " via Netlify" : ""}, internal links, metadata, sitemap, RSS feed, assets, and zero client JavaScript.`
 )
