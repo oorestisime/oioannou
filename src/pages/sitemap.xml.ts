@@ -22,6 +22,7 @@ export const GET: APIRoute = async () => {
     { path: "/", priority: "1.0" },
     { path: "/blog", priority: "0.9" },
     { path: "/projects", priority: "0.6" },
+    { path: "/work-with-me", priority: "0.5" },
     ...posts.map((post) => ({
       path: getPostUrl(post),
       priority: "0.7",

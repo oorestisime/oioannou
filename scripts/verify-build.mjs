@@ -66,7 +66,7 @@ const tagPaths = new Set(
 )
 if (tagPaths.size < 50) fail(`Expected at least 50 effective tag paths, found ${tagPaths.size}`)
 
-const expectedPages = ["/", "/blog", "/projects", ...articlePaths, ...tagPaths]
+const expectedPages = ["/", "/blog", "/projects", "/work-with-me", ...articlePaths, ...tagPaths]
 for (const page of expectedPages) assertOutput(page)
 
 const netlify = fs.readFileSync(path.join(root, "netlify.toml"), "utf8")

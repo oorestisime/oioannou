@@ -1,0 +1,105 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+import { canonicalUrl } from "../lib/seo"
+
+const title = "Work with me - Orestis Ioannou"
+const description =
+  "Consulting for engineering teams building internal AI agents, in Cyprus and across Europe."
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  headline: title,
+  description,
+  url: canonicalUrl("/work-with-me"),
+}
+
+const offers = [
+  {
+    title: "Readiness review",
+    timing: "1 to 2 weeks",
+    description:
+      "I look at your workflows, data and tooling, identify where an internal agent would actually help, and outline a plan.",
+  },
+  {
+    title: "Internal-agent pilot",
+    timing: "A few weeks, scoped together",
+    description:
+      "We build a working agent on a real use case, with your team involved throughout.",
+  },
+  {
+    title: "Handover and training",
+    timing: "Optional ongoing support",
+    description:
+      "Your team owns the agent and learns to extend it. I can stay on for ongoing support afterwards if that helps.",
+  },
+]
+---
+
+<BaseLayout title={title} description={description} canonicalPath="/work-with-me" image="/img/me.jpg" schema={schema}>
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto mb-12 max-w-2xl text-center">
+      <p class="section-kicker">Work with me</p>
+      <h1 class="text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">Internal AI agents, built with your team</h1>
+      <p class="section-intro">
+        I help companies build internal AI agents: assistants that work with your team&apos;s own tools, docs and
+        systems. My team built one at my day job, and I&apos;ve seen what makes these work in practice.
+      </p>
+    </div>
+  </section>
+
+  <section class="border-t border-border py-16 sm:py-20">
+    <div class="mb-10 max-w-2xl">
+      <p class="section-kicker">What I offer</p>
+      <h2 class="section-title">Ways to work together</h2>
+    </div>
+    <div class="grid gap-6 md:grid-cols-3">
+      {offers.map((offer) => (
+        <article class="flex h-full flex-col rounded-lg border border-border bg-card p-6">
+          <h3 class="text-xl font-semibold tracking-tight">{offer.title}</h3>
+          <p class="mb-0 mt-2 text-xs text-muted-foreground">{offer.timing}</p>
+          <p class="mb-0 mt-4 text-base leading-7 text-muted-foreground">{offer.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="border-t border-border py-16 sm:py-20">
+    <div class="grid gap-10 md:grid-cols-2">
+      <div>
+        <p class="section-kicker">Who it&apos;s for</p>
+        <h2 class="section-title">Engineering teams and leaders</h2>
+        <p class="section-intro">
+          CTOs and engineering leaders, and the teams they run, in Cyprus and across Europe.
+        </p>
+      </div>
+      <div>
+        <p class="section-kicker">Speaking</p>
+        <h2 class="section-title">DevFest Cyprus, 31 October 2026</h2>
+        <p class="section-intro">
+          I&apos;ll be speaking at DevFest Cyprus at the University of Nicosia about building internal AI agents.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-24">
+    <div class="relative overflow-hidden rounded-2xl border border-border bg-card px-6 py-10 sm:px-10 sm:py-12 lg:grid lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
+      <div class="pointer-events-none absolute -right-24 -top-24 size-72 rounded-full bg-primary/10 blur-3xl"></div>
+      <div class="relative max-w-3xl">
+        <p class="section-kicker">Get in touch</p>
+        <h2 class="section-title">If this sounds useful</h2>
+        <p class="mb-0 mt-5 text-lg leading-8 text-muted-foreground">
+          Email me with what you&apos;re working on. It doesn&apos;t need to be clear yet, and I&apos;m happy to
+          talk it through.
+        </p>
+      </div>
+      <a href="mailto:oorestisime@gmail.com" class="group relative mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground lg:mt-0">
+        Email me
+        <svg class="size-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14"></path>
+          <path d="m13 6 6 6-6 6"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
