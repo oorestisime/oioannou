@@ -4,7 +4,7 @@ import { canonicalUrl } from "../lib/seo"
 
 const title = "Work with me - Orestis Ioannou"
 const description =
-  "Consulting for engineering teams building internal AI agents, in Cyprus and across Europe."
+  "Internal AI agents for engineering and operations teams. Assessment, a scoped pilot and handover, in Cyprus and across Europe."
 const schema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -13,72 +13,134 @@ const schema = {
   url: canonicalUrl("/work-with-me"),
 }
 
-const offers = [
+const outcomes = [
   {
-    title: "Readiness review",
+    title: "Answers from your own knowledge",
+    description:
+      "An agent that answers questions across your docs, tickets and code, and shows where each answer came from.",
+  },
+  {
+    title: "Repetitive work, handled",
+    description:
+      "Triage, routing and first-draft responses for support and operations queues, with a person approving what matters.",
+  },
+  {
+    title: "Connected, with limits",
+    description:
+      "Access to your internal tools through scoped, auditable permissions, so the agent only does what it is allowed to do.",
+  },
+  {
+    title: "Time saved, measured",
+    description:
+      "Baselines and evaluations agreed up front, so you know what the agent saves and where it does not.",
+  },
+]
+
+const phases = [
+  {
+    step: "01",
+    title: "Assess",
     timing: "1 to 2 weeks",
     description:
-      "I look at your workflows, data and tooling, identify where an internal agent would actually help, and outline a plan.",
+      "Find the use case with the highest value, review your data and access, and agree a plan.",
   },
   {
-    title: "Internal-agent pilot",
+    step: "02",
+    title: "Build",
     timing: "A few weeks, scoped together",
     description:
-      "We build a working agent on a real use case, with your team involved throughout.",
+      "A working agent in your environment, built on a real workflow and tested against it.",
   },
   {
-    title: "Handover and training",
+    step: "03",
+    title: "Hand over",
     timing: "Optional ongoing support",
     description:
-      "Your team owns the agent and learns to extend it. I can stay on for ongoing support afterwards if that helps.",
+      "Documentation, training and runbooks, so your team owns and extends the agent.",
   },
+]
+
+const deliverables = [
+  "A working agent running in your infrastructure",
+  "An evaluation setup to track quality over time",
+  "Documentation and runbooks",
+  "A team trained to run and extend it",
 ]
 ---
 
 <BaseLayout title={title} description={description} canonicalPath="/work-with-me" image="/img/me.jpg" schema={schema}>
-  <section class="py-16 sm:py-20">
-    <div class="mx-auto mb-12 max-w-2xl text-center">
+  <section class="py-16 sm:py-24">
+    <div class="max-w-3xl">
       <p class="section-kicker">Work with me</p>
-      <h1 class="text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">Internal AI agents, built with your team</h1>
-      <p class="section-intro">
-        I help companies build internal AI agents: assistants that work with your team&apos;s own tools, docs and
-        systems. My team built one at my day job, and I&apos;ve seen what makes these work in practice.
+      <h1 class="text-4xl font-semibold leading-[1.1] tracking-[-0.04em] sm:text-5xl">
+        Internal AI agents for engineering and operations teams
+      </h1>
+      <p class="mb-0 mt-6 text-lg leading-8 text-muted-foreground sm:text-xl">
+        I design and build agents that work inside your existing tools, docs and systems, then hand them over
+        to your team to run.
       </p>
     </div>
   </section>
 
   <section class="border-t border-border py-16 sm:py-20">
     <div class="mb-10 max-w-2xl">
-      <p class="section-kicker">What I offer</p>
-      <h2 class="section-title">Ways to work together</h2>
+      <p class="section-kicker">Outcomes</p>
+      <h2 class="section-title">What an internal agent does for your team</h2>
     </div>
-    <div class="grid gap-6 md:grid-cols-3">
-      {offers.map((offer) => (
-        <article class="flex h-full flex-col rounded-lg border border-border bg-card p-6">
-          <h3 class="text-xl font-semibold tracking-tight">{offer.title}</h3>
-          <p class="mb-0 mt-2 text-xs text-muted-foreground">{offer.timing}</p>
-          <p class="mb-0 mt-4 text-base leading-7 text-muted-foreground">{offer.description}</p>
+    <div class="grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-2">
+      {outcomes.map((outcome) => (
+        <article class="bg-card p-6 sm:p-8">
+          <h3 class="text-xl font-semibold leading-snug tracking-tight">{outcome.title}</h3>
+          <p class="mb-0 mt-4 text-base leading-7 text-muted-foreground">{outcome.description}</p>
         </article>
       ))}
     </div>
   </section>
 
   <section class="border-t border-border py-16 sm:py-20">
-    <div class="grid gap-10 md:grid-cols-2">
-      <div>
-        <p class="section-kicker">Who it&apos;s for</p>
-        <h2 class="section-title">Engineering teams and leaders</h2>
-        <p class="section-intro">
-          CTOs and engineering leaders, and the teams they run, in Cyprus and across Europe.
-        </p>
-      </div>
-      <div>
-        <p class="section-kicker">Speaking</p>
-        <h2 class="section-title">DevFest Cyprus, 31 October 2026</h2>
-        <p class="section-intro">
-          I&apos;ll be speaking at DevFest Cyprus at the University of Nicosia about building internal AI agents.
-        </p>
-      </div>
+    <div class="mb-10 max-w-2xl">
+      <p class="section-kicker">How it works</p>
+      <h2 class="section-title">How an engagement works</h2>
+    </div>
+    <div class="grid gap-6 md:grid-cols-3">
+      {phases.map((phase) => (
+        <article class="flex h-full flex-col rounded-lg border border-border bg-card p-6">
+          <div class="mb-6 flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <span class="font-mono text-xs font-semibold" aria-hidden="true">{phase.step}</span>
+          </div>
+          <h3 class="text-xl font-semibold tracking-tight">{phase.title}</h3>
+          <p class="mb-0 mt-2 text-xs text-muted-foreground">{phase.timing}</p>
+          <p class="mb-0 mt-4 text-base leading-7 text-muted-foreground">{phase.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="border-t border-border py-16 sm:py-20">
+    <div class="mb-10 max-w-2xl">
+      <p class="section-kicker">Deliverables</p>
+      <h2 class="section-title">What you get</h2>
+    </div>
+    <ul class="m-0 grid list-none gap-x-10 p-0 space-y-0 sm:grid-cols-2">
+      {deliverables.map((item) => (
+        <li class="flex items-start gap-3 border-t border-border py-5 text-base leading-7 text-foreground/90">
+          <svg class="mt-1.5 size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M20 6 9 17l-5-5"></path>
+          </svg>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="border-t border-border py-16 sm:py-20">
+    <div class="max-w-3xl">
+      <p class="section-kicker">Experience</p>
+      <h2 class="section-title">Built for daily use</h2>
+      <p class="mb-0 mt-5 text-lg leading-8 text-muted-foreground">
+        I have built and run an internal AI agent that a real company engineering team uses every day, so I know
+        what keeps one working after launch.
+      </p>
     </div>
   </section>
 
@@ -87,10 +149,10 @@ const offers = [
       <div class="pointer-events-none absolute -right-24 -top-24 size-72 rounded-full bg-primary/10 blur-3xl"></div>
       <div class="relative max-w-3xl">
         <p class="section-kicker">Get in touch</p>
-        <h2 class="section-title">If this sounds useful</h2>
+        <h2 class="section-title">Have a use case in mind?</h2>
         <p class="mb-0 mt-5 text-lg leading-8 text-muted-foreground">
-          Email me with what you&apos;re working on. It doesn&apos;t need to be clear yet, and I&apos;m happy to
-          talk it through.
+          Email me a short description of the workflow. I will tell you whether an agent is the right fit and what
+          it would take.
         </p>
       </div>
       <a href="mailto:oorestisime@gmail.com" class="group relative mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground lg:mt-0">
