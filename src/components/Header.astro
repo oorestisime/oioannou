@@ -1,11 +1,12 @@
 ---
 const pathname = Astro.url.pathname
 const writingActive = pathname === "/blog" || pathname.startsWith("/blog/") || pathname.startsWith("/tags/")
+const workWithMeActive = pathname === "/work-with-me" || pathname.startsWith("/work-with-me/")
 
 const navItems = [
   { name: "Selected work", href: "/#selected-work", active: false },
   { name: "Writing", href: "/blog", active: writingActive },
-  { name: "Work with me", href: "/#work-with-me", active: false },
+  { name: "Work with me", href: "/work-with-me", active: workWithMeActive },
 ]
 ---
 

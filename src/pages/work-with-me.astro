@@ -1,0 +1,191 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+import { canonicalUrl } from "../lib/seo"
+
+const title = "Work with me - Orestis Ioannou"
+const description =
+  "Engineering leader helping teams build internal AI agents, and scale the teams and systems behind them. Based in Cyprus, working across Europe."
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  headline: title,
+  description,
+  url: canonicalUrl("/work-with-me"),
+}
+
+const outcomes = [
+  {
+    title: "Answers from your own knowledge",
+    description:
+      "An agent that answers questions across your docs, tickets and code, and shows where each answer came from.",
+  },
+  {
+    title: "Repetitive work, handled",
+    description:
+      "Triage, routing and first-draft responses for support and operations queues, with a person approving what matters.",
+  },
+  {
+    title: "Connected, with limits",
+    description:
+      "Access to your internal tools through scoped, auditable permissions, so the agent only does what it is allowed to do.",
+  },
+  {
+    title: "Time saved, measured",
+    description:
+      "Baselines and evaluations agreed up front, so you know what the agent saves and where it does not.",
+  },
+]
+
+const phases = [
+  {
+    step: "01",
+    title: "Assess",
+    timing: "1 to 2 weeks",
+    description:
+      "Find the use case with the highest value, review your data and access, and agree a plan.",
+  },
+  {
+    step: "02",
+    title: "Build",
+    timing: "A few weeks, scoped together",
+    description:
+      "A working agent in your environment, built on a real workflow and tested against it.",
+  },
+  {
+    step: "03",
+    title: "Hand over",
+    timing: "Optional ongoing support",
+    description:
+      "Documentation, training and runbooks, so your team owns and extends the agent.",
+  },
+]
+
+const deliverables = [
+  "A working agent running in your infrastructure",
+  "An evaluation setup to track quality over time",
+  "Documentation and runbooks",
+  "A team trained to run and extend it",
+]
+
+const beyondAi = [
+  "Scaling engineering teams: hiring, team structure and processes",
+  "Architecture reviews and technical strategy",
+  "Fractional technical leadership for a defined period",
+]
+---
+
+<BaseLayout title={title} description={description} canonicalPath="/work-with-me" image="/img/me.jpg" schema={schema}>
+  <section class="py-16 sm:py-24">
+    <div class="max-w-3xl">
+      <p class="section-kicker">Work with me</p>
+      <h1 class="text-4xl font-semibold leading-[1.1] tracking-[-0.04em] sm:text-5xl">
+        Internal AI agents for engineering and operations teams
+      </h1>
+      <p class="mb-0 mt-6 text-lg leading-8 text-muted-foreground sm:text-xl">
+        Engineering leader helping teams build internal AI agents, and scale the teams and systems behind them.
+      </p>
+    </div>
+  </section>
+
+  <section class="border-t border-border py-16 sm:py-20">
+    <div class="mb-10 max-w-2xl">
+      <p class="section-kicker">Outcomes</p>
+      <h2 class="section-title">What an internal agent does for your team</h2>
+    </div>
+    <div class="grid gap-px overflow-hidden rounded-xl border border-border bg-border md:grid-cols-2">
+      {outcomes.map((outcome) => (
+        <article class="bg-card p-6 sm:p-8">
+          <h3 class="text-xl font-semibold leading-snug tracking-tight">{outcome.title}</h3>
+          <p class="mb-0 mt-4 text-base leading-7 text-muted-foreground">{outcome.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="border-t border-border py-16 sm:py-20">
+    <div class="mb-10 max-w-2xl">
+      <p class="section-kicker">How it works</p>
+      <h2 class="section-title">How an engagement works</h2>
+    </div>
+    <div class="grid gap-6 md:grid-cols-3">
+      {phases.map((phase) => (
+        <article class="flex h-full flex-col rounded-lg border border-border bg-card p-6">
+          <div class="mb-6 flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <span class="font-mono text-xs font-semibold" aria-hidden="true">{phase.step}</span>
+          </div>
+          <h3 class="text-xl font-semibold tracking-tight">{phase.title}</h3>
+          <p class="mb-0 mt-2 text-xs text-muted-foreground">{phase.timing}</p>
+          <p class="mb-0 mt-4 text-base leading-7 text-muted-foreground">{phase.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="border-t border-border py-16 sm:py-20">
+    <div class="mb-10 max-w-2xl">
+      <p class="section-kicker">Deliverables</p>
+      <h2 class="section-title">What you get</h2>
+    </div>
+    <ul class="m-0 grid list-none gap-x-10 p-0 space-y-0 sm:grid-cols-2">
+      {deliverables.map((item) => (
+        <li class="flex items-start gap-3 border-t border-border py-5 text-base leading-7 text-foreground/90">
+          <svg class="mt-1.5 size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M20 6 9 17l-5-5"></path>
+          </svg>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="border-t border-border py-12 sm:py-16">
+    <div class="mb-6 max-w-2xl">
+      <p class="section-kicker">Beyond AI</p>
+      <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">Also helping with</h2>
+    </div>
+    <ul class="m-0 grid list-none gap-6 p-0 space-y-0 sm:grid-cols-3">
+      {beyondAi.map((item) => (
+        <li class="border-t border-border pt-4 text-sm leading-6 text-muted-foreground">{item}</li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="border-t border-border py-16 sm:py-20">
+    <div class="max-w-3xl">
+      <p class="section-kicker">Experience</p>
+      <h2 class="section-title">Leading teams, building agents</h2>
+      <p class="mb-0 mt-5 text-lg leading-8 text-muted-foreground">
+        I have served as VP of Technology and scaled engineering teams. I built an internal AI agent that runs in
+        production at one company and has been piloted at a second.
+      </p>
+      <a href="/blog/internal-company-agent-lessons/" class="group mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-primary">
+        Read how I built it
+        <svg class="size-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14"></path>
+          <path d="m13 6 6 6-6 6"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-24">
+    <div class="relative overflow-hidden rounded-2xl border border-border bg-card px-6 py-10 sm:px-10 sm:py-12 lg:grid lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
+      <div class="pointer-events-none absolute -right-24 -top-24 size-72 rounded-full bg-primary/10 blur-3xl"></div>
+      <div class="relative max-w-3xl">
+        <p class="section-kicker">Get in touch</p>
+        <h2 class="section-title">Have a use case in mind?</h2>
+        <p class="mb-0 mt-5 text-lg leading-8 text-muted-foreground">
+          Email me a short description of the workflow. I will tell you whether an agent is the right fit and what
+          it would take.
+        </p>
+      </div>
+      <a href="mailto:oorestisime@gmail.com" class="group relative mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground lg:mt-0">
+        Email me
+        <svg class="size-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14"></path>
+          <path d="m13 6 6 6-6 6"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
