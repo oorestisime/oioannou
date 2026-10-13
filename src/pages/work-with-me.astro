@@ -4,7 +4,7 @@ import { canonicalUrl } from "../lib/seo"
 
 const title = "Work with me - Orestis Ioannou"
 const description =
-  "Internal AI agents for engineering and operations teams. Assessment, a scoped pilot and handover, in Cyprus and across Europe."
+  "Engineering leader helping teams build internal AI agents, and scale the teams and systems behind them. Based in Cyprus, working across Europe."
 const schema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -66,6 +66,12 @@ const deliverables = [
   "Documentation and runbooks",
   "A team trained to run and extend it",
 ]
+
+const beyondAi = [
+  "Scaling engineering teams: hiring, team structure and processes",
+  "Architecture reviews and technical strategy",
+  "Fractional technical leadership for a defined period",
+]
 ---
 
 <BaseLayout title={title} description={description} canonicalPath="/work-with-me" image="/img/me.jpg" schema={schema}>
@@ -76,8 +82,7 @@ const deliverables = [
         Internal AI agents for engineering and operations teams
       </h1>
       <p class="mb-0 mt-6 text-lg leading-8 text-muted-foreground sm:text-xl">
-        I design and build agents that work inside your existing tools, docs and systems, then hand them over
-        to your team to run.
+        Engineering leader helping teams build internal AI agents, and scale the teams and systems behind them.
       </p>
     </div>
   </section>
@@ -133,13 +138,25 @@ const deliverables = [
     </ul>
   </section>
 
+  <section class="border-t border-border py-12 sm:py-16">
+    <div class="mb-6 max-w-2xl">
+      <p class="section-kicker">Beyond AI</p>
+      <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">Also helping with</h2>
+    </div>
+    <ul class="m-0 grid list-none gap-6 p-0 space-y-0 sm:grid-cols-3">
+      {beyondAi.map((item) => (
+        <li class="border-t border-border pt-4 text-sm leading-6 text-muted-foreground">{item}</li>
+      ))}
+    </ul>
+  </section>
+
   <section class="border-t border-border py-16 sm:py-20">
     <div class="max-w-3xl">
       <p class="section-kicker">Experience</p>
-      <h2 class="section-title">Built for daily use</h2>
+      <h2 class="section-title">Leading teams, building agents</h2>
       <p class="mb-0 mt-5 text-lg leading-8 text-muted-foreground">
-        I have built and run an internal AI agent that a real company engineering team uses every day, so I know
-        what keeps one working after launch.
+        I have served as VP of Technology and scaled engineering teams. I have also built and run an internal AI
+        agent that a company engineering team uses every day, so I know what keeps one working after launch.
       </p>
     </div>
   </section>
