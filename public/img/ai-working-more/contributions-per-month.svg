@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400" font-family="Inter, ui-sans-serif, system-ui, sans-serif" role="img" aria-labelledby="t">
+<title id="t">Monthly GitHub contributions for @oorestisime: 2022, 2025 and 2026 (to Oct 23)</title>
+<rect width="760" height="400" rx="12" fill="#111827"/>
+<text x="56" y="28" fill="#e5e7eb" font-size="15" font-weight="600">GitHub contributions per month</text>
+<line x1="56" x2="736" y1="344.0" y2="344.0" stroke="#374151" stroke-width="1"/>
+<text x="48" y="348.0" fill="#9ca3af" font-size="11" text-anchor="end">0</text>
+<line x1="56" x2="736" y1="278.2" y2="278.2" stroke="#374151" stroke-width="1"/>
+<text x="48" y="282.2" fill="#9ca3af" font-size="11" text-anchor="end">100</text>
+<line x1="56" x2="736" y1="212.4" y2="212.4" stroke="#374151" stroke-width="1"/>
+<text x="48" y="216.4" fill="#9ca3af" font-size="11" text-anchor="end">200</text>
+<line x1="56" x2="736" y1="146.7" y2="146.7" stroke="#374151" stroke-width="1"/>
+<text x="48" y="150.7" fill="#9ca3af" font-size="11" text-anchor="end">300</text>
+<line x1="56" x2="736" y1="80.9" y2="80.9" stroke="#374151" stroke-width="1"/>
+<text x="48" y="84.9" fill="#9ca3af" font-size="11" text-anchor="end">400</text>
+<text x="56.0" y="364" fill="#9ca3af" font-size="11" text-anchor="middle">Jan</text>
+<text x="117.8" y="364" fill="#9ca3af" font-size="11" text-anchor="middle">Feb</text>
+<text x="179.6" y="364" fill="#9ca3af" font-size="11" text-anchor="middle">Mar</text>
+<text x="241.5" y="364" fill="#9ca3af" font-size="11" text-anchor="middle">Apr</text>
+<text x="303.3" y="364" fill="#9ca3af" font-size="11" text-anchor="middle">May</text>
+<text x="365.1" y="364" fill="#9ca3af" font-size="11" text-anchor="middle">Jun</text>
+<text x="426.9" y="364" fill="#9ca3af" font-size="11" text-anchor="middle">Jul</text>
+<text x="488.7" y="364" fill="#9ca3af" font-size="11" text-anchor="middle">Aug</text>
+<text x="550.5" y="364" fill="#9ca3af" font-size="11" text-anchor="middle">Sep</text>
+<text x="612.4" y="364" fill="#9ca3af" font-size="11" text-anchor="middle">Oct</text>
+<text x="674.2" y="364" fill="#9ca3af" font-size="11" text-anchor="middle">Nov</text>
+<text x="736.0" y="364" fill="#9ca3af" font-size="11" text-anchor="middle">Dec</text>
+<polyline points="56.0,271.0 117.8,261.1 179.6,231.5 241.5,263.8 303.3,294.0 365.1,272.3 426.9,272.3 488.7,267.0 550.5,263.8 612.4,234.2 674.2,245.3 736.0,266.4" fill="none" stroke="#6b7280" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 4"/>
+<polyline points="56.0,276.2 117.8,232.2 179.6,286.1 241.5,271.0 303.3,269.7 365.1,289.4 426.9,259.1 488.7,245.3 550.5,248.6 612.4,262.4 674.2,286.1 736.0,311.1" fill="none" stroke="#93c5fd" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="56.0,161.8 117.8,190.7 179.6,210.5 241.5,221.0 303.3,269.0 365.1,293.4 426.9,275.6 488.7,63.1 550.5,146.0 612.4,244.7" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="56.0" cy="161.8" r="3.5" fill="#f59e0b"/>
+<circle cx="117.8" cy="190.7" r="3.5" fill="#f59e0b"/>
+<circle cx="179.6" cy="210.5" r="3.5" fill="#f59e0b"/>
+<circle cx="241.5" cy="221.0" r="3.5" fill="#f59e0b"/>
+<circle cx="303.3" cy="269.0" r="3.5" fill="#f59e0b"/>
+<circle cx="365.1" cy="293.4" r="3.5" fill="#f59e0b"/>
+<circle cx="426.9" cy="275.6" r="3.5" fill="#f59e0b"/>
+<circle cx="488.7" cy="63.1" r="3.5" fill="#f59e0b"/>
+<circle cx="550.5" cy="146.0" r="3.5" fill="#f59e0b"/>
+<circle cx="612.4" cy="244.7" r="3.5" fill="#f59e0b"/>
+
+<line x1="56" x2="78" y1="382" y2="382" stroke="#6b7280" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="84" y="386" fill="#d1d5db" font-size="12">2022 · full-stack engineer</text>
+<line x1="279.6" x2="301.6" y1="382" y2="382" stroke="#93c5fd" stroke-width="2"/>
+<text x="307.6" y="386" fill="#d1d5db" font-size="12">2025</text>
+<line x1="358.0" x2="380.0" y1="382" y2="382" stroke="#f59e0b" stroke-width="3"/>
+<text x="386.0" y="386" fill="#d1d5db" font-size="12">2026 · to Oct 23, partial month</text>
+<text x="736" y="28" fill="#6b7280" font-size="11" text-anchor="end">Source: GitHub contribution calendar, incl. private</text>
+</svg>
