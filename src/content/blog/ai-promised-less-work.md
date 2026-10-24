@@ -3,7 +3,7 @@ title: "AI Promised Less Work. I Have Never Worked More."
 path: /ai-promised-less-work/
 date: 2026-10-23
 tags: ["AI", "Agents", "Engineering", "Leadership"]
-description: "Agents made implementation cheap, so I started doing far more of it in parallel. Six years of GitHub history show what that did: as VP of Technology I am back at my full-stack engineer pace, with bursts, burnout and a low season that is no longer low."
+description: "Agents made implementation cheap, so I started doing far more of it in parallel. My GitHub history since 2019 shows what that did: as VP of Technology I am back at my full-stack engineer pace, with bursts, burnout and a low season that is no longer low."
 ---
 
 <!-- DRAFT: this post is not ready to publish. Resolve every "TODO (Orestis)" below and update the date before merging. -->
@@ -32,25 +32,27 @@ Two or three serious tasks a week was tiring in a familiar way. Supervising many
 
 ## What my GitHub history shows
 
-I pulled my GitHub contribution calendar for every month from January 2020 to today and marked my roles at [Bold.org](https://bold.org/): Full Stack Engineer until August 2022, Principal Engineer until August 2025, and Vice President of Technology since then. These are GitHub's contribution counts, including private work, so they mix commits, pull requests, reviews and issues. It is a rough signal of activity, not a measure of value. But the shape is hard to ignore.
+I pulled my GitHub contribution calendar for every month from January 2019 to today and marked my roles at [Bold.org](https://bold.org/), which I joined in January 2020: Full Stack Engineer until August 2022, Principal Engineer until August 2025, and Vice President of Technology since then. These are GitHub's contribution counts, including private work, so they mix commits, pull requests, reviews and issues. It is a rough signal of activity, not a measure of value. 2019 is an incomplete baseline: my job before Bold.org used a self-hosted GitLab, so GitHub only shows what I did outside it. But the shape is hard to ignore.
 
-![Monthly GitHub contributions from January 2020 to October 2026, shaded by role at Bold.org. As a Full Stack Engineer, months mostly sit between 130 and 320, peaking at 319 in April 2020. As a Principal Engineer, they mostly sit between 55 and 200. As VP of Technology, 2025 stays around 50 to 150, then 2026 jumps to 277 in January, drops to 77 in June and peaks at 427 in August.](/img/ai-working-more/contributions-per-month.svg)
+![Monthly GitHub contributions from January 2019 to October 2026, shaded by role, with a second dashed line for public contributions only. 2019, before Bold.org, is incomplete because that job used a self-hosted GitLab. As a Full Stack Engineer, months mostly sit between 130 and 320, peaking at 319 in April 2020. As a Principal Engineer, they mostly sit between 55 and 200. As VP of Technology, 2025 stays around 50 to 150, then 2026 jumps to 277 in January, drops to 77 in June and peaks at 427 in August. Public contributions stay near zero from 2021 to 2025 and reach 68 in April 2026.](/img/ai-working-more/contributions-per-month.svg)
 
 The first part of the curve is what I expected:
 
-- **My busiest coding years were the early ones.** 2020 was my highest year, with 2,711 contributions. 2021 dropped to 1,839 and 2022 to 1,498.
+- **My busiest coding years at Bold.org were the early ones.** 2020 was my highest year, with 2,711 contributions. 2021 dropped to 1,839 and 2022 to 1,498.
 - **The Principal Engineer years were flat and lower.** From August 2022 to July 2025 I averaged 114 contributions a month, against 173 as a Full Stack Engineer. My lowest year was 2023, with 1,189.
-- **The first months as VP of Technology looked the same.** From August to December 2025 I averaged 111 a month, and December 2025 was my quietest month in the whole timeline, with 50.
+- **The first months as VP of Technology looked the same.** From August to December 2025 I averaged 111 a month, and December 2025 was my quietest month since joining Bold.org, with 50.
 
 > **TODO (Orestis):** one sentence on what took the place of coding as a Principal Engineer (design, mentoring, hiring, planning?). I did not want to guess.
 
 Then 2026 happened:
 
 - **I am back at my Full Stack Engineer pace.** By October 23 I am at 2,074 contributions, already more than any full year from 2021 to 2025. Over the same period in 2020 I had 2,352, so 2026 is close to my busiest year but not above it.
-- **August 2026 is the busiest month in the timeline.** 427 contributions, against a previous high of 319 in April 2020.
+- **August 2026 is the busiest month in the whole timeline.** 427 contributions, against a previous high of 319 in April 2020.
 - **My normal day moved back up.** The median weekday was 3 or 4 contributions every year from 2022 to 2025. In 2026 it is 7, close to the 8 I had in 2020.
-- **Days off almost disappeared.** I had 40 to 46 weekdays with zero contributions per year from 2022 to 2025. So far in 2026 I have 18, fewer than any year since 2020 (31 in 2020, 25 in 2021).
+- **Days off almost disappeared.** I had 40 to 46 weekdays with zero contributions per year from 2022 to 2025. So far in 2026 I have 18, fewer than any year since I joined Bold.org (31 in 2020, 25 in 2021).
 - **Heavy days became routine again.** From 2022 to 2025 I had exactly one day per year with 24 or more contributions. In 2026 I already have 16, almost the 17 I had in all of 2020.
+
+Almost all of this is private work. The dashed line in the chart is public contributions only: it was near zero from 2021 to 2025 and came back this year, with 191 so far, but that is still less than a tenth of 2026.
 
 The twist is the role. In 2020 I was a full-stack engineer doing feature work full time, and this is roughly what that looked like on GitHub. Today I lead engineering at Bold.org and do far less feature work than I used to. On paper my graph should look like my Principal Engineer years, or lower. Instead it is back where it was when writing code was my whole job.
 
@@ -64,9 +66,9 @@ Looking at the monthly totals, 2026 is not one steady climb. It is a series of b
 
 **February to June** slowly winds down, from 233 contributions in February to 77 in June. There are still spikes, like a 29-contribution day in early April, but the general direction is a return to something more sustainable.
 
-> **TODO (Orestis):** you remember April as a peak. In the monthly totals April (187) is lower than January to March, with a short spike around April 3. Confirm what happened in April (new model? new workflow?) and adjust this paragraph.
+> **TODO (Orestis):** you remember April as a peak. In the monthly totals April (187) is lower than January to March, with a short spike around April 3. Confirm what happened in April (new model? new workflow?) and adjust this paragraph. April also has the most public contributions of any month since early 2019 (68), so it may have been a side-project burst.
 
-**August** is the biggest burst of all. Coming back from my summer break, the calendar shows a full week of zero contributions in early August. Then every weekday from August 10 to August 27 was between 14 and 43. August ended at 427 contributions, the busiest month since at least 2020. September stayed high at 301.
+**August** is the biggest burst of all. Coming back from my summer break, the calendar shows a full week of zero contributions in early August. Then every weekday from August 10 to August 27 was between 14 and 43. August ended at 427 contributions, the busiest month in the whole timeline. September stayed high at 301.
 
 Every cycle starts the same way. A new model or a new workflow makes something possible that was not possible last month, and my head fills with ideas. Because implementation is now cheap, there is no natural friction stopping me from pursuing all of them at once. So I do. I start more agents, open more threads and say yes to more experiments.
 
