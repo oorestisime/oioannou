@@ -42,10 +42,10 @@ As a Principal Engineer, more of my work went into architecture, deep dives into
 
 Then 2026 happened:
 
-- **I am back at my Full Stack Engineer pace.** By October 23 I am at 2,074 contributions, already more than any full year from 2021 to 2025. Over the same period in 2020 I had 2,352, so 2026 is close to my busiest year but not above it.
+- **I am back at my Full Stack Engineer pace.** By October 27 I am at 2,102 contributions, already more than any full year from 2021 to 2025. Over the same period in 2020 I had 2,371, so 2026 is close to my busiest year but not above it.
 - **August 2026 is the busiest month in the whole timeline.** 427 contributions, against a previous high of 319 in April 2020.
 - **My normal day moved back up.** The median weekday was 3 or 4 contributions every year from 2022 to 2025. In 2026 it is 7, close to the 8 I had in 2020.
-- **Fewer weekdays without GitHub activity.** Through October 23, I had 18 weekdays with zero contributions, compared with 40–46 across each full year from 2022 to 2025. These are days without recorded GitHub activity, not days off work.
+- **Fewer weekdays without GitHub activity.** Through October 27, I had 18 weekdays with zero contributions, compared with 40–46 across each full year from 2022 to 2025. These are days without recorded GitHub activity, not days off work.
 - **Heavy days became routine again.** From 2022 to 2025 I had exactly one day per year with 24 or more contributions. In 2026 I already have 16, almost the 17 I had in all of 2020.
 
 Almost all of this is private work. The dashed line in the chart is public contributions only: it was near zero from 2021 to 2025 and came back this year, with 191 so far, but that is still less than a tenth of 2026.
@@ -58,9 +58,9 @@ What changed is how much work feels worth taking on. When coding is cheap, I can
 
 Looking at the monthly totals, 2026 is not one steady climb. It is a series of bursts.
 
-**January** is the first clear burst. This is when I started working seriously with agents, and when the observability experiment that became [our internal company agent](/blog/internal-company-agent-lessons/) took off. Every week revealed something new I could suddenly delegate, and I wanted to try all of it.
+**January and February** were the first clear burst, with 277 and 233 contributions. This is when I started working seriously with agents, and when the observability experiment that became [our internal company agent](/blog/internal-company-agent-lessons/) took off. Every week revealed something new I could suddenly delegate, and I wanted to try all of it.
 
-**February to June** generally winds down, from 233 contributions in February to 77 in June. But **April** stands out in my memory as another month when I had ideas and acted on them. I think improvements in the models were part of that renewed energy. Its monthly total of 187 is below January to March, but it includes a 29-contribution day and 68 public contributions, my highest public total of the year.
+**March to June** generally winds down, from 203 contributions in March to 77 in June. But **April** was a smaller burst along the way, another month when I had ideas and acted on them. I think improvements in the models were part of that renewed energy. Its monthly total of 187 is below January to March, but it includes a 29-contribution day and 68 public contributions, my highest public total of the year.
 
 **August** is the biggest burst of all. Coming back from my summer break, the calendar shows a full week of zero contributions in early August. Then every weekday from August 10 to August 27 was between 14 and 43. August ended at 427 contributions, the busiest month in the whole timeline. September stayed high at 301.
 
@@ -68,7 +68,7 @@ Every cycle starts the same way. A new model or a new workflow makes something p
 
 That works for a few weeks. Then the reviewing and context switching catch up with me, and I pull back to a more stable flow. I stay there until something exciting comes along, or until a holiday recharges me enough that I go straight back into another burst.
 
-I count two or three of these cycles since January.
+I count three of these cycles since January.
 
 At the end of a burst, I feel tired of AI. I do not want to start another agent or think of more ideas. I do my normal work, but I stop chasing the extra projects and possibilities because I do not have the mental bandwidth for them.
 
@@ -76,12 +76,12 @@ At the end of a burst, I feel tired of AI. I do not want to start another agent 
 
 The part that surprised me most is not the peaks. It is how much I am doing between them.
 
-March and April did not feel like the bursts in January or August, but I was still doing substantial work. April had 187 contributions, against my Principal Engineer average of 114 a month. I had ideas and acted on them, but that level of activity no longer felt like an exceptional push. Even when I think I am taking it easy, there are still agent results to work through, reviews to finish and small things that are now "just a quick prompt".
+March did not feel like the bursts in January, February or August, but I was still doing substantial work. It had 203 contributions, against my Principal Engineer average of 114 a month. I was still acting on ideas, but that level of activity no longer felt like an exceptional push. Even when I think I am taking it easy, there are still agent results to work through, reviews to finish and small things that are now "just a quick prompt".
 
 June was genuinely low, with 77 contributions, comparable to my quieter Principal Engineer months. Maybe that was when all the tiredness caught up with me. Not every quiet month is higher than before. But outside the bursts, I still find myself taking on more work than I used to. That is what I mean by the low season not feeling low anymore.
 
 ## Where that leaves me
 
-AI made room for work I would never have considered before. I like being able to fix more things and turn more ideas into something real. But the capacity to implement those ideas has grown much faster than my capacity to think about them. Eventually I stop wanting to start another agent and go back to just doing my normal work. I have not figured out a balance. For now, I am noticing that being able to do more keeps turning into doing more—and I am tired.
+AI made room for work I would never have considered before. I like being able to fix more things and turn more ideas into something real. But the capacity to implement those ideas has grown much faster than my capacity to think about them. Eventually I stop wanting to start another agent and go back to just doing my normal work. I have not figured out a balance. For now, I am noticing that being able to do more keeps turning into doing more. And I am tired.
 
 > **A note on how this article was written:** AI helped me pull and analyze my GitHub contribution data, build the chart and draft this article. The experience, decisions and opinions are mine.
