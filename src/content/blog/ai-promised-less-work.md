@@ -1,12 +1,10 @@
 ---
 title: "AI Promised Less Work. I Have Never Worked More."
 path: /ai-promised-less-work/
-date: 2026-10-23
+date: 2026-10-27
 tags: ["AI", "Agents", "Engineering", "Leadership"]
 description: "Agents made implementation cheap, so I started doing far more of it in parallel. My GitHub history since 2019 shows what that did: as VP of Technology I am back at my full-stack engineer pace, with bursts, burnout and a low season that is no longer low."
 ---
-
-<!-- DRAFT: this post is not ready to publish. Resolve every "TODO (Orestis)" below and update the date before merging. -->
 
 The pitch was that AI would give us our time back. Write less boilerplate, delegate the boring parts, go home earlier.
 
@@ -24,11 +22,9 @@ Today my week looks completely different. I have several agents running in paral
 
 That "sometimes" is the problem.
 
-Each agent eventually stops with a question, a plan to approve, a diff to read or a result that looks slightly off. So I keep checking. Is that one stuck? Did this one go in the wrong direction twenty minutes ago? Did that one reintroduce something we agreed to remove? Every check is a context switch, and every context switch means reloading a different problem, a different repository and a different set of decisions.
+Each agent eventually comes back with a question, a plan to approve, a diff to read or a result to make sense of. Responding means switching contexts: reloading a different problem, a different repository and a different set of decisions.
 
-Two or three serious tasks a week was tiring in a familiar way. Supervising many agents is tiring in a new way. It is less deep work and more constant, shallow vigilance, and I find it much more mentally draining.
-
-> **TODO (Orestis):** a concrete example of a typical "many agents" day, e.g. how many sessions you had running, what they were doing, and the moment you realized you were just bouncing between them.
+Two or three serious tasks a week was tiring in a familiar way. Working with many agents is tiring in a new way. My attention is spread across more problems, and I find moving between them much more mentally draining.
 
 ## What my GitHub history shows
 
@@ -42,64 +38,50 @@ The first part of the curve is what I expected:
 - **The Principal Engineer years were flat and lower.** From August 2022 to July 2025 I averaged 114 contributions a month, against 173 as a Full Stack Engineer. My lowest year was 2023, with 1,189.
 - **The first months as VP of Technology looked the same.** From August to December 2025 I averaged 111 a month, and December 2025 was my quietest month since joining Bold.org, with 50.
 
-> **TODO (Orestis):** one sentence on what took the place of coding as a Principal Engineer (design, mentoring, hiring, planning?). I did not want to guess.
+As a Principal Engineer, more of my work went into architecture, deep dives into concepts, setting up projects and planning, rather than fixing bugs or iterating on features. Becoming VP of Technology continued that shift, with even less feature work expected. At least until AI came along.
 
 Then 2026 happened:
 
 - **I am back at my Full Stack Engineer pace.** By October 23 I am at 2,074 contributions, already more than any full year from 2021 to 2025. Over the same period in 2020 I had 2,352, so 2026 is close to my busiest year but not above it.
 - **August 2026 is the busiest month in the whole timeline.** 427 contributions, against a previous high of 319 in April 2020.
 - **My normal day moved back up.** The median weekday was 3 or 4 contributions every year from 2022 to 2025. In 2026 it is 7, close to the 8 I had in 2020.
-- **Days off almost disappeared.** I had 40 to 46 weekdays with zero contributions per year from 2022 to 2025. So far in 2026 I have 18, fewer than any year since I joined Bold.org (31 in 2020, 25 in 2021).
+- **Fewer weekdays without GitHub activity.** Through October 23, I had 18 weekdays with zero contributions, compared with 40–46 across each full year from 2022 to 2025. These are days without recorded GitHub activity, not days off work.
 - **Heavy days became routine again.** From 2022 to 2025 I had exactly one day per year with 24 or more contributions. In 2026 I already have 16, almost the 17 I had in all of 2020.
 
 Almost all of this is private work. The dashed line in the chart is public contributions only: it was near zero from 2021 to 2025 and came back this year, with 191 so far, but that is still less than a tenth of 2026.
 
 The twist is the role. In 2020 I was a full-stack engineer doing feature work full time, and this is roughly what that looked like on GitHub. Today I lead engineering at Bold.org and do far less feature work than I used to. On paper my graph should look like my Principal Engineer years, or lower. Instead it is back where it was when writing code was my whole job.
 
-What changed is that I now do far more in parallel. Agents made implementation cheap, so the limiting factor stopped being how fast I could type and became how much I could keep track of. It turns out that limit is a lot higher than my energy.
+What changed is how much work feels worth taking on. When coding is cheap, I can fix bugs I would previously have left alone, improve patterns across the codebase, take on new projects and turn more ideas into something real. Much of this is work I would never have considered before. Agents did not just make my existing workload faster to finish. They made it easy to give myself a much bigger one.
 
 ## Bursts, then burnout
 
 Looking at the monthly totals, 2026 is not one steady climb. It is a series of bursts.
 
-**January** is the first explosion. This is when I started working seriously with agents, and when the observability experiment that became our internal company agent took off. Every week revealed something new I could suddenly delegate, and I wanted to try all of it.
+**January** is the first clear burst. This is when I started working seriously with agents, and when the observability experiment that became [our internal company agent](/blog/internal-company-agent-lessons/) took off. Every week revealed something new I could suddenly delegate, and I wanted to try all of it.
 
-**February to June** slowly winds down, from 233 contributions in February to 77 in June. There are still spikes, like a 29-contribution day in early April, but the general direction is a return to something more sustainable.
-
-> **TODO (Orestis):** you remember April as a peak. In the monthly totals April (187) is lower than January to March, with a short spike around April 3. Confirm what happened in April (new model? new workflow?) and adjust this paragraph. April also has the most public contributions of any month since early 2019 (68), so it may have been a side-project burst.
+**February to June** generally winds down, from 233 contributions in February to 77 in June. But **April** stands out in my memory as another month when I had ideas and acted on them. I think improvements in the models were part of that renewed energy. Its monthly total of 187 is below January to March, but it includes a 29-contribution day and 68 public contributions, my highest public total of the year.
 
 **August** is the biggest burst of all. Coming back from my summer break, the calendar shows a full week of zero contributions in early August. Then every weekday from August 10 to August 27 was between 14 and 43. August ended at 427 contributions, the busiest month in the whole timeline. September stayed high at 301.
 
 Every cycle starts the same way. A new model or a new workflow makes something possible that was not possible last month, and my head fills with ideas. Because implementation is now cheap, there is no natural friction stopping me from pursuing all of them at once. So I do. I start more agents, open more threads and say yes to more experiments.
 
-That works for a few weeks. Then the checking, reviewing and context switching catch up with me, and I pull back to a more stable flow. I stay there until something exciting comes along, or until a holiday recharges me enough that I go straight back into another burst.
+That works for a few weeks. Then the reviewing and context switching catch up with me, and I pull back to a more stable flow. I stay there until something exciting comes along, or until a holiday recharges me enough that I go straight back into another burst.
 
 I count two or three of these cycles since January.
 
-> **TODO (Orestis):** what does the burnout actually feel like for you at the end of a burst? (Tiredness, irritability, not wanting to open the laptop, dropping reviews?) One or two honest sentences here will make this section land.
+At the end of a burst, I feel tired of AI. I do not want to start another agent or think of more ideas. I do my normal work, but I stop chasing the extra projects and possibilities because I do not have the mental bandwidth for them.
 
 ## The low season is not low anymore
 
-The part that surprised me most is not the peaks. It is the valleys.
+The part that surprised me most is not the peaks. It is how much I am doing between them.
 
-My quietest month this year was June, with 77 contributions. That is as low as my quietest months as a Principal Engineer. But the median weekday across the whole year is still 7, compared with 3 or 4 in every year from 2022 to 2025. Even when I think I am taking it easy, there are still agents to check on, reviews to finish and small things that are now "just a quick prompt".
+March and April did not feel like the bursts in January or August, but I was still doing substantial work. April had 187 contributions, against my Principal Engineer average of 114 a month. I had ideas and acted on them, but that level of activity no longer felt like an exceptional push. Even when I think I am taking it easy, there are still agent results to work through, reviews to finish and small things that are now "just a quick prompt".
 
-Before, a low season meant genuinely less work. Now it means fewer parallel threads, but rarely zero. And because the floor is higher, the next burst starts from an already tired place, so burnout comes faster.
+June was genuinely low, with 77 contributions, comparable to my quieter Principal Engineer months. Maybe that was when all the tiredness caught up with me. Not every quiet month is higher than before. But outside the bursts, I still find myself taking on more work than I used to. That is what I mean by the low season not feeling low anymore.
 
-## What I am trying
+## Where that leaves me
 
-> **TODO (Orestis):** this section is the one I cannot write for you. Replace the prompts below with what you actually do, or delete the ones that do not apply. Keep it honest; it is fine to say you have not solved this.
-
-- **TODO:** Do you cap how many agents or sessions you run at once? What number works?
-- **TODO:** Do you batch the checking (e.g. specific times of day) instead of reacting to every agent that stops?
-- **TODO:** How do you decide which ideas from a burst are worth pursuing now, and which go on a list?
-- **TODO:** Are you protecting real days off, now that the calendar shows they almost disappeared?
-- **TODO:** What do you tell your team at Bold.org about this, if anything? Do you see the same pattern in them?
-
-## The main lesson
-
-AI did reduce the effort of each individual task. It did not reduce the amount of work. It removed the friction that used to limit how much I took on, and that friction turned out to be doing a job I had not noticed.
-
-> **TODO (Orestis):** one closing paragraph in your own words. What would you tell someone who just went through their first AI burst and is wondering why they feel more tired, not less?
+AI made room for work I would never have considered before. I like being able to fix more things and turn more ideas into something real. But the capacity to implement those ideas has grown much faster than my capacity to think about them. Eventually I stop wanting to start another agent and go back to just doing my normal work. I have not figured out a balance. For now, I am noticing that being able to do more keeps turning into doing more—and I am tired.
 
 > **A note on how this article was written:** AI helped me pull and analyze my GitHub contribution data, build the chart and draft this article. The experience, decisions and opinions are mine.
