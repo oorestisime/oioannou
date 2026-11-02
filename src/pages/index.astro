@@ -34,6 +34,13 @@ const selectedWork = [
 
 const currentProjects = [
   {
+    name: "replacemrr",
+    logo: "/img/projects/replacemrr.svg",
+    description:
+      "A leaderboard of SaaS bills people replaced with something they built themselves.",
+    href: "https://replacemrr.com",
+  },
+  {
     name: "clssrm",
     logo: "/img/projects/clssrm.svg",
     description:
@@ -185,7 +192,7 @@ const selectedPosts = selectedPostIds.flatMap((id) => {
     <h2 id="current-projects-title" class="text-2xl font-semibold tracking-tight sm:text-3xl">
       Things I&apos;m working on
     </h2>
-    <div class="mt-6 grid gap-6 sm:grid-cols-2 sm:gap-10">
+    <div class="mt-6 grid gap-6 sm:grid-cols-2 sm:gap-10 lg:grid-cols-3">
       {currentProjects.map((project) => (
         <article>
           <h3 class="text-lg font-semibold">
