@@ -3,6 +3,7 @@ title: "Introducing replacemrr: Who Replaced Whose MRR"
 path: /introducing-replacemrr/
 date: 2026-11-02
 tags: ["AI", "SaaS", "Launch", "Indie Hacking"]
+ogImage: /img/og/introducing-replacemrr.png
 description: "Everyone is talking about SaaS getting killed. Is this really happening? replacemrr.com is a tracker of the SaaS bills that are replaced: old bill, new running cost, net saved. Submit yours!"
 ---
 

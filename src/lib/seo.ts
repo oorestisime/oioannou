@@ -56,7 +56,7 @@ export function blogPostSchema(post: BlogPost) {
       url: SITE_URL,
     },
     description: getPostExcerpt(post),
-    image: canonicalUrl("/img/blog-by-orestis.jpg"),
+    image: canonicalUrl(post.data.ogImage ?? "/img/blog-by-orestis.jpg"),
     url,
     mainEntityOfPage: {
       "@type": "WebPage",
