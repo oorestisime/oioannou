@@ -85,3 +85,5 @@ June was genuinely low, with 77 contributions, comparable to my quieter Principa
 AI made room for work I would never have considered before. I like being able to fix more things and turn more ideas into something real. But the capacity to implement those ideas has grown much faster than my capacity to think about them. Eventually I stop wanting to start another agent and go back to just doing my normal work. I have not figured out a balance. For now, I am noticing that being able to do more keeps turning into doing more. And I am tired.
 
 > **A note on how this article was written:** AI helped me pull and analyze my GitHub contribution data, build the chart and draft this article. The experience, decisions and opinions are mine.
+
+**Update (November 2026):** I built [replacemrr.com](https://replacemrr.com), a leaderboard of SaaS bills people replaced with something they built themselves. I wrote about it in [Introducing replacemrr](/blog/introducing-replacemrr/). If AI helped you replace one, [add yours](https://replacemrr.com/submit).
