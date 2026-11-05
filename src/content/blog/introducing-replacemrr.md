@@ -41,19 +41,18 @@ I'm thinking and trying to figure out ways to improve this. For now, it is what 
 
 ## Built for agents too
 
-You can submit from the web with Google or GitHub, or from the terminal:
+You can submit from the web without an account. It goes to review as unverified. Sign in with Google or GitHub if you want to own the story and add proof. Or from the terminal:
 
 ```
-npx replacemrr login
 npx replacemrr submit --file story.yaml
 ```
 
-The CLI is built so a coding agent can submit for you. Agent submissions stay drafts until you confirm them in a browser (might change that to be e2e). There is also a public API if you prefer.
+The CLI is built so a coding agent can submit for you. Without a login the story goes to review as unverified. After `npx replacemrr login` it's saved as a draft you confirm in the browser. An agent can also hand you a `replacemrr.com/submit#story=...` link that opens the form already filled in, so you just check it and send. There is also a public API if you prefer.
 
 Every approved story gets a share card and an embeddable badge. Vendor pages group everyone who replaced the same tool. And eventually [Reversals](https://replacemrr.com/reversals) is for people who went back to the vendor. It is empty so far, but replacements will not always last, and those stories count too.
 
 ## Submit yours
 
-If you replaced a SaaS bill, whether you built your own or migrated to something cheaper, [submit it](https://replacemrr.com/submit). If your story is already on the board as unclaimed, claim it so it becomes verified! If you see a story of yours that has the wrong numbers please claim and correct it!
+If you replaced a SaaS bill, whether you built your own or migrated to something cheaper, [submit it](https://replacemrr.com/submit). No account needed. If your story is already on the board as unclaimed, claim it so it becomes verified! If you see a story of yours that has the wrong numbers please claim and correct it!
 
 And by the way, the small ones count too. A $150 bill gone is still a receipt.
