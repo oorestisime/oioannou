@@ -131,7 +131,7 @@ for (const page of articlePaths) {
   if (!feedLinks.includes(new URL(page.replace(/\/?$/, "/"), "https://oioannou.com").href)) fail(`RSS feed missing ${page}`)
 }
 
-if (redirects.length !== 25) fail(`Expected 25 redirects, found ${redirects.length}`)
+if (redirects.length !== 32) fail(`Expected 32 redirects, found ${redirects.length}`)
 const redirectSources = new Set(redirects.map(({ from }) => from.replace(/\/$/, "")))
 if (redirectSources.size !== redirects.length) fail("Duplicate redirect source detected")
 
