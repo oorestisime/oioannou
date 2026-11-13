@@ -124,10 +124,46 @@ command = "bun run dev"
 
 [[redirects]]
   from = "/2016/blog/copyright-and-patches"
-  to = "/blog/copyright-and-patches"
+  to = "/blog/copyright-and-patches/"
+  status = 301
+
+[[redirects]]
+  from = "/2014/blog/tutos/debian"
+  to = "/blog/debian/"
+  status = 301
+
+[[redirects]]
+  from = "/2015/blog/gsoc-updates"
+  to = "/blog/gsoc-updates/"
+  status = 301
+
+[[redirects]]
+  from = "/2016/blog/one-liner"
+  to = "/blog/one-liner/"
   status = 301
 
 [[redirects]]
   from = "/tag/research"
   to = "/tags/research"
+  status = 301
+
+# 2025+ posts linked without the /blog prefix (Search Console 404s).
+[[redirects]]
+  from = "/self-employed-vs-ltd-cyprus-2025"
+  to = "/blog/self-employed-vs-ltd-cyprus-2025/"
+  status = 301
+
+[[redirects]]
+  from = "/ai-setup-may-2025"
+  to = "/blog/ai-setup-may-2025/"
+  status = 301
+
+[[redirects]]
+  from = "/website-redesign-2025-back-to-basics-new-beginnings"
+  to = "/blog/website-redesign-2025-back-to-basics-new-beginnings/"
+  status = 301
+
+[[redirects]]
+  from = "/cyprus-tax-reform-2026"
+  to = "/blog/cyprus-tax-reform-2026/"
   status = 301
