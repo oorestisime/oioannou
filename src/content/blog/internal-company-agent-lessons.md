@@ -142,4 +142,4 @@ These are the main lessons and mistakes from the first six months: make the agen
 
 The best decision was letting people see the agent being used before it felt finished. The recurring lesson is that **what feels obvious to the builder is rarely obvious to everyone else**.
 
-I am interested in hearing how other teams are adopting AI in practice, what is working, and where workflows are still awkward or blocked by access, context, or trust. [If you are working through similar questions or facing challenges introducing AI-native workflows in your team or company, I would love to hear more and see whether I can help](/#work-with-me).
+I am interested in hearing how other teams are adopting AI in practice, what is working, and where workflows are still awkward or blocked by access, context, or trust. [If you are working through similar questions or facing challenges introducing AI-native workflows in your team or company, I would love to hear more and see whether I can help](/work-with-me/).
