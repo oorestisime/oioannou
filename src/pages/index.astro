@@ -78,24 +78,41 @@ const selectedPosts = selectedPostIds.flatMap((id) => {
     <div class="pointer-events-none absolute -right-28 top-12 size-80 rounded-full bg-primary/10 blur-3xl"></div>
     <div class="relative grid items-end gap-12 lg:grid-cols-[minmax(0,1fr)_16rem] lg:gap-20">
       <div class="max-w-4xl">
+        <img
+          src="/img/me.jpg"
+          alt=""
+          class="mb-6 size-16 rounded-xl border border-border object-cover lg:hidden"
+          width="1024"
+          height="1024"
+        />
         <p class="mb-5 font-mono text-sm font-medium uppercase tracking-[0.18em] text-primary">
           VP of Tech at Bold.org / Cyprus
         </p>
         <h1 class="max-w-4xl text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-foreground sm:text-6xl lg:text-7xl">
-          Product, engineering and AI. Building teams and systems that ship.
+          I build the AI foundations that make whole teams ship faster.
         </h1>
-        <div class="mt-8 max-w-3xl space-y-4 text-lg leading-8 text-muted-foreground sm:text-xl">
+        <div class="mt-8 flex max-w-3xl flex-col gap-4 text-lg leading-8 text-muted-foreground sm:text-xl">
           <p class="my-0">
-            I&apos;m a product and engineering leader who still works close to the code,
-            with experience building teams, products and technical systems.
+            I&apos;m VP of Technology at Bold.org, which I helped scale to more than 9 million
+            users. I built Sherlog, the internal agent every team there works with, and I
+            still work close to the code.
           </p>
           <p class="my-0">
-            Today I&apos;m focused on AI-native engineering and product development:
-            agents, tooling and workflows that work in real organizations. Based in
-            Cyprus, working internationally.
+            I also take on two part-time engagements, helping teams in Cyprus and across
+            Europe do the same.
           </p>
         </div>
-        <div class="mt-9 flex flex-wrap gap-x-6 gap-y-3" aria-label="Contact links">
+        <div class="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
+          <a href="/work-with-me" class="group inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground">
+            Work with me
+            <svg class="size-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M5 12h14"></path>
+              <path d="m13 6 6 6-6 6"></path>
+            </svg>
+          </a>
+          <a href="/blog" class="text-sm font-semibold text-foreground hover:text-primary">Read the writing</a>
+        </div>
+        <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3" aria-label="Contact links">
           {[
             ["LinkedIn", "https://www.linkedin.com/in/orestis-ioannou-242a0545/"],
             ["GitHub", "https://github.com/oorestisime"],
@@ -105,7 +122,7 @@ const selectedPosts = selectedPostIds.flatMap((id) => {
               href={href}
               target={href.startsWith("http") ? "_blank" : undefined}
               rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-              class="group inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-primary"
+              class="group inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary"
             >
               {label}
               <svg class="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
