@@ -194,3 +194,5 @@ That might be the sentence that aged best.
 Fifteen months ago, I was looking for a better coding companion. Now a normal day involves several agents working across engineering, product, support, operations, and my own projects. I still find that transition a little ridiculous when I stop to think about it.
 
 And yes, it still feels like the beginning.
+
+**Follow-up:** [Grok Bot drives my OpenCode, but I still make the decisions](/blog/grok-bot-drives-my-opencode/) is where this setup went next.
