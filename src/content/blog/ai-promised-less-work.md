@@ -88,4 +88,6 @@ AI made room for work I would never have considered before. I like being able to
 
 **Update (November 2026):** I built [replacemrr.com](https://replacemrr.com), a leaderboard of SaaS bills people replaced with something they built themselves. I wrote about it in [Introducing replacemrr](/blog/introducing-replacemrr/). If AI helped you replace one, [add yours](https://replacemrr.com/submit).
 
+**Follow-up:** I wrote about how I am trying to contain that "sometimes" in [Grok Bot drives my OpenCode, but I still make the decisions](/blog/grok-bot-drives-my-opencode/).
+
 **If your team is feeling this too:** I work with teams in Cyprus and across Europe, as a contractor, to set up the foundations for using AI so the whole team ships more, not just works more. [Here is how I work](/work-with-me/).
