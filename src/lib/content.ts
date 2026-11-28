@@ -12,8 +12,10 @@ export function getPostSlug(post: BlogPost) {
   return post.data.path.replace(/^\/+|\/+$/g, "")
 }
 
+// Netlify serves pages at their trailing-slash URL and 301s the slashless
+// form, so every internal URL uses the slash form directly.
 export function getPostUrl(post: BlogPost) {
-  return `/blog${post.data.path}`
+  return `/blog/${getPostSlug(post)}/`
 }
 
 export function getPostExcerpt(post: BlogPost) {
@@ -36,7 +38,7 @@ export function getTagSlug(tag: string) {
 }
 
 export function getTagUrl(tag: string) {
-  return `/tags/${encodeURIComponent(getTagSlug(tag))}`
+  return `/tags/${encodeURIComponent(getTagSlug(tag))}/`
 }
 
 export type TagGroup = {

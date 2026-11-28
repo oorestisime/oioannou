@@ -18,7 +18,7 @@ It was just **great**! My talk had improved a ton from the early feedback, my sl
 
 ## Preparing the talk
 
-Funny story behind the talk is that most of the content is available in a [blog post](/build-on-circleci-deploy-netlify). I knew in advance that preparing the content wouldn't require a huge workload, so I decided to experiment with something new to create my slides [mdx-deck](https://github.com/jxnblk/mdx-deck/).
+Funny story behind the talk is that most of the content is available in a [blog post](/blog/build-on-circleci-deploy-netlify/). I knew in advance that preparing the content wouldn't require a huge workload, so I decided to experiment with something new to create my slides [mdx-deck](https://github.com/jxnblk/mdx-deck/).
 
 I now recognise I've spent 10x the time I would initially spend just for experimenting with the tooling, creating abstractions to help me on my next presentations and learning about yarn workspaces and [Code surfer](https://github.com/pomber/code-surfer/).
 

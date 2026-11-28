@@ -21,7 +21,7 @@ First temporary solution I tried for a fair amount of time was to use a caching 
 
 At least I thought so at the time! Turns out not so efficient for netlify since their cache was growing pretty big!
 
-Then came the time I had to [rebuild my website from scratch without cache](/migrate-from-mui-to-grommet), and I couldn't because the plugin had no cache and I was hitting the 15 minutes again!
+Then came the time I had to [rebuild my website from scratch without cache](/blog/migrate-from-mui-to-grommet/), and I couldn't because the plugin had no cache and I was hitting the 15 minutes again!
 
 It was time for new experimentation.
 

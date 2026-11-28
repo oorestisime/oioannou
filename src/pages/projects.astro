@@ -36,11 +36,11 @@ const schema = {
   "@type": "CollectionPage",
   headline: title,
   description,
-  url: canonicalUrl("/projects"),
+  url: canonicalUrl("/projects/"),
 }
 ---
 
-<BaseLayout title={title} description={description} canonicalPath="/projects" image="/img/me.jpg" schema={schema}>
+<BaseLayout title={title} description={description} canonicalPath="/projects/" image="/img/me.jpg" schema={schema}>
   <section class="py-16 sm:py-20">
     <div class="mx-auto mb-12 max-w-2xl text-center">
       <p class="section-kicker">Open source</p>

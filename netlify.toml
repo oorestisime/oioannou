@@ -143,8 +143,13 @@ command = "bun run dev"
   status = 301
 
 [[redirects]]
+  from = "/blog/blog/ai-promised-less-work"
+  to = "/blog/ai-promised-less-work/"
+  status = 301
+
+[[redirects]]
   from = "/tag/research"
-  to = "/tags/research"
+  to = "/tags/research/"
   status = 301
 
 # 2025+ posts linked without the /blog prefix (Search Console 404s).
