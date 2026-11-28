@@ -1,6 +1,7 @@
 ---
 path: /gsoc-updates
 title: "GSoC Debsources updates"
+seoDescription: "In four weeks of GSoC 2015 on Debsources, I built copyright tracker navigation, license rendering and a search API. License mining and the database come next."
 date: 2015-06-23
 tags: ["Debian", "GSoC", "Debsources"]
 photo: /img/google-summer.jpg

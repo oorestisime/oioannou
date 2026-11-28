@@ -16,9 +16,14 @@ interface Props {
 
 const { group } = Astro.props
 const title = `Posts tagged with "${group.name}" - Orestis Ioannou`
-const description = truncateText(
-  `Posts tagged "${group.name}" by Orestis Ioannou, a product and engineering leader writing about software, products and AI. Includes: ${group.posts.map((post) => post.data.title).join(", ")}`
-)
+const latest = group.posts[0].data.seoTitle ?? group.posts[0].data.title
+const lead =
+  group.posts.length === 1
+    ? `A post about ${group.name}: "${latest}".`
+    : `${group.posts.length} posts about ${group.name}, including "${latest}".`
+const bio = "By Orestis Ioannou, a product and engineering leader writing about software, products and AI."
+const shortBio = "By Orestis Ioannou, writing about software, products and AI."
+const description = truncateText(`${lead} ${lead.length + 1 + bio.length <= 160 ? bio : shortBio}`)
 const schema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",

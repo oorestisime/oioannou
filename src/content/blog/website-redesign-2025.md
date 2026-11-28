@@ -5,7 +5,7 @@ date: 2025-04-18
 tags: ["website", "redesign", "react", "AI", "gatsby"]
 ---
 
-Yes I've refreshed [my personal website](/blog/website-reloaded/) yet again—this time prioritizing clarity, simplicity, and a renewed sense of purpose. While diving into a fresh tech stack is always enjoyable, the real excitement lies ahead: committing to a regular posting schedule.
+Yes I've [refreshed my personal website yet again](/blog/website-reloaded/)—this time prioritizing clarity, simplicity, and a renewed sense of purpose. While diving into a fresh tech stack is always enjoyable, the real excitement lies ahead: committing to a regular posting schedule.
 
 Expect more frequent and focused content covering engineering from a startup perspective, thoughtful solutions to practical problems through smart tooling, and leveraging AI to accelerate workflows.
 

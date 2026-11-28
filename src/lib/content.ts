@@ -35,7 +35,8 @@ export function getPostExcerpt(post: BlogPost) {
 
 // Search results cut descriptions around 160 characters, so cut at a word
 // boundary before that instead.
-export function truncateText(text: string, max = 160) {
+export function truncateText(text: string) {
+  const max = 160
   if (text.length <= max) return text
   const cut = text
     .slice(0, max - 1)
@@ -45,10 +46,7 @@ export function truncateText(text: string, max = 160) {
 }
 
 export function getPostMetaDescription(post: BlogPost) {
-  return (
-    post.data.seoDescription ??
-    truncateText(getPostExcerpt(post).replace(/\.\.\.$/, ""))
-  )
+  return post.data.seoDescription ?? truncateText(getPostExcerpt(post))
 }
 
 const TITLE_SUFFIX = " - Orestis Ioannou"

@@ -128,7 +128,7 @@ const feed = fs.readFileSync(path.join(dist, "rss.xml"), "utf8")
 const feedLinks = [...feed.matchAll(/<item>[\s\S]*?<link>([^<]+)<\/link>/g)].map(([, link]) => link)
 if (feedLinks.length !== posts.length) fail(`RSS feed has ${feedLinks.length} items, expected ${posts.length}`)
 for (const page of articlePaths) {
-  if (!feedLinks.includes(new URL(page.replace(/\/?$/, "/"), "https://oioannou.com").href)) fail(`RSS feed missing ${page}`)
+  if (!feedLinks.includes(new URL(page, "https://oioannou.com").href)) fail(`RSS feed missing ${page}`)
 }
 
 if (redirects.length !== 33) fail(`Expected 33 redirects, found ${redirects.length}`)
