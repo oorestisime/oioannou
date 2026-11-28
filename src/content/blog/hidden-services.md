@@ -12,7 +12,7 @@ This post mainly covers reasons behind my motivation on having a Tor hidden serv
 
 This setup has a "flaw" when the internet provider is serving dynamic IPs and is requesting more money (!) in order to provide a fix IP. So the main problem was to ssh on the raspberry pi when I was not at home and thus needing my public IP. At the beginning I tried using services such as noip but I was not satisfied, most notably because for a free service you need to login once a month to the service. And then I discovered the tor [hidden services](https://www.torproject.org/docs/hidden-services.html.en).
 
-<img src="/img/tor-logo.png">
+<img src="/img/tor-logo.png" alt="Tor Project logo with its purple onion">
 
 ## Tor
 

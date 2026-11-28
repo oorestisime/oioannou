@@ -1,6 +1,7 @@
 ---
 path: /jamstack-paris
 title: "My presentation at jamstack.paris about image-heavy gatsby sites!"
+seoTitle: "My jamstack.paris talk on image-heavy Gatsby sites"
 date: 2019-07-31
 tags: ["jamstack", "Gatsby", "talk"]
 photo: /img/me.png

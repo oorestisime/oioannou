@@ -4,6 +4,7 @@ path: /grok-bot-drives-my-opencode/
 date: 2026-11-24
 tags: ["AI", "Agents", "OpenCode", "Grok Bot", "Engineering"]
 description: "I still open OpenCode all the time. I just pilot it differently now: Grok Bot runs the work that can go end to end without me, and I drive anything that needs real back-and-forth thinking, all on one OpenCode setup on my own machine."
+seoDescription: "I still open OpenCode all the time. Grok Bot runs the work that can go end to end without me; I drive anything that needs real back-and-forth thinking."
 ---
 
 I still open [OpenCode](https://opencode.ai/) all the time. I just pilot it differently.

@@ -4,6 +4,8 @@ path: /internal-company-agent-lessons/
 date: 2026-08-17
 tags: ["AI", "Agents", "Engineering", "Product"]
 description: "A practical retrospective on building and rolling out an internal company agent at Bold.org, from connectors and usage analytics to adoption, contributions and overbuilt evals."
+seoTitle: "Building an Internal Company Agent: 10 Lessons"
+seoDescription: "A practical retrospective on building and rolling out an internal company agent at Bold.org, from connectors and usage analytics to adoption and evals."
 ---
 
 In [my recent AI engineering setup article](/blog/ai-engineering-setup-15-months-later/), I briefly explained how an observability project at [Bold.org](https://bold.org/) turned into an internal company agent.

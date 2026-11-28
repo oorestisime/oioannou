@@ -4,6 +4,7 @@ path: /ai-setup-may-2025/
 date: 2025-05-19
 tags: ["Claude", "AI", "OpenAI"]
 description: "A practical look at using coding agents, company context and AI tooling in real engineering work."
+seoDescription: "A practical look at my AI setup in May 2025: why AI editors haven't clicked for me yet, and how I use coding agents, company context and AI tooling at work."
 ---
 
 > **Update (August 2026):** I wrote a follow-up — [My AI Engineering Setup, 15 Months Later](/blog/ai-engineering-setup-15-months-later/).

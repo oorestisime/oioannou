@@ -4,6 +4,7 @@ path: /too-many-git-worktrees-omaprune/
 date: 2026-08-24
 tags: ["AI", "Agents", "Git", "Omarchy"]
 description: "How forgotten Git worktrees became Omaprune, why Omarchy made it easy to share, and where the plugin trust model still needs work."
+seoTitle: "Too Many Git Worktrees, So I Built Omaprune"
 ---
 
 Working on many things at once has changed how I use Git.

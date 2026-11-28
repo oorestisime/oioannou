@@ -3,7 +3,7 @@ import { getCollection } from "astro:content"
 import BaseLayout from "../../layouts/BaseLayout.astro"
 import PostCard from "../../components/PostCard.astro"
 import { canonicalUrl } from "../../lib/seo"
-import { getPostUrl, getTagGroups, getTagUrl, type TagGroup } from "../../lib/content"
+import { getPostUrl, getTagGroups, getTagUrl, truncateText, type TagGroup } from "../../lib/content"
 
 export async function getStaticPaths() {
   const groups = getTagGroups(await getCollection("blog"))
@@ -16,7 +16,9 @@ interface Props {
 
 const { group } = Astro.props
 const title = `Posts tagged with "${group.name}" - Orestis Ioannou`
-const description = `Explore blog posts tagged with "${group.name}" by Orestis Ioannou`
+const description = truncateText(
+  `Posts tagged "${group.name}" by Orestis Ioannou, a product and engineering leader writing about software, products and AI. Includes: ${group.posts.map((post) => post.data.title).join(", ")}`
+)
 const schema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",

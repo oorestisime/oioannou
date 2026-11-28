@@ -5,6 +5,7 @@ date: 2026-11-02
 tags: ["AI", "SaaS", "Launch", "Indie Hacking"]
 ogImage: /img/og/introducing-replacemrr.png
 description: "Everyone is talking about SaaS getting killed. Is this really happening? replacemrr.com is a tracker of the SaaS bills that are replaced: old bill, new running cost, net saved. Submit yours!"
+seoDescription: "Is SaaS really getting killed? replacemrr.com tracks the SaaS bills people replaced with something they built: old bill, new running cost, net saved."
 ---
 
 There is a lot of talk right now about SaaS getting killed since you we could be building every integration ourselves in an afternoon. (well kinda)

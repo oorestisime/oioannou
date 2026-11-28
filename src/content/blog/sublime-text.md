@@ -18,7 +18,7 @@ First things first. The greatest plugin of all is package manager. You can find 
 
 This is more about each ones taste. Mine is Glacier and you can find it via the package manager. Glacier is a flat, colorful theme/scheme combo for Sublime Text. It focuses on using saturated colors to introduce more contrast and visual interest.
 
-<img src="/img/glacier.jpg">
+<img src="/img/glacier.jpg" alt="Sublime Text with the Glacier theme, showing an HTML file and the project sidebar">
 
 ## Plugins
 

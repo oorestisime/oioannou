@@ -1,6 +1,7 @@
 ---
 path: /joining-grommet
 title: "Recent open source fun and joining the grommet team"
+seoDescription: "How I got back into open source with Gatsby and Grommet, what made contributing easier, and my goals after joining the Grommet team."
 date: 2019-02-19
 tags: ["Grommet", "Gatsby", "Open source", "pair sessions"]
 photo: /img/me.png

@@ -10,6 +10,10 @@ const blog = defineCollection({
     date: z.coerce.date(),
     tags: z.array(z.string()).default([]),
     description: z.string().optional(),
+    // Optional overrides for <title> and meta description when the visible
+    // title or description is too long or short for search results.
+    seoTitle: z.string().optional(),
+    seoDescription: z.string().optional(),
     photo: z.string().optional(),
     ogImage: z.string().startsWith("/").optional(),
   }),

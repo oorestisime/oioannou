@@ -2,6 +2,8 @@
 path: "/gatsby-partial-rebuilds-diy"
 title: "One step closer to ... Gatsby incremental builds: the DIY approach!"
 description: "An engineering deep dive into partial rebuilds, dependency graphs and faster static-site delivery."
+seoTitle: "Gatsby incremental builds: the DIY approach"
+seoDescription: "Gatsby incremental builds, the DIY way: an engineering deep dive into partial rebuilds, dependency graphs and faster static-site delivery for large sites."
 date: 2020-01-29
 tags: ["Gatsby", "incremental builds"]
 photo: "/img/me.png"

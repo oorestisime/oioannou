@@ -22,4 +22,4 @@ I started solving the puzzles and I have created a [repository](https://github.c
 
 Real thumbs-up to the coders-designers who put this up.
 
-<img src="/img/Codingame.png" width="350">
+<img src="/img/Codingame.png" alt="CodinGame logo: a dark abstract shape on a yellow background" width="350">

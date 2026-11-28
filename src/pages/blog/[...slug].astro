@@ -3,7 +3,7 @@ import { getCollection, render } from "astro:content"
 import BaseLayout from "../../layouts/BaseLayout.astro"
 import Tag from "../../components/Tag.astro"
 import { blogPostSchema } from "../../lib/seo"
-import { formatPostDate, getPostExcerpt, getPostSlug, getPostUrl, type BlogPost } from "../../lib/content"
+import { formatPostDate, getPostMetaDescription, getPostMetaTitle, getPostSlug, getPostUrl, type BlogPost } from "../../lib/content"
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog")
@@ -16,12 +16,12 @@ interface Props {
 
 const { post } = Astro.props
 const { Content } = await render(post)
-const description = getPostExcerpt(post)
+const description = getPostMetaDescription(post)
 const showWorkWithMe = post.data.tags.some((tag) => tag === "AI" || tag === "Agents")
 ---
 
 <BaseLayout
-  title={`${post.data.title} - Orestis Ioannou`}
+  title={getPostMetaTitle(post)}
   description={description}
   canonicalPath={getPostUrl(post)}
   image={post.data.ogImage ?? "/img/blog-by-orestis.jpg"}
@@ -44,7 +44,7 @@ const showWorkWithMe = post.data.tags.some((tag) => tag === "AI" || tag === "Age
       <aside class="relative mt-16 overflow-hidden rounded-2xl border border-primary/30 bg-card p-6 sm:p-8">
         <div class="pointer-events-none absolute -right-20 -top-20 size-64 rounded-full bg-primary/15 blur-3xl"></div>
         <div class="relative flex items-center gap-4">
-          <img src="/img/me.jpg" alt="" class="size-14 shrink-0 rounded-xl object-cover" width="1024" height="1024" loading="lazy" />
+          <img src="/img/me.jpg" alt="Illustration of Orestis Ioannou" class="size-14 shrink-0 rounded-xl object-cover" width="1024" height="1024" loading="lazy" />
           <div>
             <p class="m-0 text-base font-semibold text-foreground">Orestis Ioannou</p>
             <p class="m-0 text-sm text-muted-foreground">VP of Technology at Bold.org</p>

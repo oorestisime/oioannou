@@ -33,6 +33,34 @@ export function getPostExcerpt(post: BlogPost) {
   return excerpt.length > 200 ? `${excerpt.slice(0, 197)}...` : excerpt
 }
 
+// Search results cut descriptions around 160 characters, so cut at a word
+// boundary before that instead.
+export function truncateText(text: string, max = 160) {
+  if (text.length <= max) return text
+  const cut = text
+    .slice(0, max - 1)
+    .replace(/\s+\S*$/, "")
+    .replace(/[\s.,;:!?…-]+$/, "")
+  return `${cut}…`
+}
+
+export function getPostMetaDescription(post: BlogPost) {
+  return (
+    post.data.seoDescription ??
+    truncateText(getPostExcerpt(post).replace(/\.\.\.$/, ""))
+  )
+}
+
+const TITLE_SUFFIX = " - Orestis Ioannou"
+
+// Keep <title> within ~60 characters: drop the site suffix when it does not fit.
+export function getPostMetaTitle(post: BlogPost) {
+  const title = post.data.seoTitle ?? post.data.title
+  return title.length + TITLE_SUFFIX.length <= 60
+    ? `${title}${TITLE_SUFFIX}`
+    : title
+}
+
 export function getTagSlug(tag: string) {
   return tag.toLowerCase()
 }

@@ -1,6 +1,7 @@
 ---
 path: /migrate-from-mui-to-grommet
 title: "Migrating oasome.blog from material-ui to grommet"
+seoDescription: "Why and how I migrated oasome.blog from material-ui to Grommet: global changes, a per-component lookup, a custom theme and the aftermath."
 date: 2019-03-04
 tags: ["Grommet", "Material-ui", "Gatsby"]
 photo: /img/grommet.png

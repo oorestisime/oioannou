@@ -1,6 +1,7 @@
 ---
 path: /copyright-and-patches
 title: "Debian - your patches and machine readable copyright files are available on Debsources"
+seoTitle: "Debian patches and copyright files on Debsources"
 date: 2016-02-08
 tags: ["Debian", "Debsources", "Copyright", "Patches"]
 photo: /img/debsources-pic.png

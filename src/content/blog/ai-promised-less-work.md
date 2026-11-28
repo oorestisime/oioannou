@@ -4,6 +4,7 @@ path: /ai-promised-less-work/
 date: 2026-10-27
 tags: ["AI", "Agents", "Engineering", "Leadership"]
 description: "Agents made implementation cheap, so I started doing far more of it in parallel. My GitHub history since 2019 shows what that did: as VP of Technology I am back at my full-stack engineer pace, with bursts, burnout and a low season that is no longer low."
+seoDescription: "Agents made implementation cheap, so I did far more of it in parallel. My GitHub history since 2019 shows what that did: bursts, burnout and no low season."
 ---
 
 The pitch was that AI would give us our time back. Write less boilerplate, delegate the boring parts, go home earlier.
