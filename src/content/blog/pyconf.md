@@ -12,6 +12,6 @@ On the 25 until the 28 of October a Python conference will take place at the Uni
 
 You can already find out the list of conferences, [agenda](http://www.pycon.fr/2014/schedule) that will take place on the 25 and 26 as well as propose projects for sprints, [proposals](http://www.pycon.fr/2014/sprints/) during the 27 and 28. You can find more on the pyconfr [here](http://www.pycon.fr/2014/about/).
 
-<img src="/img/pycon.png">
+<img src="/img/pycon.png" alt="PyCon FR logo with a green snake">
 
 For the moment it looks really promising with many conferences taking my eye. I hope to attend to as much as possible conferences and share my thoughts on them in the recent weeks.

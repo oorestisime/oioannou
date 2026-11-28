@@ -4,11 +4,12 @@ path: /too-many-git-worktrees-omaprune/
 date: 2026-08-24
 tags: ["AI", "Agents", "Git", "Omarchy"]
 description: "How forgotten Git worktrees became Omaprune, why Omarchy made it easy to share, and where the plugin trust model still needs work."
+seoTitle: "Too Many Git Worktrees, So I Built Omaprune"
 ---
 
 Working on many things at once has changed how I use Git.
 
-I often have several agent sessions working on the same repository: one implementing a feature, another investigating a bug, and perhaps a third reviewing a pull request. Git worktrees are a useful primitive for this. Each session gets an isolated checkout and branch without cloning the entire repository again or interfering with another session.
+I often have [several agent sessions](/blog/ai-engineering-setup-15-months-later/) working on the same repository: one implementing a feature, another investigating a bug, and perhaps a third reviewing a pull request. Git worktrees are a useful primitive for this. Each session gets an isolated checkout and branch without cloning the entire repository again or interfering with another session.
 
 This is a fairly recent change for me. A few months ago I avoided worktrees because working with them felt like a hassle: extra paths, branches, cleanup, and more Git state to track. Now LLMs handle almost my entire Git workflow. I rarely create, switch, or remove worktrees myself. As something that stays behind the agent interface, a worktree is much more appealing than it was when I had to manage all of that by hand.
 

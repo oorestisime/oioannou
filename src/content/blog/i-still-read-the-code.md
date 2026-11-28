@@ -36,7 +36,7 @@ The most frustrating pattern starts with a design choice that was never a requir
 
 The agent makes that choice, encounters the consequences, and writes more code to accommodate them. By the time I read the result, each addition has a reasonable explanation. Given the earlier decision, we need the extra handling. Given the extra handling, we need more tests. Given the new behavior, we need to account for another case.
 
-Take an integer read from the database. The column is an integer, the API contract describes it as a number, and the [Kysely](https://kysely.dev/) query type agrees. Yet I still see agents repeatedly checking whether that value is a number as it passes through internal code. We have already established where it comes from and what it can be. Why does every use treat that guarantee as unknown again?
+Take an integer read from the database. The column is an integer, the [API contract](/blog/orpc-contract-migration-factory/) describes it as a number, and the [Kysely](https://kysely.dev/) query type agrees. Yet I still see agents repeatedly checking whether that value is a number as it passes through internal code. We have already established where it comes from and what it can be. Why does every use treat that guarantee as unknown again?
 
 The check itself may be completely correct. It may never throw or have any meaningful performance impact. But what does it buy when the value already comes through a path that guarantees its type? It is treating the database as though we routinely bypass its constraints and manually create invalid values.
 

@@ -4,6 +4,7 @@ path: /ai-promised-less-work/
 date: 2026-10-27
 tags: ["AI", "Agents", "Engineering", "Leadership"]
 description: "Agents made implementation cheap, so I started doing far more of it in parallel. My GitHub history since 2019 shows what that did: as VP of Technology I am back at my full-stack engineer pace, with bursts, burnout and a low season that is no longer low."
+seoDescription: "Agents made implementation cheap, so I did far more of it in parallel. My GitHub history since 2019 shows what that did: bursts, burnout and no low season."
 ---
 
 The pitch was that AI would give us our time back. Write less boilerplate, delegate the boring parts, go home earlier.
@@ -18,7 +19,7 @@ This post is me trying to understand that, with some data from my own GitHub his
 
 As a full-stack engineer, a normal week for me meant two or three serious tasks. A feature, a tricky bug, maybe a migration. Each one needed real focus, but I could hold one of them in my head at a time, finish it, and move to the next.
 
-Today my week looks completely different. I have several agents running in parallel: one implementing a change, one investigating a production question, one working through a review, another doing research I will need later. None of them needs me all the time. Every one of them needs me *sometimes*.
+Today my week looks completely different. I have [several agents running in parallel](/blog/too-many-git-worktrees-omaprune/): one implementing a change, one investigating a production question, one working through a review, another doing research I will need later. None of them needs me all the time. Every one of them needs me *sometimes*.
 
 That "sometimes" is the problem.
 

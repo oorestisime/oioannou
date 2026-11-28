@@ -6,7 +6,7 @@ tags: ["Debian", "Debsources", "Copyright"]
 photo: /img/debsources-pic.png
 ---
 
-Following up on the hack of Matthieu - [A one-liner to catch'em all!](http://matthieu.io/blog/2015/08/16/one-liner-to-catch-em-all/) - and the recent [features](/blog/copyright-and-patches) of Debsources I got the idea to modify a bit the one liner in order to retrieve the license of foo.bar.
+Following up on the hack of Matthieu - [A one-liner to catch'em all!](http://matthieu.io/blog/2015/08/16/one-liner-to-catch-em-all/) - and the recent [features](/blog/copyright-and-patches/) of Debsources I got the idea to modify a bit the one liner in order to retrieve the license of foo.bar.
 
 The script will calculate the SHA256 hash of the file and then query the Debsources API in order to retrieve the license of that particular file.
 

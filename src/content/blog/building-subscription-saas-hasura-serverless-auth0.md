@@ -2,6 +2,8 @@
 path: /building-subcription-saas-hasura-serverless-auth0/
 title: "Building a subscription SaaS platform with Hasura, serverless and Auth0"
 description: "Building a subscription product across authentication, payments, GraphQL and serverless infrastructure."
+seoTitle: "A subscription SaaS with Hasura, serverless and Auth0"
+seoDescription: "Building a subscription SaaS with as little backend code as possible: Hasura GraphQL, serverless functions, Auth0 authentication and payments."
 date: 2020-04-20
 tags: ["Hasura", "backend", "serverless", "Auth0"]
 photo: "/img/me.png"

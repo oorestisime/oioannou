@@ -1,5 +1,5 @@
 import type { BlogPost } from "./content"
-import { getPostExcerpt, getPostUrl } from "./content"
+import { getPostMetaDescription, getPostUrl } from "./content"
 
 export const SITE_URL = "https://oioannou.com"
 
@@ -55,7 +55,7 @@ export function blogPostSchema(post: BlogPost) {
       name: "Orestis Ioannou",
       url: SITE_URL,
     },
-    description: getPostExcerpt(post),
+    description: getPostMetaDescription(post),
     image: canonicalUrl(post.data.ogImage ?? "/img/blog-by-orestis.jpg"),
     url,
     mainEntityOfPage: {

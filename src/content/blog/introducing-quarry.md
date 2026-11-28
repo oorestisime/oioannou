@@ -4,6 +4,7 @@ path: /introducing-quarry/
 date: 2026-09-14
 tags: ["Engineering", "TypeScript", "ClickHouse", "Open Source"]
 description: "A ClickHouse-native query builder heavily inspired by Kysely, with composable queries and inferred results on top of the official client."
+seoTitle: "Quarry: Type-Safe ClickHouse Queries for TypeScript"
 ---
 
 I've been building [Quarry](https://github.com/oorestisime/quarry), an open-source, ClickHouse-native query builder for TypeScript. We're using it at [Bold.org](https://bold.org/) in application services and data-processing jobs.

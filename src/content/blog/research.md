@@ -6,7 +6,7 @@ tags: ["python", "research", "Cryptography", "Elliptic Curves"]
 photo: /img/curves.png
 ---
 
-My research project, described in this article, is now over. I presented my research and the implementations to the jury.
+My research project, described in this article, is now over. I presented my research and [the implementations](/blog/tornado/) to the jury.
 
 I had to the chance to work for more than two months with [Fabien Laguillaumie](http://perso.ens-lyon.fr/fabien.laguillaumie/) on this project and his help, advice and direction was extremely helpful and enthusiastic. Thus, I thank him for taking the time to "fabricate" a research project adressing my interests (Cryptography, Elliptic curves, python etc) and for the time he spent on it with me.The opportunity to work on fascinating procedures for Cryptography such as mixnets and zero-knowledge proofs was trully inspiring. I had a lot of fun working on them.
 

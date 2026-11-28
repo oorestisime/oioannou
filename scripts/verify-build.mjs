@@ -57,16 +57,16 @@ const posts = fs
 
 if (posts.length < 26) fail(`Expected at least 26 articles, found ${posts.length}`)
 
-const articlePaths = posts.map((post) => `/blog${post.path}`)
+const articlePaths = posts.map((post) => `/blog/${post.path.replace(/^\/+|\/+$/g, "")}/`)
 const uniqueArticlePaths = new Set(articlePaths.map((url) => new URL(url, "https://oioannou.com").pathname))
 if (uniqueArticlePaths.size !== posts.length) fail("Article path collision detected")
 
 const tagPaths = new Set(
-  posts.flatMap((post) => post.tags.map((tag) => `/tags/${encodeURIComponent(tag.toLowerCase())}`))
+  posts.flatMap((post) => post.tags.map((tag) => `/tags/${encodeURIComponent(tag.toLowerCase())}/`))
 )
 if (tagPaths.size < 50) fail(`Expected at least 50 effective tag paths, found ${tagPaths.size}`)
 
-const expectedPages = ["/", "/blog", "/projects", "/work-with-me", ...articlePaths, ...tagPaths]
+const expectedPages = ["/", "/blog/", "/projects/", "/work-with-me/", ...articlePaths, ...tagPaths]
 for (const page of expectedPages) assertOutput(page)
 
 const netlify = fs.readFileSync(path.join(root, "netlify.toml"), "utf8")
@@ -128,10 +128,10 @@ const feed = fs.readFileSync(path.join(dist, "rss.xml"), "utf8")
 const feedLinks = [...feed.matchAll(/<item>[\s\S]*?<link>([^<]+)<\/link>/g)].map(([, link]) => link)
 if (feedLinks.length !== posts.length) fail(`RSS feed has ${feedLinks.length} items, expected ${posts.length}`)
 for (const page of articlePaths) {
-  if (!feedLinks.includes(new URL(page.replace(/\/?$/, "/"), "https://oioannou.com").href)) fail(`RSS feed missing ${page}`)
+  if (!feedLinks.includes(new URL(page, "https://oioannou.com").href)) fail(`RSS feed missing ${page}`)
 }
 
-if (redirects.length !== 32) fail(`Expected 32 redirects, found ${redirects.length}`)
+if (redirects.length !== 33) fail(`Expected 33 redirects, found ${redirects.length}`)
 const redirectSources = new Set(redirects.map(({ from }) => from.replace(/\/$/, "")))
 if (redirectSources.size !== redirects.length) fail("Duplicate redirect source detected")
 

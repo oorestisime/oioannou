@@ -62,7 +62,7 @@ The most important change actually started somewhere else: observability. I was 
 
 This was built for humans. Then the obvious question came up: if engineers can investigate the system with SQL, why not let an agent do it too?
 
-At the end of January, I gave an agent controlled access to query that data and tried it on real production questions. It worked well enough that I kept connecting more sources and tools. A better interface to backend events gradually turned into an internal company agent.
+At the end of January, I gave an agent controlled access to query that data and tried it on real production questions. It worked well enough that I kept connecting more sources and tools. A better interface to backend events gradually turned into an [internal company agent](/blog/internal-company-agent-lessons/).
 
 By mid-February, I was amazed by both its capabilities and its adoption.
 
@@ -144,7 +144,7 @@ I still use a formal plan for risky changes, work involving several teams, or a 
 
 The focused engineering time required to turn an idea into something testable has fallen dramatically. Of course models and infrastructure still cost money, and reviewing bad work still costs time. But trying something is much cheaper than it was.
 
-I can explore two approaches in parallel, review both, and throw one away. I can prototype a product idea before deciding whether it deserves a week of engineering time. I can let an agent investigate a neglected problem while I continue with higher-priority work. For a migration, I can look at a real diff instead of debating the whole thing in the abstract.
+I can explore two approaches in parallel, review both, and throw one away. I can prototype a product idea before deciding whether it deserves a week of engineering time. I can let an agent investigate a neglected problem while I continue with higher-priority work. For [a migration](/blog/orpc-contract-migration-factory/), I can look at a real diff instead of debating the whole thing in the abstract.
 
 This has changed which ideas are worth trying. Plenty of ideas never received a fair test because implementation was too expensive relative to the uncertainty. It is now much easier to learn by building something small.
 

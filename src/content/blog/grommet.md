@@ -1,6 +1,7 @@
 ---
 path: /joining-grommet
 title: "Recent open source fun and joining the grommet team"
+seoDescription: "How I got back into open source with Gatsby and Grommet, what made contributing easier, and my goals after joining the Grommet team."
 date: 2019-02-19
 tags: ["Grommet", "Gatsby", "Open source", "pair sessions"]
 photo: /img/me.png
@@ -8,7 +9,7 @@ photo: /img/me.png
 
 > This was initially posted at [medium](https://medium.com/grommet-io/recent-open-source-fun-and-joining-the-grommet-team-341f6592d36c)
 
-For the last few months I got myself again into Open source. It has been a while since my last contributions, dating back to a few months after my Google Summer of Code.
+For the last few months I got myself again into Open source. It has been a while since my last contributions, dating back to a few months after my [Google Summer of Code](/blog/gsoc2015/).
 
 Reasons were that I got my first job and it was hard to balance out life, work
 and leisure. As it turned out reading books and contributing to open source was

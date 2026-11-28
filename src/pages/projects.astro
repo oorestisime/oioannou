@@ -30,17 +30,18 @@ try {
 }
 
 const title = "Projects - Orestis Ioannou"
-const description = "Open source projects and personal work by Orestis Ioannou"
+const description =
+  "Open source projects and personal work by Orestis Ioannou: a snapshot of his most-starred recent public GitHub repositories, refreshed on every build."
 const schema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   headline: title,
   description,
-  url: canonicalUrl("/projects"),
+  url: canonicalUrl("/projects/"),
 }
 ---
 
-<BaseLayout title={title} description={description} canonicalPath="/projects" image="/img/me.jpg" schema={schema}>
+<BaseLayout title={title} description={description} canonicalPath="/projects/" image="/img/me.jpg" schema={schema}>
   <section class="py-16 sm:py-20">
     <div class="mx-auto mb-12 max-w-2xl text-center">
       <p class="section-kicker">Open source</p>

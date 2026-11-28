@@ -1,5 +1,6 @@
 ---
 title: "Self-Employed vs Limited Company in Cyprus (2025)"
+seoDescription: "Self-employed or Cyprus Ltd in 2025? A practical comparison of taxes, social insurance and dividends to see which structure keeps more cash."
 path: /self-employed-vs-ltd-cyprus-2025/
 date: 2025-05-20
 tags: ["Tax", "Cyprus", "self-employed", "ltd"]

@@ -1,5 +1,7 @@
 ---
 title: "Cyprus Tax Reform 2026 — Will 15 % CIT & 5 % Dividend Tax Make a Ltd the Default Choice?"
+seoDescription: "Cyprus plans to raise corporate tax to 15% and cut the dividend SDC to 5% from 2026. What changes, and does it make a Ltd the default choice?"
+seoTitle: "Cyprus Tax Reform 2026: 15% CIT and 5% Dividend Tax"
 path: /cyprus-tax-reform-2026/
 date: 2025-05-24
 tags: ["Tax", "Cyprus", "self-employed", "ltd"]

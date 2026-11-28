@@ -4,13 +4,13 @@ import { canonicalUrl } from "../lib/seo"
 
 const title = "Work with me - Orestis Ioannou"
 const description =
-  "Part-time contract work setting up the foundations for teams to use AI effectively: context before the PR, review and AI security checks to merge more, and company agents so support and marketing stop waiting on engineering. Cyprus and Europe."
+  "Part-time contract work setting up AI foundations for teams: context before the PR, review and AI security checks, and company agents. Cyprus and Europe."
 const schema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   headline: title,
   description,
-  url: canonicalUrl("/work-with-me"),
+  url: canonicalUrl("/work-with-me/"),
 }
 
 const booking = "https://cal.com/oorestisime/30min"
@@ -136,7 +136,7 @@ const posts = [
 ]
 ---
 
-<BaseLayout title={title} description={description} canonicalPath="/work-with-me" image="/img/me.jpg" schema={schema}>
+<BaseLayout title={title} description={description} canonicalPath="/work-with-me/" image="/img/me.jpg" schema={schema}>
   <!-- Hero -->
   <section class="relative py-14 sm:py-20 lg:py-24">
     <div class="pointer-events-none absolute -left-40 top-0 size-96 rounded-full bg-primary/10 blur-3xl"></div>

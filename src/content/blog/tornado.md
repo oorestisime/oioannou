@@ -6,7 +6,7 @@ tags: ["python", "Tornado", "Flask", "WebSockets"]
 photo: /img/tornado.jpg
 ---
 
-Part of my research project ([moar details](/blog/research)), was to create an application that would measure and illustrate the process of voting on the internet using elliptic curves. A major part of that was to create the mixnets and having a server (backend) communicating with the mixnets as a server-client communication.
+Part of my research project ([moar details](/blog/research/)), was to create an application that would measure and illustrate the process of voting on the internet using elliptic curves. A major part of that was to create the mixnets and having a server (backend) communicating with the mixnets as a server-client communication.
 
 I chose to implement this, using WebSockets. I ended up choosing [Tornado](http://tornadoweb.org/) for the backend and [Flask](http://flask.pocoo.org/) for the frontend and I implemented a mixnet client using the Python's websocket library. One of the challenging parts (I thought) was to make tornado and flask coexist as well as making requests from Flask to the WebSockets. So this is a small tutorial on how to make these work.
 

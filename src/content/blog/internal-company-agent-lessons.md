@@ -4,6 +4,8 @@ path: /internal-company-agent-lessons/
 date: 2026-08-17
 tags: ["AI", "Agents", "Engineering", "Product"]
 description: "A practical retrospective on building and rolling out an internal company agent at Bold.org, from connectors and usage analytics to adoption, contributions and overbuilt evals."
+seoTitle: "Building an Internal Company Agent: 10 Lessons"
+seoDescription: "A practical retrospective on building and rolling out an internal company agent at Bold.org, from connectors and usage analytics to adoption and evals."
 ---
 
 In [my recent AI engineering setup article](/blog/ai-engineering-setup-15-months-later/), I briefly explained how an observability project at [Bold.org](https://bold.org/) turned into an internal company agent.
@@ -22,7 +24,7 @@ The first workflow was straightforward: I gave the agent **read-only access** to
 
 The practical effect is bigger than a faster way to write SQL. Support can investigate many customer reports **autonomously**, without waiting for engineering or another team to provide context. For the workflows we target, investigations that previously took multiple hours and required finding the right access through three or four people can usually be completed in **zero to one hour**. The agent also automates parts of dashboard setup and analysis in PostHog and Grafana without requiring engineering to step in.
 
-The system consumes **billions of tokens per month**. That makes usage analytics and cost awareness important, but it is also a useful signal that the tool is part of how people work rather than a demo that is occasionally opened.
+The system consumes **[billions of tokens per month](/blog/how-a-hi-can-be-expensive/)**. That makes usage analytics and cost awareness important, but it is also a useful signal that the tool is part of how people work rather than a demo that is occasionally opened.
 
 I made one security boundary deliberately simple. The agent is gated behind Google sign-in for our company domain, and all of its remote access is read-only. Rather than relying on the model to be smart about when a change is safe, I did not give it permissions to write to remote systems in the first place.
 

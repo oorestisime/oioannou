@@ -9,13 +9,14 @@ import { getPostUrl, getTagGroups, sortPosts } from "../../lib/content"
 const posts = sortPosts(await getCollection("blog"))
 const tags = getTagGroups(posts)
 const title = "Blog - Orestis Ioannou"
-const description = "Articles, tutorials and thoughts by Orestis Ioannou"
+const description =
+  "Articles, tutorials and thoughts by Orestis Ioannou on engineering, products and AI, from coding agents and company agents to open source and Debian."
 const schema = {
   "@context": "https://schema.org",
   "@type": "Blog",
   headline: "Orestis Ioannou's Blog",
   description,
-  url: canonicalUrl("/blog"),
+  url: canonicalUrl("/blog/"),
   author: { "@type": "Person", name: "Orestis Ioannou", url: canonicalUrl("/") },
   blogPost: posts.slice(0, 10).map((post) => ({
     "@type": "BlogPosting",
@@ -30,7 +31,7 @@ const schema = {
 <BaseLayout
   title={title}
   description={description}
-  canonicalPath="/blog"
+  canonicalPath="/blog/"
   image="/img/blog-by-orestis.jpg"
   imageAlt="Blog by Orestis Ioannou"
   schema={schema}
