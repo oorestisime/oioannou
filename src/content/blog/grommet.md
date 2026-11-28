@@ -9,7 +9,7 @@ photo: /img/me.png
 
 > This was initially posted at [medium](https://medium.com/grommet-io/recent-open-source-fun-and-joining-the-grommet-team-341f6592d36c)
 
-For the last few months I got myself again into Open source. It has been a while since my last contributions, dating back to a few months after my Google Summer of Code.
+For the last few months I got myself again into Open source. It has been a while since my last contributions, dating back to a few months after my [Google Summer of Code](/blog/gsoc2015/).
 
 Reasons were that I got my first job and it was hard to balance out life, work
 and leisure. As it turned out reading books and contributing to open source was

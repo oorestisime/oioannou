@@ -30,10 +30,10 @@ I've also published my first NPM packages:
 
 I was so excited with how easy things were I've put up in a few days a travel blog
 [OAsome](https://oasome.blog/) using Gatsby. And this is what got me into thinking
-that maybe I should try another UI component library. After all I was reading everywhere about this awesome libaries for css-in-js (styled-components and emotion)
+that maybe I should [try another UI component library](/blog/migrate-from-mui-to-grommet/). After all I was reading everywhere about this awesome libaries for css-in-js (styled-components and emotion)
 that I had to give it a try.
 
-Tadaa! I have now found out about Grommet and its awesome team and have been
+Tadaa! I have now found out about Grommet and [its awesome team](/blog/joining-grommet/) and have been
 contributing numerous PRs to that project as well! For me Grommet feels like a new
 fresh air in design and components!
 

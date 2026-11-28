@@ -6,7 +6,7 @@ tags: ["Debian", "GSoC", "Debsources"]
 photo: /img/deb-art.jpg
 ---
 
-Midterm evaluations have already passed and I guess we have also reached a milestone since last week I finished working on the copyright tracker and started the patch tracker.
+Midterm evaluations have already passed and I guess we have also reached a milestone since last week I finished working on the [copyright tracker](/blog/copyright-and-patches/) and started the patch tracker.
 
 Here's the list of my reports on soc-coordination for those interested
 

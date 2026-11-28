@@ -6,7 +6,7 @@ tags: ["Debian", "GSoC", "Debsources"]
 photo: /img/debsources.png
 ---
 
-Heya, this is my first report on my work on Debsources during the coding period of Google Summer of Code 2015. I am not going to go into details on what I've done each week as this is purpose of the report in the mailing list. However I intend to share my feelings, once a while, about this experience and present some interesting problems, solutions we encounter.
+Heya, this is my first report on my work on Debsources during the coding period of [Google Summer of Code 2015](/blog/gsoc2015/). I am not going to go into details on what I've done each week as this is purpose of the report in the mailing list. However I intend to share my feelings, once a while, about this experience and present some interesting problems, solutions we encounter.
 
 Anyway my main tasks this week were:
 

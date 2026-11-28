@@ -19,7 +19,7 @@ For most projects there’s never a reasonable need to go through such migration
 
 My motivation to go through this migration wasn’t driven by a lack of features or issues with Material-ui! It is a great library when someone wants to follow the material guidelines and produce a `materialistic` website.
 
-I came up with the idea to migrate [oasome.blog](https://oasome.blog) to Grommet as an exercise to verify that Grommet provides sufficient components in order to produce a desired UI state. I wanted to use Grommet for something a bit bigger than my personal website and to start walking away from the material design which is needless for this blog.
+I came up with the idea to migrate [oasome.blog](https://oasome.blog) to Grommet as an exercise to verify that Grommet provides sufficient components in order to produce a desired UI state. I wanted to use Grommet for something a bit bigger than [my personal website](/blog/website-reloaded/) and to start walking away from the material design which is needless for this blog.
 
 So lets get it started!
 

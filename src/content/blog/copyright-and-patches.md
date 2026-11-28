@@ -11,13 +11,13 @@ photo: /img/debsources-pic.png
 
 In case you hadn't already stumbled upon _[sources.debian.net](https://sources.debian.net/)_ in the past, Debsources is a simple web application that allows to publish an unpacked Debian source mirror on the Web. On the live instance you can browse the contents of Debian source packages with [syntax highlighting](https://sources.debian.net/src/cowsay/latest/cowsay/), search files matching a [SHA-256 hash or a ctag](https://sources.debian.net/advancedsearch/), query its [API](https://sources.debian.net/doc/api/), [highlight lines](https://sources.debian.net/src/cowsay/latest/cowsay/#L38), view accurate [statistics](https://sources.debian.net/stats/#size_current) and [graphs](https://sources.debian.net/stats/#hist_source_files). It was initially developed at IRILL by [Stefano Zacchiroli](https://upsilon.cc/~zack/) and [Matthieu Caneill](http://matthieu.io/).
 
-During GSOC 2015 I helped introduce two new features.
+During [GSOC 2015](/blog/gsoc2015/) I helped introduce two new features.
 
 ## License Tracker
 
 Since Debsources has all the debian/copyright files and that many of them adopted the [DEP-5](https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/) suggestion (machine readable copyright files) it was interesting to exploit them for end users. You may find interesting the following features:
 
-- an [API](https://sources.debian.net/doc/api/#copyright) that allows users to find the license of file "foo" or the licenses for a bunch of packages, using [filenames](https://sources.debian.net/copyright/api/file/gnubg/latest/doc/gnubg/gnubg.html/) or [SHA-256](https://sources.debian.net/copyright/sha256/?checksum=d77d235e41d54594865151f4751e835c5a82322b0e87ace266567c3391a4b912) hashes
+- an [API](https://sources.debian.net/doc/api/#copyright) that allows users to [find the license of file "foo"](/blog/one-liner/) or the licenses for a bunch of packages, using [filenames](https://sources.debian.net/copyright/api/file/gnubg/latest/doc/gnubg/gnubg.html/) or [SHA-256](https://sources.debian.net/copyright/sha256/?checksum=d77d235e41d54594865151f4751e835c5a82322b0e87ace266567c3391a4b912) hashes
 
 - a better looking [interface](https://sources.debian.net/copyright/license/python-django/stretch/) for debian/copyright files
 

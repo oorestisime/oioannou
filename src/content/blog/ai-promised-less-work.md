@@ -19,7 +19,7 @@ This post is me trying to understand that, with some data from my own GitHub his
 
 As a full-stack engineer, a normal week for me meant two or three serious tasks. A feature, a tricky bug, maybe a migration. Each one needed real focus, but I could hold one of them in my head at a time, finish it, and move to the next.
 
-Today my week looks completely different. I have several agents running in parallel: one implementing a change, one investigating a production question, one working through a review, another doing research I will need later. None of them needs me all the time. Every one of them needs me *sometimes*.
+Today my week looks completely different. I have [several agents running in parallel](/blog/too-many-git-worktrees-omaprune/): one implementing a change, one investigating a production question, one working through a review, another doing research I will need later. None of them needs me all the time. Every one of them needs me *sometimes*.
 
 That "sometimes" is the problem.
 
